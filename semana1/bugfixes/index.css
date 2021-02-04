@@ -7,7 +7,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 h2 {
@@ -15,11 +15,6 @@ h2 {
     padding: 10px 5px 10px 5px;
     color: white;
     text-align: center;
-}
-
-input {
-    height: 20px;
-    width: 500px;
 }
 
 img {
@@ -39,6 +34,7 @@ div>p:first-child {
     color: white;
     display: block;
     margin: auto;
+    border: none;
 }
 
 .botao-amarelo:hover {
@@ -114,7 +110,7 @@ table {
     text-align: center;
     margin: auto;
     position: relative;
-    bottom: 60px;
+    bottom: 30px;
 }
 
 td {
@@ -127,6 +123,7 @@ td button {
     height: 30px;
     border-radius: 5px;
     color: black;
+    border: none;
 }
 
 td button:hover {
