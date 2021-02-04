@@ -30,7 +30,7 @@ img {
 }
 
 div>p:first-child {
-    display: inline;
+    display: inline-block;
 }
 
 div img {
@@ -53,7 +53,7 @@ div img {
 }
 
 .container {
-    height: 500px;
+    height: 275px;
     text-align: center;
 }
 
@@ -81,9 +81,9 @@ div img {
     background-color: #e7eb90;
 }
 
-#container-para-comprar>p {
+#container-para-comprar > p {
     color: #c44f00;
-    padding: 100px 0;
+    padding: 50px 0;
     font-size: 60px;
 }
 
