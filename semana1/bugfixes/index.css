@@ -77,7 +77,13 @@ div img {
 #container-de-descricao>ol {
     padding: 15px 0;
     list-style-position: inside;
+    width: 250px;
+    text-align: left;
+    margin: auto;
+}
 
+#container-de-descricao > ol > li {
+    padding-left: 10px;
 }
 
 #container-de-descricao > p {
@@ -107,10 +113,19 @@ div img {
 div:nth-child(2),
 div:last-child {
     text-align: center;
+   
 }
 
 table {
     width: 60%;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    bottom: 60px;
+}
+
+td {
+    padding-right: 30px;
 }
 
 td button {
@@ -135,6 +150,14 @@ td button {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    display: block;
+    margin: auto;
+    position: relative;
+    bottom: 5px;
+}
+
+a {
+    text-decoration: none;
 }
 
 #back-button:hover {
