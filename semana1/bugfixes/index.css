@@ -142,6 +142,11 @@ td button:active {
     height: 100px;
 }
 
+input {
+    border: none;
+    border-bottom: 2px solid #bdb5b5;
+    width: 28%;
+}
 
 #back-button {
     background-color: white;
