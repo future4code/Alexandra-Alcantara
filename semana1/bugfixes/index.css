@@ -63,9 +63,8 @@ div>p:first-child {
     color: white;
 }
 
-#container-de-descricao>ol {
+#container-de-descricao > ol {
     padding: 15px 0;
-    list-style-position: inside;
     width: 250px;
     text-align: left;
     margin: auto;
@@ -73,6 +72,7 @@ div>p:first-child {
 
 #container-de-descricao > ol > li {
     padding-left: 10px;
+    width: 300px;
 }
 
 #container-de-descricao > p {
