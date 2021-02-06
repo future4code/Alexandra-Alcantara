@@ -20,6 +20,8 @@ body::before {
     opacity: 0.6;
 }
 
+/*** HEADER ***/
+
 header {
     text-align: center;
 }
@@ -39,6 +41,8 @@ nav > a {
     font-size: x-large;
 }
 
+
+
 img {
     width: 20%;
     margin-left: 10px;
@@ -55,9 +59,8 @@ h2 {
     text-align: center;
 }
 
-section > p {
-    margin-bottom: 50px;
-    font-size: large;
+h2 {
+    font-size: xx-large;
 }
 
 .img-tools {
@@ -68,6 +71,51 @@ section > p {
     margin: auto;
     padding: 30px 0;
 }
+
+hr {
+    width: 60%;
+    margin-top: 60px;
+    color: rgb(7, 25, 75);
+}
+
+/* span {
+    text-decoration: line-through;
+} */
+
+.img-galeria {
+    width: 80%;
+    padding: 20px;
+}
+
+#section-projetos {
+    display: grid;
+    width: 80%;
+    margin: auto;
+    color: rgb(9, 31, 94);
+}
+
+#section-projetos > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    text-align: center;
+} 
+
+#section-projetos > div > figure {
+    background-color: rgba(16, 106, 94, 0.1);
+    border-radius: 20px;
+}
+
+#section-projetos > div > p > span {
+    font-weight: bold;
+}
+
+#div-text > p {
+    margin: 0  35px;
+    margin-bottom: 60px;
+}
+
+/*** FOOTER ***/
 
 footer {
     position: relative;
@@ -95,67 +143,5 @@ footer > figure {
 .img-footer {
     width: 8%;
 }
-
-hr {
-    width: 60%;
-    margin-top: 60px;
-    color: rgb(7, 25, 75);
-    
-}
-
-/* span {
-    text-decoration: line-through;
-} */
-
-h2 {
-    font-size: xx-large;
-}
-
-.img-galeria {
-    width: 30%;
-    text-align: center;
-    background-color: rgba(16, 106, 94, 0.1);
-    border-radius: 20px;
-    margin: auto;
-    padding: 30px;
-    position: relative;
-    left: 80px;
-}
-
-#text-projetos,
-#text-murilo,
-#text-labenu {
-    text-align: justify;
-    display: inline-block;
-    float: right;
-    width: 40%;
-    margin-right: 100px;
-    background-color: rgba(16, 106, 94, 0.1);
-    border-radius: 20px;
-    padding: 30px;
-    color: rgb(7, 25, 75);
-    position: relative;
-    right: 20px;
-}
-
-
-#text-murilo > span {
-    font-weight: bold;
-}
-
-#text-labenu > span {
-    font-weight: bold;
-}
-
-#text-projetos > span {
-    font-weight: bold;
-}
-
-#section-projetos {
-    width: 90%;
-    margin: auto;
-}
-
-
 
 
