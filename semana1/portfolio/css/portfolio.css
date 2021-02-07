@@ -52,20 +52,17 @@ img {
     margin-left: 10px;
 }
 
-.dev-title {
+.dev-title,
+#h2-menor {
     font-size: xx-large;
+    text-align: center;
 }
 
 .dev-title,
 #dev-text,
-#main-fisoni,
-h2 {
+#main-fisoni {
     color: rgb(9, 31, 94);
     text-align: center;
-}
-
-h2 {
-    font-size: xx-large;
 }
 
 .img-tools {
@@ -90,22 +87,22 @@ hr {
     padding: 20px;
 }
 
-#section-projetos {
+.section-projetos {
     display: grid;
     width: 80%;
     margin: auto;
     color: rgb(9, 31, 94);
 }
 
-#section-projetos > div {
+.section-projetos > div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     text-align: center;
 } 
 
-#section-projetos > div > figure,
-#section-fisoni > div > figure {
+.section-projetos > div > figure,
+.section-fisoni > div > figure {
     background-color: rgba(16, 106, 94, 0.1);
     border-radius: 20px;
 }
@@ -123,6 +120,12 @@ hr {
     width: 80%;
     text-align: center;
     margin: auto;
+}
+
+.section-projetos > h2 {
+    font-size: 50px;
+    margin-bottom: 60px;
+    text-align: center;
 }
 
 #section-fisoni > div > figure {
@@ -144,7 +147,8 @@ hr {
     font-size: 1.2rem;
 }
 
-.tecnologias-centralizar {
+.tecnologias-centralizar,
+#p-labenu-centralizar {
     text-align: center;
 }
 
@@ -160,6 +164,12 @@ hr {
 #main-fisoni > h1 {
     font-size: 50px;
     margin-bottom: 60px;
+}
+
+/*** PROJETO LABENU ***/
+
+#img-labenu-mobile {
+    width: 40%;
 }
 
 /*** FOOTER ***/
