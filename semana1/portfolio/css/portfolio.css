@@ -26,52 +26,54 @@ body::before {
     font-weight: bold;
 }
 
-/*** HEADER ***/
 
-header {
-    text-align: center;
-}
 
-nav {
-    text-align: center;
-    margin: 60px 0 50px 0;
-}
+/*** NOVAS CONFIGURAÇÕES ***/
 
-nav > a {
-    text-decoration: none;
-    color: rgb(7, 25, 75);
-    background-color: rgba(136, 163, 184, 0.4);   
-    margin-left: 40px;
-    padding: 15px;
-    border-radius: 0 25px;
-    font-size: x-large;
-}
-
-img {
-    width: 20%;
-    margin-left: 10px;
-}
-
-.dev-title,
-#h2-menor {
+#main-index > section > h1, h2{
     font-size: xx-large;
     text-align: center;
+    color: rgb(9, 31, 94);
 }
 
-.dev-title,
-#dev-text,
-#main-fisoni {
+.section-projetos > p {
     color: rgb(9, 31, 94);
     text-align: center;
+    font-size: large;
 }
 
-.img-tools {
+.section-projetos > figure {
     text-align: center;
     background-color: rgba(16, 106, 94, 0.1);
     border-radius: 20px;
     width: 50%;
     margin: auto;
     padding: 30px 0;
+}
+
+img {
+    width: 18%;
+    margin-left: 10px;
+}
+
+/*** HEADER ***/
+
+header, nav {
+    text-align: center;
+}
+
+nav {
+    margin: 60px 0 50px 0;
+}
+
+nav > a {
+    text-decoration: none;
+    color: rgb(7, 25, 75);
+    background-color: rgba(136, 163, 184, 0.4);
+    margin-left: 40px;
+    padding: 15px;
+    border-radius: 0 25px;
+    font-size: x-large;
 }
 
 /*** HOME ***/
@@ -82,43 +84,43 @@ hr {
     color: rgb(7, 25, 75);
 }
 
-.img-galeria {
-    width: 80%;
-    padding: 20px;
-}
-
-.section-projetos {
-    display: grid;
+.section-galeria {
     width: 80%;
     margin: auto;
     color: rgb(9, 31, 94);
 }
 
-.section-projetos > div {
+.section-galeria > div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     justify-content: center;
     text-align: center;
-} 
-
-.section-projetos > div > figure,
-.section-fisoni > div > figure {
-    background-color: rgba(16, 106, 94, 0.1);
-    border-radius: 20px;
 }
 
-#div-text > p {
+.section-galeria > div > figure > a > img {
+    width: 80%;
+}
+
+.section-galeria > div > figure,
+.padrao-projetos > div > figure {
+    background-color: rgba(16, 106, 94, 0.1);
+    border-radius: 20px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.section-galeria > div > p {
     margin: 0  35px;
     margin-bottom: 60px;
 }
 
-/*** PROJETO FISONI ***/
+/*** CONFIGURAÇÃO DOS PROJETOS ***/
 
-#section-fisoni {
+.padrao-projetos {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 80%;
-    text-align: center;
+    text-align: justify;
     margin: auto;
 }
 
@@ -128,15 +130,11 @@ hr {
     text-align: center;
 }
 
-#section-fisoni > div > figure {
-    padding: 20px 5px;
-}
-
-#section-fisoni > div > figure > img {
+.padrao-projetos > div > figure > img {
     width: 90%;
 }
 
-#section-fisoni > div > p {
+.padrao-projetos > div > p {
     font-size: 1.2rem;
 }
 
@@ -147,13 +145,15 @@ hr {
     font-size: 1.2rem;
 }
 
-.tecnologias-centralizar,
-#p-labenu-centralizar {
-    text-align: center;
+.text-position > p:first-of-type,
+#text-position-labenu > p:first-of-type {
+    text-align: justify;
 }
 
-.descricao-justificar {
-    text-align: justify;
+.text-position > p:nth-child(2n),
+#text-position-labenu > p:nth-child(3n),
+.tecnologia {
+    text-align: center;
 }
 
 .botao-voltar {
@@ -161,15 +161,80 @@ hr {
     margin-right: 50px;
 }
 
-#main-fisoni > h1 {
+.main-projetos > h1,
+#h2-projetos {
     font-size: 50px;
     margin-bottom: 60px;
+}
+
+.main-projetos {
+    color: rgb(9, 31, 94);
+    text-align: center;
 }
 
 /*** PROJETO LABENU ***/
 
 #img-labenu-mobile {
     width: 40%;
+    padding-right: 10px;
+}
+
+/*** FORM ***/
+
+#main-form {
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    color: rgb(9, 65, 11);
+}
+
+#main-form > form {
+    background-color: rgba(2, 24, 1, 0.1);
+    border-radius: 20px;
+    padding: 20px 0;
+}
+
+#main-form > form > div > input {
+    padding: 4px;
+    margin: 2px;
+    width: 70%;
+    border-radius: 5px;
+    border: none;
+}
+
+#main-form > p       {
+    font-size: large;
+}
+
+form > div:nth-child(3) {
+    text-align: top;
+}
+
+label.alinhar {
+    display: inline-block;
+    width: 20%;
+}
+
+input.msg {
+    height: 100px;
+}
+
+textarea {
+    border: none;
+    vertical-align: middle;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+
+div.botao {
+    width: 25%;
+    margin: 10px 0 0 180px;
+}
+
+.botao > input {
+    padding: 100px;
+    background-color: rgb(9, 65, 11);
+    color: rgb(207, 223, 207);
 }
 
 /*** FOOTER ***/
@@ -185,7 +250,7 @@ footer {
 }
 
 footer > p {
-    color: rgb(221, 232, 230); 
+    color: rgb(221, 232, 230);
     text-align: center;
     padding-top: 20px;
     font-weight: bold;
@@ -197,8 +262,8 @@ footer > figure {
     margin: auto;
 }
 
-.img-footer {
-    width: 8%;
+.img-footer > a > img {
+    width: 7%;
 }
 
 
