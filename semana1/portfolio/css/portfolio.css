@@ -74,7 +74,7 @@ nav > a {
     font-size: x-large;
 }
 
-a:hover {
+nav > a:hover {
     background-color: rgb(14, 32, 82);
     color: white;
 }
