@@ -26,8 +26,6 @@ body::before {
     font-weight: bold;
 }
 
-
-
 /*** NOVAS CONFIGURAÇÕES ***/
 
 #main-index > section > h1, h2{
@@ -74,6 +72,11 @@ nav > a {
     padding: 15px;
     border-radius: 0 25px;
     font-size: x-large;
+}
+
+a:hover {
+    background-color: rgb(14, 32, 82);
+    color: white;
 }
 
 /*** HOME ***/
@@ -235,6 +238,72 @@ div.botao {
     padding: 100px;
     background-color: rgb(9, 65, 11);
     color: rgb(207, 223, 207);
+}
+
+/*** ABOUT ***/
+
+#about {
+    color: rgb(9, 31, 94);
+}
+
+.quem-sou-eu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    text-align: justify;
+    margin: auto;
+    font-size: large;
+    line-height: 1.5;
+}
+
+.quem-sou-eu > div > h1 {
+    font-size: xx-large;
+}
+
+.quem-sou-eu > figure {
+    width: 60%;
+    margin-left: 80px;
+    border: 1px ridge rgb(180, 44, 74);
+    border-radius: 50%;
+    background-color: rgb(180, 44, 74);
+}
+
+.quem-sou-eu > figure > img {
+    width: 70%;
+    border: 1px ridge rgb(192, 139, 123);
+    border-radius: 50%;
+    margin-top: 10px;
+    background-color: rgb(192, 139, 123);
+}
+
+.estudo-trabalho {
+    width: 80%;
+    text-align: justify;
+    margin: auto;
+}
+
+.estudo-trabalho > p {
+    font-size: large;
+    line-height: 1.5;
+}
+
+.estudo-trabalho > figure > img {
+    width: 18%;
+    margin-right: 50px;
+}
+
+.quem-sou-eu > p {
+    font-size: x-large;
+}
+
+.primeira-letra {
+    font-size: xx-large;
+}
+
+.img-hipercard,
+.img-boghos,
+.img-moderna {
+    margin-bottom: 50px;
 }
 
 /*** FOOTER ***/
