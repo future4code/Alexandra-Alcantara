@@ -7,30 +7,63 @@ body {
     color: white;
 }
 
+#main-container {
+    text-align: center;
+}
+
+#top-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
 .green-background {
     background-color: green;
+    padding: 1.5em;
 }
 
 .yellow-background {
     background-color: yellow;
+    padding: 1.5em;
+    grid-column-start: 2;
+    grid-column-end: 6;
 }
 
 .pink-background {
     background-color: fuchsia;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    height: 40em;
+    align-items: center;
+    text-align: center;
+}
+
+#middle-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-content: center;
 }
 
 .blue-background {
     background-color: blue;
+    padding: 7.2em;
+    width: 48vw;
 }
 
 .red-background {
     background-color: red;
+    padding: 3.3em;
 }
 
 .lightgreen-background {
     background-color: lightgreen;
+    padding: 3.3em;
 }
 
 .purple-background {
     background-color: purple;
+    padding: 1.5em;
 }
