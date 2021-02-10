@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+#main-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+    gap: 8px;
+}
+
+div {
+    border: 1px solid black;
+}
+
+#first-block {
+    background-color: red;
+    grid-column-start: 1;
+    grid-column-end: 7;
+}
+
+.blue-block {
+    background-color: blue;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-left: 8px;
+}
+
+.yellow-block {
+    background-color: yellow;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.green-block {
+    background-color: green;
+    grid-column-start: 5;
+    grid-column-end: 7;
+    margin-right: 8px;
+}
+
+.black-block {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-left: 8px;
+}
+
+.black-block2 {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    grid-column-start: 4;
+    grid-column-end: 7;
+    margin-right: 8px;
+}
+
+.white-block {
+    background-color: white;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-left: 8px;
+}
+
+.white-block2 {
+    background-color: white;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.white-block3 {
+    background-color: white;
+    grid-column-start: 5;
+    grid-column-end: 7;
+    margin-right: 8px;
+}
+
+/* @media screen and (min-device-width: 320px) and (max-device-width: 420px) { */
