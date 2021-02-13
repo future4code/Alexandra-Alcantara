@@ -1,0 +1,338 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body::before {
+    background-image: url("../images/background-pattern.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    content: '';
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/*** CONFIGURAÇÕES GERAIS ***/
+
+.span-bold {
+    font-weight: bold;
+}
+
+/*** NOVAS CONFIGURAÇÕES ***/
+
+#main-index > section > h1, h2{
+    font-size: xx-large;
+    text-align: center;
+    color: rgb(9, 31, 94);
+}
+
+.section-projetos > p {
+    color: rgb(9, 31, 94);
+    text-align: center;
+    font-size: large;
+}
+
+.section-projetos > figure {
+    text-align: center;
+    background-color: rgba(16, 106, 94, 0.1);
+    border-radius: 20px;
+    width: 50%;
+    margin: auto;
+    padding: 30px 0;
+}
+
+img {
+    width: 18%;
+    margin-left: 10px;
+}
+
+/*** HEADER ***/
+
+header, nav {
+    text-align: center;
+}
+
+nav {
+    margin: 60px 0 50px 0;
+}
+
+nav > a {
+    text-decoration: none;
+    color: rgb(7, 25, 75);
+    background-color: rgba(136, 163, 184, 0.4);
+    margin-left: 40px;
+    padding: 15px;
+    border-radius: 0 25px;
+    font-size: x-large;
+}
+
+nav > a:hover {
+    background-color: rgb(14, 32, 82);
+    color: white;
+}
+
+/*** HOME ***/
+
+hr {
+    width: 60%;
+    margin-top: 60px;
+    color: rgb(7, 25, 75);
+}
+
+.section-galeria {
+    width: 80%;
+    margin: auto;
+    color: rgb(9, 31, 94);
+}
+
+.section-galeria > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    text-align: center;
+}
+
+.section-galeria > div > figure > a > img {
+    width: 80%;
+}
+
+.section-galeria > div > figure,
+.padrao-projetos > div > figure {
+    background-color: rgba(16, 106, 94, 0.1);
+    border-radius: 20px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.section-galeria > div > p {
+    margin: 0  35px;
+    margin-bottom: 60px;
+}
+
+/*** CONFIGURAÇÃO DOS PROJETOS ***/
+
+.padrao-projetos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    text-align: justify;
+    margin: auto;
+}
+
+.section-projetos > h2 {
+    font-size: 50px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.padrao-projetos > div > figure > img {
+    width: 90%;
+}
+
+.padrao-projetos > div > p {
+    font-size: 1.2rem;
+}
+
+#lista > li,
+#lista-tecnologias {
+    width: fit-content;
+    padding-left: 3px;
+    font-size: 1.2rem;
+}
+
+.text-position > p:first-of-type,
+#text-position-labenu > p:first-of-type {
+    text-align: justify;
+}
+
+.text-position > p:nth-child(2n),
+#text-position-labenu > p:nth-child(3n),
+.tecnologia {
+    text-align: center;
+}
+
+.botao-voltar {
+    text-align: end;
+    margin-right: 50px;
+}
+
+.main-projetos > h1,
+#h2-projetos {
+    font-size: 50px;
+    margin-bottom: 60px;
+}
+
+.main-projetos {
+    color: rgb(9, 31, 94);
+    text-align: center;
+}
+
+/*** PROJETO LABENU ***/
+
+#img-labenu-mobile {
+    width: 40%;
+    padding-right: 10px;
+}
+
+/*** FORM ***/
+
+#main-form {
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    color: rgb(9, 65, 11);
+}
+
+#main-form > form {
+    background-color: rgba(2, 24, 1, 0.1);
+    border-radius: 20px;
+    padding: 20px 0;
+}
+
+#main-form > form > div > input {
+    padding: 4px;
+    margin: 2px;
+    width: 70%;
+    border-radius: 5px;
+    border: none;
+}
+
+#main-form > p       {
+    font-size: large;
+}
+
+form > div:nth-child(3) {
+    text-align: top;
+}
+
+label.alinhar {
+    display: inline-block;
+    width: 20%;
+}
+
+input.msg {
+    height: 100px;
+}
+
+textarea {
+    border: none;
+    vertical-align: middle;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+
+div.botao {
+    width: 25%;
+    margin: 10px 0 0 180px;
+}
+
+.botao > input {
+    padding: 100px;
+    background-color: rgb(9, 65, 11);
+    color: rgb(207, 223, 207);
+}
+
+/*** ABOUT ***/
+
+#about {
+    color: rgb(9, 31, 94);
+}
+
+.quem-sou-eu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    text-align: justify;
+    margin: auto;
+    font-size: large;
+    line-height: 1.5;
+}
+
+.quem-sou-eu > div > h1 {
+    font-size: xx-large;
+}
+
+.quem-sou-eu > figure {
+    width: 60%;
+    margin-left: 80px;
+    border: 1px ridge rgb(180, 44, 74);
+    border-radius: 50%;
+    background-color: rgb(180, 44, 74);
+}
+
+.quem-sou-eu > figure > img {
+    width: 70%;
+    border: 1px ridge rgb(192, 139, 123);
+    border-radius: 50%;
+    margin-top: 10px;
+    background-color: rgb(192, 139, 123);
+}
+
+.estudo-trabalho {
+    width: 80%;
+    text-align: justify;
+    margin: auto;
+}
+
+.estudo-trabalho > p {
+    font-size: large;
+    line-height: 1.5;
+}
+
+.estudo-trabalho > figure > img {
+    width: 18%;
+    margin-right: 50px;
+}
+
+.quem-sou-eu > p {
+    font-size: x-large;
+}
+
+.primeira-letra {
+    font-size: xx-large;
+}
+
+.img-hipercard,
+.img-boghos,
+.img-moderna {
+    margin-bottom: 50px;
+}
+
+/*** FOOTER ***/
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(21, 73, 17);
+    padding-bottom: 50px;
+    text-align: center;
+    border-radius: 60% 60% 0 0;
+}
+
+footer > p {
+    color: rgb(221, 232, 230);
+    text-align: center;
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: large;
+}
+
+footer > figure {
+    width: 50%;
+    margin: auto;
+}
+
+.img-footer > a > img {
+    width: 7%;
+}
+
+
