@@ -72,11 +72,22 @@ let foodUser;
 
 // c) Trocando a segunda comida pela do usuário:
 
-foodUser = prompt("Qual a sua comida preferida?");
+/*foodUser = prompt("Qual a sua comida preferida?");
 
 favFoods[1] = foodUser;
 
 console.log("Essas são as minhas comidas preferidas:", 
             "\n", favFoods[0], "\n", favFoods[1], 
             "\n", favFoods[2], "\n", favFoods[3], 
-            "\n", favFoods[4]);
+            "\n", favFoods[4]);*/
+
+// 4. //
+
+let questions = ["Você está motivado hoje?", 
+                 "Você está alimentado agora?", 
+                 "Você quer brownie mesmo assim?"];
+let answers = ["True", "True", "True"];
+
+console.log(questions[0], answers[0], "\n",
+            questions[1], answers[1], "\n",
+            questions[2], answers[2])
