@@ -38,7 +38,7 @@ como "string" e agora o typeof das variáveis muda de
 
 // 2. //
 
-let cor;
+/*let cor;
 let comida;
 let animal;
 let filme;
@@ -54,8 +54,29 @@ console.log("1. Qual a sua cor favorita? \nResposta:", cor);
 console.log("2. Qual a sua comida preferida? \nResposta:", comida);
 console.log("3. Qual o seu animal favorito? \nResposta:", animal);
 console.log("4. Qual o seu filme favorito? \nResposta:", filme);
-console.log("5. Qual o seu hobby preferido? \nResposta:", hobby);
+console.log("5. Qual o seu hobby preferido? \nResposta:", hobby);*/
 
+// 3. //
 
+let favFoods = ["strawberry", "brownie", "lasagna", "cake", "pamonha"];
+let foodUser;
 
+// a) Imprimindo o array completo:
+// console.log(favFoods);
 
+// b) Imprimindo mensagem com as comidas uma embaixo da outra:
+/*console.log("Essas são as minhas comidas preferidas:", 
+            "\n", favFoods[0], "\n", favFoods[1], 
+            "\n", favFoods[2], "\n", favFoods[3], 
+            "\n", favFoods[4]);*/
+
+// c) Trocando a segunda comida pela do usuário:
+
+foodUser = prompt("Qual a sua comida preferida?");
+
+favFoods[1] = foodUser;
+
+console.log("Essas são as minhas comidas preferidas:", 
+            "\n", favFoods[0], "\n", favFoods[1], 
+            "\n", favFoods[2], "\n", favFoods[3], 
+            "\n", favFoods[4]);
