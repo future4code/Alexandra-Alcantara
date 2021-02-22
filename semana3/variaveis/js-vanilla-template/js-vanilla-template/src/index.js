@@ -14,37 +14,43 @@
 
 // 1. //
 
-// let nome;
-// let idade;
+// a) e b)
+let nome;
+let idade;
 
-// console.log(typeof nome, typeof idade);
+// c)
+/* console.log(typeof nome, typeof idade);*/
 
+// d)
 /* O tipo impresso foi "undefined" para ambas as variáveis
 porque elas foram declaradas sem um valor, então
 não é possível saber qual o tipo delas. */
 
-// nome = prompt("Qual o seu nome?");
-// idade = prompt("Qual a sua idade?");
+// e)
+/* nome = prompt("Qual o seu nome?");
+idade = prompt("Qual a sua idade?");*/
 
-// console.log(typeof nome, typeof idade);
+// f)
+/* console.log(typeof nome, typeof idade);*/
 
 /* Quando o usuário digita valores, são atribuídos 
 "strings" para as variáveis, o número também é reconhecido
 como "string" e agora o typeof das variáveis muda de
 "undefined" para "string". */
 
-//console.log("Olá", nome, ",", "você tem", idade, "anos.");
+// g)
+/* console.log("Olá", nome, ",", "você tem", idade, "anos.")*/;
 ////// Espaço desnecessário antes da vírgula: pesquisar como corrigir. //////
 
 // 2. //
 
-/*let cor;
+let cor;
 let comida;
 let animal;
 let filme;
 let hobby;
 
-cor = prompt("1. Qual a sua cor favorita?");
+/* cor = prompt("1. Qual a sua cor favorita?");
 comida = prompt("2. Qual a sua comida preferida?");
 animal = prompt("3. Qual o seu animal favorito?");
 filme = prompt("4. Qual o seu filme favorito?");
@@ -65,14 +71,13 @@ let foodUser;
 // console.log(favFoods);
 
 // b) Imprimindo mensagem com as comidas uma embaixo da outra:
-/*console.log("Essas são as minhas comidas preferidas:", 
+/* console.log("Essas são as minhas comidas preferidas:", 
             "\n", favFoods[0], "\n", favFoods[1], 
             "\n", favFoods[2], "\n", favFoods[3], 
             "\n", favFoods[4]);*/
 
 // c) Trocando a segunda comida pela do usuário:
-
-/*foodUser = prompt("Qual a sua comida preferida?");
+/* foodUser = prompt("Qual a sua comida preferida?");
 
 favFoods[1] = foodUser;
 
@@ -86,8 +91,15 @@ console.log("Essas são as minhas comidas preferidas:",
 let questions = ["Você está motivado hoje?", 
                  "Você está alimentado agora?", 
                  "Você quer brownie mesmo assim?"];
+
+// a) Criando uma variável com valores booleanos:
 let answers = ["True", "True", "True"];
 
+// b) Imprimindo as perguntas seguidas pelas respostas:
 console.log(questions[0], answers[0], "\n",
             questions[1], answers[1], "\n",
-            questions[2], answers[2])
+            questions[2], answers[2]);
+
+////// THE END //////
+
+        
