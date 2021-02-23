@@ -42,7 +42,7 @@ console.log('f. ', valor) // f. array[i+6]
 // EXERCÍCIOS DE ESCRITA DE CÓDIGO //
 
 // 1. //
-let idadeUser;
+/* let idadeUser;
 let idadeFriend;
 
 idadeUser = Number(prompt("Qual a sua idade?"));
@@ -52,4 +52,15 @@ let idadeMaior = idadeUser > idadeFriend;
 let diferenca = idadeUser - idadeFriend;
 
 console.log("Sua idade é maior que a do seu melhor amigo? " + idadeMaior);
-console.log("Diferença de idade: " + diferenca);
+console.log("Diferença de idade: " + diferenca); */
+
+// 2. //
+let numero;
+
+numero = Number(prompt("Digite um número par: "));
+
+console.log("Resto da divisão do seu número por 2: ", numero %= 2);
+/* Se o número digitado for par, o resto da divisão por 2 sempre será "zero" 
+e se for ímpar, sempre será "um". */
+
+
