@@ -64,7 +64,7 @@ console.log("Resto da divisão do seu número por 2: ", numero %= 2); */
 // e se for ímpar, sempre será "um".
 
 // 3. //
-let listaDeTarefas = [];
+/* let listaDeTarefas = [];
 let tarefa;
 
 tarefa = (prompt("Informe a primeira tarefa que precisará realizar hoje: "));
@@ -80,6 +80,14 @@ console.log(listaDeTarefas);
 
 listaDeTarefas.splice((prompt("Insira um índice de 0 a 2: ")), 1);
 
-console.log(listaDeTarefas);
+console.log(listaDeTarefas); */
 
+// .4 //
+let nomeDoUsuario;
+let emailDoUsuario;
+
+nomeDoUsuario = prompt("Qual o seu nome?");
+emailDoUsuario = prompt("Qual o seu e-mail?");
+
+console.log("O e-mail " + emailDoUsuario + " foi cadastrado com sucesso. Seja bem-vinda(o), " + nomeDoUsuario + "!");
 
