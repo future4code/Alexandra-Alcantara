@@ -55,12 +55,31 @@ console.log("Sua idade é maior que a do seu melhor amigo? " + idadeMaior);
 console.log("Diferença de idade: " + diferenca); */
 
 // 2. //
-let numero;
+/* let numero;
 
 numero = Number(prompt("Digite um número par: "));
 
-console.log("Resto da divisão do seu número por 2: ", numero %= 2);
-/* Se o número digitado for par, o resto da divisão por 2 sempre será "zero" 
-e se for ímpar, sempre será "um". */
+console.log("Resto da divisão do seu número por 2: ", numero %= 2); */
+// Se o número digitado for par, o resto da divisão por 2 sempre será "zero" 
+// e se for ímpar, sempre será "um".
+
+// 3. //
+let listaDeTarefas = [];
+let tarefa;
+
+tarefa = (prompt("Informe a primeira tarefa que precisará realizar hoje: "));
+listaDeTarefas.push(tarefa);
+
+tarefa = (prompt("Agora informe a segunda: "));
+listaDeTarefas.push(tarefa);
+
+tarefa = (prompt("E agora a terceira: "));
+listaDeTarefas.push(tarefa);
+
+console.log(listaDeTarefas);
+
+listaDeTarefas.splice((prompt("Insira um índice de 0 a 2: ")), 1);
+
+console.log(listaDeTarefas);
 
 
