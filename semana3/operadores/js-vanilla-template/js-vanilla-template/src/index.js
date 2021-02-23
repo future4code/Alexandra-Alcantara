@@ -39,3 +39,17 @@ const valor = array[i+6]
 console.log('f. ', valor) // f. array[i+6]
 */
 
+// EXERCÍCIOS DE ESCRITA DE CÓDIGO //
+
+// 1. //
+let idadeUser;
+let idadeFriend;
+
+idadeUser = Number(prompt("Qual a sua idade?"));
+idadeFriend = Number(prompt("Qual a idade do seu melhor amigo?"));
+
+let idadeMaior = idadeUser > idadeFriend;
+let diferenca = idadeUser - idadeFriend;
+
+console.log("Sua idade é maior que a do seu melhor amigo? " + idadeMaior);
+console.log("Diferença de idade: " + diferenca);
