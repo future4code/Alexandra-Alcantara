@@ -104,7 +104,7 @@ switch (turnoSwitch) {
 
 // 7. //
 
-const generoFilme = prompt("Qual o gênero do filme que você vai assistir?");
+/* const generoFilme = prompt("Qual o gênero do filme que você vai assistir?");
 const preco = prompt("O preço do ingresso está abaixo de R$15.00? s/n");
 
 if (generoFilme == "fantasia" && preco == "s") {
@@ -112,4 +112,18 @@ if (generoFilme == "fantasia" && preco == "s") {
 }
 else {
     console.log("Escolha outro filme :(");
+} */
+
+// DESAFIO 1 //
+
+const generoFilme = prompt("Qual o gênero do filme que você vai assistir?");
+const preco = prompt("O preço do ingresso está abaixo de R$15.00? s/n");
+
+if (generoFilme == "fantasia" && preco == "s") {
+    const snack = prompt("Qual snack você deseja comprar?");
+    console.log("Bom filme!" + "\n" + "...com " + snack + ".");
 }
+else {
+    console.log("Escolha outro filme :(");
+}
+
