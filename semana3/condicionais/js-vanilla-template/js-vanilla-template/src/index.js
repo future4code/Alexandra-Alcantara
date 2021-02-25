@@ -116,7 +116,7 @@ else {
 
 // DESAFIO 1 //
 
-const generoFilme = prompt("Qual o gênero do filme que você vai assistir?");
+/*const generoFilme = prompt("Qual o gênero do filme que você vai assistir?");
 const preco = prompt("O preço do ingresso está abaixo de R$15.00? s/n");
 
 if (generoFilme == "fantasia" && preco == "s") {
@@ -125,5 +125,172 @@ if (generoFilme == "fantasia" && preco == "s") {
 }
 else {
     console.log("Escolha outro filme :(");
+}*/
+
+// DESAFIO 2 //
+
+const nome = prompt("Qual o seu nome, meu bem?");
+const tipoJogo = prompt("Qual o tipo do jogo que gostaria de assistir? DO/IN");
+const etapaJogo = prompt("Qual a etapa do jogo? SF/DT/FI");
+const categoria = prompt("Qual a categoria? 1/2/3/4");
+const qtdIngressos = Number(prompt("Qual a quantidade de ingressos?"));
+const cat1SF = 1320;
+const cat1DT = 660;
+const cat1FI = 1980;
+const cat2SF = 880;
+const cat2DT = 440;
+const cat2FI = 1320;
+const cat3SF = 550;
+const cat3DT = 330;
+const cat3FI = 880;
+const cat4SF = 220;
+const cat4DT = 170;
+const cat4FI = 330;
+
+if (tipoJogo === "DO") {
+    if (etapaJogo === "SF") {
+        switch (categoria) {
+            case "1":
+                valorTotal = qtdIngressos * cat1SF;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat1SF + "\n" + "Valor total: R$" + valorTotal);
+                break
+            case "2":
+                valorTotal = qtdIngressos * cat2SF;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat2SF + "\n" + "Valor total: R$" + valorTotal);
+                break
+            case "3":
+                valorTotal = qtdIngressos * cat3SF;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat3SF + "\n" + "Valor total: R$" + valorTotal);
+                break
+            case "4":
+                valorTotal = qtdIngressos * cat4SF;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat4SF + "\n" + "Valor total: R$" + valorTotal);
+                break
+            default:
+                console.log("Ops, alguma informação não foi digitada de forma correta, tente novamente!")
+                break
+        }
+    }
+
+    if (etapaJogo === "DT") {
+        switch (categoria) {
+            case "1":
+                valorTotal = qtdIngressos * cat1DT;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat1DT + "\n" + "Valor total: R$" + valorTotal);
+                break
+            case "2":
+                valorTotal = qtdIngressos * cat2DT;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat2DT + "\n" + "Valor total: R$" + valorTotal);
+                break
+            case "3":
+                valorTotal = qtdIngressos * cat3DT;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat3DT + "\n" + "Valor total: R$" + valorTotal);
+                break
+            case "4":
+                valorTotal = qtdIngressos * cat4DT;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat4DT + "\n" + "Valor total: R$" + valorTotal);
+                break
+            default:
+                console.log("Ops, alguma informação não foi digitada de forma correta, tente novamente!")
+                break
+        }
+    }
+
+    if (etapaJogo === "FI") {
+        switch (categoria) {
+            case "1":
+                valorTotal = qtdIngressos * cat1FI;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat1FI + "\n" + "Valor total: R$" + valorTotal);
+                break
+            case "2":
+                valorTotal = qtdIngressos * cat2FI;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat2FI + "\n" + "Valor total: R$" + valorTotal);
+                break
+            case "3":
+                valorTotal = qtdIngressos * cat3FI;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat3FI + "\n" + "Valor total: R$" + valorTotal);
+                break
+            case "4":
+                valorTotal = qtdIngressos * cat4FI;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: R$" + cat4FI+ "\n" + "Valor total: R$" + valorTotal);
+                break
+            default:
+                console.log("Ops, alguma informação não foi digitada de forma correta, tente novamente!")
+                break
+        }
+    }
 }
 
+if (tipoJogo === "IN") {
+    if (etapaJogo === "SF") {
+        switch (categoria) {
+            case "1":
+                valorTotal = (qtdIngressos * cat1SF)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat1SF/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            case "2":
+                valorTotal = (qtdIngressos * cat2SF)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat2SF/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            case "3":
+                valorTotal = (qtdIngressos * cat3SF)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat3SF/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            case "4":
+                valorTotal = (qtdIngressos * cat4SF)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat4SF/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            default:
+                console.log("Ops, alguma informação não foi digitada de forma correta, tente novamente!")
+                break
+        }
+    }
+
+    if (etapaJogo === "DT") {
+        switch (categoria) {
+            case "1":
+                valorTotal = (qtdIngressos * cat1DT)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat1DT/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            case "2":
+                valorTotal = (qtdIngressos * cat2DT)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat2DT/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            case "3":
+                valorTotal = (qtdIngressos * cat3DT)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat3DT/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            case "4":
+                valorTotal = (qtdIngressos * cat4DT)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat4DT/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            default:
+                console.log("Ops, alguma informação não foi digitada de forma correta, tente novamente!")
+                break
+        }
+    }
+
+    if (etapaJogo === "FI") {
+        switch (categoria) {
+            case "1":
+                valorTotal = (qtdIngressos * cat1FI)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat1FI/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            case "2":
+                valorTotal = (qtdIngressos * cat2FI)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat2FI/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            case "3":
+                valorTotal = (qtdIngressos * cat3FI)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat3FI/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            case "4":
+                valorTotal = (qtdIngressos * cat4FI)/4.10;
+                console.log("--- Dados da compra ---" + "\n" + "\n" + "Nome do cliente: " + nome + "\n" + "Tipo do jogo: " + tipoJogo + "\n" + "Etapa do jogo: " + etapaJogo + "\n" + "Categoria: " + categoria + "\n" + "Quantidade de ingressos: " + qtdIngressos + "\n" + "\n" + "--- Valores ---" + "\n" + "\n" + "Valor do ingresso: $" + cat4FI/4.10 + "\n" + "Valor total: $" + valorTotal);
+                break
+            default:
+                console.log("Ops, alguma informação não foi digitada de forma correta, tente novamente!")
+                break
+        }
+    }
+}
