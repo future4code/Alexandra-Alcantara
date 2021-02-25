@@ -154,5 +154,3 @@ kelvin = Number(kelvin);
 // grausCelsius = Number(prompt("Insira graus Celsius para converter em Kelvin: "));
 // let celsiusParaKelvin = grausCelsius + 273;
 // console.log(grausCelsius + "°C é igual a " + celsiusParaKelvin + "K.");
-
-// 2. //
