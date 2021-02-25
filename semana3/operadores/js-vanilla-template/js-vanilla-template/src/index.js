@@ -154,28 +154,3 @@ kelvin = Number(kelvin);
 // grausCelsius = Number(prompt("Insira graus Celsius para converter em Kelvin: "));
 // let celsiusParaKelvin = grausCelsius + 273;
 // console.log(grausCelsius + "°C é igual a " + celsiusParaKelvin + "K.");
-
-// 2. //
-
-
-// a) //
-const qwHora = 280;
-const valorQhora = 0.05;
-const desconto = 0.15;
-const valorPagar = qwHora * valorQhora;
-const valorPagarDesconto = valorPagar - (desconto*valorPagar);
-
-/*if (qwHora > 0) {
-    console.log("O valor a pagar é: R$" + valorPagar);
-}
-else {
-    console.log("Não há nada a pagar!");
-}*/
-
-// b) //
-if (qwHora > 0) {
-    console.log("O valor a pagar é: R$" + valorPagarDesconto);
-}
-else {
-    console.log("Não há nada a pagar!");
-}
