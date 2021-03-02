@@ -108,14 +108,14 @@ recebeNumeros(array);*/
 
 /* b) */
 
-function verificaSeEhPar (num) {
+/*function verificaSeEhPar (num) {
     if (num % 2 == 0) {
         return true;
     }
     else {
         return false;
     }
-}
+}*/
 
 /*num = prompt("Que número gostaria de verificar?")
 console.log(`O número ${num} é par?`, recebeNumeroDeNovo(num));*/
@@ -143,7 +143,7 @@ contarNumPares(numerosAleatorios);*/
 
 /* d) */
 
-arrayPares = [];
+/*arrayPares = [];
 arrayImpares = [];
 numerosAleatorios = [2, 5, 8, 7, 1, 6, 9];
 
@@ -160,4 +160,56 @@ function contarNumPares (arrayNumeros) {
     console.log(`O array ${numerosAleatorios} possui`, arrayImpares.length, "números ímpares.");
 } 
 
-contarNumPares(numerosAleatorios);
+contarNumPares(numerosAleatorios);*/
+
+// DESAFIOS //
+
+// EXERCÍCIO 1 //
+
+// 1. //
+
+/*let lista = ["ovo", "pintinho", "galinha ", "galo"];
+
+let recebeImprime = (thing) => {
+    console.log(`O parâmetro é '${thing}' e está sendo impresso agora.`);
+}*/
+
+/*recebeImprime(lista);*/
+
+// 2. //
+
+/*let recebeDoisValores = (valor1, valor2) => {
+    totalSoma = valor1 + valor2;
+    recebeImprime(totalSoma);
+}
+
+recebeDoisValores(5, 10);*/
+
+// EXERCÍCIO 2 //
+
+const numeros = [0, 8, 23, 16, 10, 15, 41, 12, 13]
+
+// a) //
+
+arrayNumPares = [];
+
+let recebeUmArray = (array) => {
+    for (thing of array) {
+        if (thing % 2 == 0) {
+            arrayNumPares.push(array);
+        }
+    }
+    console.log(arrayNumPares);
+    /*for (let i = 0; i < arrayNumPares.length; i++) {
+        newArray = thing * 2;
+    } 
+    console.log(`Este é o novo array: ${newArray}`);*/
+}
+
+recebeUmArray(numeros);
+
+// b) //
+
+// c) //
+
+// e) //
