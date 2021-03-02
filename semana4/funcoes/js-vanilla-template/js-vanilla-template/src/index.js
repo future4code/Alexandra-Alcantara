@@ -108,14 +108,14 @@ recebeNumeros(array);*/
 
 /* b) */
 
-/*function verificaSeEhPar (num) {
+function verificaSeEhPar (num) {
     if (num % 2 == 0) {
         return true;
     }
     else {
         return false;
     }
-}*/
+}
 
 /*num = prompt("Que número gostaria de verificar?")
 console.log(`O número ${num} é par?`, recebeNumeroDeNovo(num));*/
