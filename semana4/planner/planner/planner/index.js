@@ -10,36 +10,46 @@ const tarefasQui = document.getElementById("tarefas-qui"); //
 const tarefasSex = document.getElementById("tarefas-sex"); // 
 const tarefasSab = document.getElementById("tarefas-sab"); // 
 
+
+
 function criarTarefa() { // Função para criar a tarefa
-    switch (diaDaSemana.value) {
-        case 'domingo':
-            tarefasDom.innerHTML += `<li>${novaTarefa.value}</li>`;
-            novaTarefa.value = ""; // Apaga o texto no input após clicar no botão para inserir.
-            break;
-        case 'segunda':
-            tarefasSeg.innerHTML += `<li>${novaTarefa.value}</li>`;
-            novaTarefa.value = "";
-            break;
-        case 'terca':
-            tarefasTer.innerHTML += `<li>${novaTarefa.value}</li>`;
-            novaTarefa.value = "";
-            break;
-        case 'quarta':
-            tarefasQua.innerHTML += `<li>${novaTarefa.value}</li>`;
-            novaTarefa.value = "";
-            break;
-        case 'quinta':
-            tarefasQui.innerHTML += `<li>${novaTarefa.value}</li>`;
-            novaTarefa.value = "";
-            break;
-        case 'sexta':
-            tarefasSex.innerHTML += `<li>${novaTarefa.value}</li>`;
-            novaTarefa.value = "";
-            break;
-        case 'sabado':
-            tarefasSab.innerHTML += `<li>${novaTarefa.value}</li>`;
-            novaTarefa.value = "";
-            break;
+    if (novaTarefa.value !== "") {
+        switch (diaDaSemana.value) {
+            case 'domingo':
+                tarefasDom.innerHTML += `<li>${novaTarefa.value}</li>`;
+                novaTarefa.value = ""; // Apaga o texto no input após clicar no botão para inserir.
+                    function riscarTarefaDom() {
+                        tarefasDom.style = "text-decoration: line-through";
+                }
+                break;
+            case 'segunda':
+                tarefasSeg.innerHTML += `<li>${novaTarefa.value}</li>`;
+                novaTarefa.value = "";
+                break;
+            case 'terca':
+                tarefasTer.innerHTML += `<li>${novaTarefa.value}</li>`;
+                novaTarefa.value = "";
+                break;
+            case 'quarta':
+                tarefasQua.innerHTML += `<li>${novaTarefa.value}</li>`;
+                novaTarefa.value = "";
+                break;
+            case 'quinta':
+                tarefasQui.innerHTML += `<li>${novaTarefa.value}</li>`;
+                novaTarefa.value = "";
+                break;
+            case 'sexta':
+                tarefasSex.innerHTML += `<li>${novaTarefa.value}</li>`;
+                novaTarefa.value = "";
+                break;
+            case 'sabado':
+                tarefasSab.innerHTML += `<li>${novaTarefa.value}</li>`;
+                novaTarefa.value = "";
+                break;
+        }
+    }
+    else {
+        alert("✘ Ops! Você não digitou nada. ☹");
     }
 }
 
