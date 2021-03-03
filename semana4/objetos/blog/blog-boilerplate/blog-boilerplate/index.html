@@ -11,19 +11,21 @@
 <body>
     <section id="formulario">
         <label for="titulo-post">Título:</label>
-        <input type="text" id="titulo-post">
+        <input type="text" id="titulo-post" required>
+
+        <label for="imagem-post">Imagem (opcional):</label>
+        <input type="text" id="imagem-post">
 
         <label for="autor-post">Autor:</label>
-        <input type="text" id="autor-post">
+        <input type="text" id="autor-post" required>
 
         <label for="conteudo-post">Conteúdo:</label>
-        <textarea id="conteudo-post" cols="30" rows="10"></textarea>
-        
-        <button onclick="criarPost()">Criar Post</button>
-    </section>
+        <textarea id="conteudo-post" cols="30" rows="10" required></textarea>
 
-    <section id="container-de-posts">
-        
-    </section>
+        <button onclick="criarPost()">Criar Post</button>
+        </section>
+        <section id="container-de-posts">
+            
+        </section>
 </body>
 </html>
