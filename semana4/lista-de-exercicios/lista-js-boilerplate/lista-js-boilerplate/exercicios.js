@@ -34,12 +34,15 @@ function retornaNumerosPares (array) {
 
 function retornaMaiorNumero(array) {
    // implemente sua lógica aqui
+   const maiorNumero = Math.max(...array);
+   return maiorNumero;
 }
 
 //Exercício 5
 
 function retornaQuantidadeElementos (array) {
    // implemente sua lógica aqui
+   
 }
 
 //Exercício 6
