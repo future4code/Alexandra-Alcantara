@@ -7,7 +7,6 @@ function inverteArray(array) {
 //Exercício 2
 
 function retornaNumerosParesElevadosADois (array) {
-   // implemente sua lógica aqui
    numPares = [];
    array.forEach(number => {
       if (number % 2 === 0) {
@@ -20,7 +19,6 @@ function retornaNumerosParesElevadosADois (array) {
 //Exercício 3
 
 function retornaNumerosPares (array) {
-   // implemente sua lógica aqui
    numPares = [];
    array.forEach(number => {
       if (number % 2 === 0) {
@@ -33,7 +31,6 @@ function retornaNumerosPares (array) {
 //Exercício 4
 
 function retornaMaiorNumero(array) {
-   // implemente sua lógica aqui
    const maiorNumero = Math.max(...array);
    return maiorNumero;
 }
@@ -42,7 +39,7 @@ function retornaMaiorNumero(array) {
 
 function retornaQuantidadeElementos (array) {
    // implemente sua lógica aqui
-   
+   return array.length;
 }
 
 //Exercício 6
