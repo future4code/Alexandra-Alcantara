@@ -7,45 +7,45 @@ function inverteArray(array) {
 //Exercício 2
 
 function retornaNumerosParesElevadosADois (array) {
-   numPares = [];
+   evenNum = [];
    array.forEach(number => {
       if (number % 2 === 0) {
-         numPares.push(number ** 2);
+         evenNum.push(number ** 2);
       }
    });
-   return numPares;
+   return evenNum;
 }
 
 //Exercício 3
 
 function retornaNumerosPares (array) {
-   numPares = [];
+   evenNum = [];
    array.forEach(number => {
       if (number % 2 === 0) {
-         numPares.push(number);
+         evenNum.push(number);
       }
    });
-   return numPares;
+   return evenNum;
 }
 
 //Exercício 4
 
 function retornaMaiorNumero(array) {
-   const maiorNumero = Math.max(...array);
-   return maiorNumero;
+   const biggestNumber = Math.max(...array);
+   return biggestNumber;
 }
 
 //Exercício 5
 
 function retornaQuantidadeElementos (array) {
-   // implemente sua lógica aqui
    return array.length;
 }
 
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
-   // implemente sua lógica aqui
+   const booleanOperations = [false, false, true, true, true];
+   return booleanOperations;
 }
 
 //Exercício 7
