@@ -51,7 +51,6 @@ function retornaExpressoesBooleanas() {
 //Exercício 7
 
 function retornaNNumerosPares(n) {
-   // implemente sua lógica aqui
    arrayNum = [];
    arrayEven = [];
    
@@ -70,7 +69,17 @@ function retornaNNumerosPares(n) {
 // Exercício 8
 
 function checaTriangulo(a, b, c) {
-  // implemente sua lógica aqui
+  if ((a === b) && (a === c) && (b === c)) {
+     return 'Equilátero'
+  }
+
+  else if ((a === b) || (a === c) || (b === c)) {
+   return 'Isósceles'
+  }
+
+  else if ((a !== b) && (a !== c) && (b !== c)) {
+   return 'Escaleno'
+  }
 }
 
 // Exercício 9
