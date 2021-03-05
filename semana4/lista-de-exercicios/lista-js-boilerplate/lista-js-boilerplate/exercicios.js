@@ -8,6 +8,13 @@ function inverteArray(array) {
 
 function retornaNumerosParesElevadosADois (array) {
    // implemente sua lógica aqui
+   numPares = [];
+   array.forEach(number => {
+      if (number % 2 === 0) {
+         numPares.push(number ** 2);
+      }
+   });
+   return numPares;
 }
 
 //Exercício 3
