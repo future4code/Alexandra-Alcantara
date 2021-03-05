@@ -52,6 +52,19 @@ function retornaExpressoesBooleanas() {
 
 function retornaNNumerosPares(n) {
    // implemente sua lógica aqui
+   arrayNum = [];
+   arrayEven = [];
+   
+   for (let index = 0; index < 10; index++) {
+      arrayNum.push(Number(index));
+   }
+
+   arrayNum.forEach(number => {
+      if (number % 2 === 0) {
+         arrayEven.push(number);
+      }
+   });
+   return arrayEven.slice(0, n);
 }
 
 // Exercício 8
