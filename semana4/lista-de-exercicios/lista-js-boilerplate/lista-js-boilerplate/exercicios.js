@@ -70,23 +70,40 @@ function retornaNNumerosPares(n) {
 
 function checaTriangulo(a, b, c) {
   if ((a === b) && (a === c) && (b === c)) {
-     return 'Equilátero'
+     return 'Equilátero';
   }
 
   else if ((a === b) || (a === c) || (b === c)) {
-   return 'Isósceles'
+   return 'Isósceles';
   }
 
-  else if ((a !== b) && (a !== c) && (b !== c)) {
-   return 'Escaleno'
+  else {
+   return 'Escaleno';
   }
 }
 
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica aqui
-}
+   // implemente sua lógica 
+   let nums = [num1, num2];
+   let subtracao = Math.abs(num1 - num2);
+   let oMaiorNumero = Math.max(...nums);
+   let oMenorNumero = Math.min(...nums);
+
+   maiorDivisivelporMenor = oMaiorNumero % oMenorNumero === 0;
+
+   return {
+      maiorNumero: oMaiorNumero,
+      maiorDivisivelporMenor: maiorDivisivelporMenor,
+      diferenca: subtracao
+   };
+};
+
+//   console.log(subtracao);
+//   console.log(verificaMaiorNumero);
+//   console.log(verificaMenorNumero);
+
 
 // Exercício 10
 
