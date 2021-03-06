@@ -85,7 +85,6 @@ function checaTriangulo(a, b, c) {
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica 
    let nums = [num1, num2];
    let subtracao = Math.abs(num1 - num2);
    let oMaiorNumero = Math.max(...nums);
@@ -100,15 +99,15 @@ function comparaDoisNumeros(num1, num2) {
    };
 };
 
-//   console.log(subtracao);
-//   console.log(verificaMaiorNumero);
-//   console.log(verificaMenorNumero);
-
-
 // Exercício 10
 
 function segundoMaiorEMenor(array) {
-   // implemente sua lógica aqui
+   array.splice(array.indexOf(Math.max(...array)), 1);
+   array.splice(array.indexOf(Math.min(...array)), 1);
+
+   const segundoMaiorEMenor = [Math.max(...array), Math.min(...array)];
+   
+   return segundoMaiorEMenor;
 }
 
 //Exercício 11
