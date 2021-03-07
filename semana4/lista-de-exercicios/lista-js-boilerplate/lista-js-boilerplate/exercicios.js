@@ -124,7 +124,6 @@ function ordenaArray(array) {
          }
       }     
    }
-   console.log(array);
    return array;  
 }
 
@@ -144,7 +143,25 @@ function filmeFavorito() {
 // Exercício 13
 
 function imprimeChamada() {
-   // implemente sua lógica aqui
+   const filmeFav = {
+      nome: 'O Diabo Veste Prada',
+      ano: 2006,
+      diretor: 'David Frankel', 
+      atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
+   }
+
+   let concatenaAtores = "";
+   for(let i = 0; i < filmeFav.atores.length; i++) {
+      if (i === filmeFav.atores.length - 1) {
+         concatenaAtores += filmeFav.atores[i];
+      }
+      else {
+         concatenaAtores += filmeFav.atores[i] + ", ";
+      }
+   }
+
+   return `Venha assistir ao filme ${filmeFav.nome}, de ${filmeFav.ano}, dirigido por ${filmeFav.diretor} e estrelado por ${concatenaAtores
+   }.`;
 }
 
 // Exercício 14
