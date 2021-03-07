@@ -179,7 +179,13 @@ function criaRetangulo(lado1, lado2) {
 // Exercício 15
 
 function anonimizaPessoa(pessoa) {
-   // implemente sua lógica aqui
+
+   const nomeAnonimo = {
+      ...pessoa,
+      nome: 'ANÔNIMO'
+   }
+
+   return nomeAnonimo;
 }
 
 // Exercício 16
@@ -195,18 +201,19 @@ const arrayDePessoas = [
 
 function maioresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
+
 }
 
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
    // implemente sua lógica aqui
+
 }
 
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
-   // implemente sua lógica aqui
 }
 
 // Exercício 17, letra B
