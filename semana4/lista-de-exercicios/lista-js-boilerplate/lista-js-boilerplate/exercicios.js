@@ -130,7 +130,6 @@ function ordenaArray(array) {
 // Exercício 12
 
 function filmeFavorito() {
-   // implemente sua lógica 
    const filmeFav = {
       nome: 'O Diabo Veste Prada',
       ano: 2006,
@@ -159,7 +158,6 @@ function imprimeChamada() {
          concatenaAtores += filmeFav.atores[i] + ", ";
       }
    }
-
    return `Venha assistir ao filme ${filmeFav.nome}, de ${filmeFav.ano}, dirigido por ${filmeFav.diretor} e estrelado por ${concatenaAtores
    }.`;
 }
@@ -167,7 +165,15 @@ function imprimeChamada() {
 // Exercício 14
 
 function criaRetangulo(lado1, lado2) {
-   // implemente sua lógica aqui
+   const perimetroCalc = 2 * (lado1 + lado2);
+   const areaCalc = lado1 * lado2;
+
+   return {
+      largura: lado1,
+      altura: lado2,
+      perimetro: perimetroCalc,
+      area: areaCalc
+   }
 }
 
 // Exercício 15
