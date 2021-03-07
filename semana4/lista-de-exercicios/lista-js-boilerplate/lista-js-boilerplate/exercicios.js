@@ -108,12 +108,24 @@ function segundoMaiorEMenor(array) {
    const segundoMaiorEMenor = [Math.max(...array), Math.min(...array)];
    
    return segundoMaiorEMenor;
-}
+};
 
 //Exercício 11
 
 function ordenaArray(array) {
-   // implemente sua lógica aqui
+   const len = array.length;
+   for (let index = 0; index < len; index++) {
+      for (let j = 0; j < len; j++) {
+         const atual = array[j];
+         const proximo = array[j + 1];
+         if (array[j] > array[j + 1]) {
+            array[j + 1] = atual;
+            array[j] = proximo;
+         }
+      }     
+   }
+   console.log(array);
+   return array;  
 }
 
 // Exercício 12
