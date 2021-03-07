@@ -220,18 +220,35 @@ function menoresDe18(arrayDePessoas) {
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
+   const novoArray = array.map((item) => {
+      return item * 2
+   })
+   
+   return novoArray;
 }
 
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-  // implemente sua lógica aqui
+  let novoArray = array.map((item) => {
+   return (item * 2).toString();
+   })
+   return novoArray;
 }
 
 // Exercício 17, letra C
 
 function verificaParidade(array) {
    // implemente sua lógica aqui
+   let numStrings = array.map((item) => {
+      if (item % 2 === 0) {
+         return (`${item} é par`)
+      }
+      else {
+         return (`${item} é ímpar`)
+      }
+   })
+   return numStrings;
 }
 
 // Exercício 18
