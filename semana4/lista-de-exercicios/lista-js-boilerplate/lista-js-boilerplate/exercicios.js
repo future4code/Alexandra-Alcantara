@@ -239,7 +239,6 @@ function multiplicaArrayPor2S(array) {
 // Exercício 17, letra C
 
 function verificaParidade(array) {
-   // implemente sua lógica aqui
    let numStrings = array.map((item) => {
       if (item % 2 === 0) {
          return (`${item} é par`)
@@ -247,7 +246,7 @@ function verificaParidade(array) {
       else {
          return (`${item} é ímpar`)
       }
-   })
+   });
    return numStrings;
 }
 
@@ -264,15 +263,28 @@ const pessoas = [
 
 //Exercício 18, letra A
 
-function retornaPessoasAutorizadas(pessoas) {
-   // implemente sua lógica aqui
+function retornaPessoasAutorizadas() {
+   let autorizados = [];
+   for (const item of pessoas) {
+      if ((item.idade > 14) && (item.idade < 60) && (item.altura > 1.5)) {
+         autorizados.push(item);
+      }
+   }
+   return autorizados;
 }
 
 
 // Exercício 18, letra B
 
-function retornaPessoasNaoAutorizadas(pessoas) {
+function retornaPessoasNaoAutorizadas() {
    // implemente sua lógica aqui
+   let naoAutorizados = [];
+   for (const item of pessoas) {
+      if ((item.idade < 14) || (item.idade > 60) || (item.altura < 1.5)) {
+         naoAutorizados.push(item);
+      }
+   }
+   return naoAutorizados;
 }
 
 //Exercício 19
@@ -284,7 +296,7 @@ const consultas = [
   { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
   ]
 
-function retornaEmailConsulta(consultas) {
+function retornaEmailConsulta() {
   // implemente sua lógica aqui
 }
 
