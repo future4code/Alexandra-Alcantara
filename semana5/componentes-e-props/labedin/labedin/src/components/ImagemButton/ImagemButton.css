@@ -1,7 +1,6 @@
 .image-button-container {
     display: flex;
     align-items: center;
-    border: 1px solid black;
     border-radius: 50px;
     width: 200px;
     padding: 15px 30px;
@@ -11,4 +10,15 @@
 .image-button-container > img {
     width: 30px;
     margin-right: 10px;
+}
+
+.image-button-container > a {
+    text-decoration: none;
+}
+
+.image-button-container > img,
+.image-button-container > p,
+.image-button-container > a,
+.image-button-container {
+    background-color: rgb(199, 194, 180);
 }
