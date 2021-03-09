@@ -2,6 +2,7 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 
@@ -12,12 +13,16 @@ body {
 }
 
 header {
-  background-color: rgb(165, 66, 48);
+  background-color: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
+  padding: 20px 50px;
   height: 10%;
+}
+
+.img-youtube {
+  width: 6em;
 }
 
 main {
@@ -25,14 +30,41 @@ main {
   display: flex;
 }
 
-.menu-vertical {
-  flex-basis: 200px;
-  border-right-style: solid;
-  border-right-width: thin;
+hr {
+  border-top: 1px solid #e5e5e5;
+  border-bottom: none;
 }
 
-.botoes-meunu-vertical {
+.menu-vertical {
+  flex-basis: 320px;
+}
+
+.img-menu {
+  width: 1.5em;
+  
+}
+
+.div-menu-individual > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-vertical > ul {
+  padding: 10px;
+}
+
+.div-menu-individual {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  font-size: medium;
+  margin-left: 5px;
+
+}
+
+.botoes-menu-vertical {
   list-style-type: none;
+  margin-left: 25px;
 }
 
 .painel-de-videos {
@@ -42,11 +74,18 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 24.8% 0.2%);
   grid-template-rows: repeat(4, 270px 20px);
+  background-color: #f9f9f9;
+  border: none;
 }
 
 .media1 {
   grid-column-start: 1;
   grid-row-start: 1;
+  border: none;
+}
+
+.img-videos {
+  border: none;
 }
 
 .media2 {
@@ -84,29 +123,16 @@ main {
   grid-row-start: 3;
 }
 
-
 .box-pagina-principal {
   display: grid;
   grid-template-rows: 3fr 1fr;
   grid-template-columns: 1fr;
-  border-style: solid;
-  border-width: thin; 
   align-items: start;
   justify-items: stretch;
 }
 
-
-footer {
-  height: 10%;
-  background-color: grey;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
-
 .box-pagina-principal > img {
-  width: 100%;
+  width: 95%;
   height: 200px;
 }
 
@@ -114,3 +140,15 @@ h4 {
   margin-left: 20px;
 }
 
+.div-menu-individual:hover {
+  background-color: #f2f2f2;
+}
+
+footer {
+  height: 10%;
+  background-color: rgb(189, 172, 172);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}

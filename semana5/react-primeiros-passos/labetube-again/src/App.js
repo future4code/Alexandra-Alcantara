@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import youtubelogo from "./img/youtubelogo.png";
+import home from "./img/home.png";
+
 
 function App() {
   const titulo = 'Título do vídeo'
@@ -11,29 +14,44 @@ function App() {
     <div>
         <div className="tela-inteira">
           <header>
-              <h1>Lab Tube</h1>
+              <img className="img-youtube" src={youtubelogo}  alt="imagem-youtube"/>
               <input type="text" placeholder="Busca" id="campoDeBusca" />
           </header>
 
           <main>
               <nav class="menu-vertical">
                   <ul>
-                      <li className="botoes-meunu-vertical">Início</li>
-                      <li className="botoes-meunu-vertical">Em alta</li>
-                      <li className="botoes-meunu-vertical">Inscrições</li>
+                      <div className="div-menu-individual">
+                        <img className="img-menu" src={home} alt="home" />
+                        <a href=""><li className="botoes-menu-vertical">Início</li></a>
+                      </div>
+                      <div className="div-menu-individual">
+                      <img className="img-menu" src={home} alt="home" />
+                      <a href=""><li className="botoes-menu-vertical">Em alta</li></a>
+                      </div>
+                      <div className="div-menu-individual">
+                      <img className="img-menu" src={home} alt="home" />
+                      <a href=""><li className="botoes-menu-vertical">Inscrições</li></a>
+                      </div>
                       <hr />
-                      <li className="botoes-meunu-vertical">Originais</li>
-                      <li className="botoes-meunu-vertical">Histórico</li>
+                      <div className="div-menu-individual">
+                      <img className="img-menu" src={home} alt="home" />
+                      <a href=""><li className="botoes-menu-vertical">Originais</li></a>
+                      </div>
+                      <div className="div-menu-individual">
+                      <img className="img-menu" src={home} alt="home" />
+                      <a href=""><li className="botoes-menu-vertical">Histórico</li></a>
+                      </div>
                   </ul>
               </nav>
               
               <section className="painel-de-videos">
                   <div className="box-pagina-principal media1" onClick={reproduzVideo}>
-                      <img src="https://picsum.photos/400/400?a=1 " alt="" />
+                      <img className="img-videos" src="https://picsum.photos/400/400?a=1 " alt="" />
                       <h4>{titulo}</h4>
                   </div>
                   <div className="box-pagina-principal media2" onClick={reproduzVideo}>
-                      <img src="https://picsum.photos/400/400?a=2 " alt="" />
+                      <img className="img-videos" src="https://picsum.photos/400/400?a=2 " alt="" />
                       <h4>{titulo}</h4>
                   </div>
                   <div className="box-pagina-principal media3" onClick={reproduzVideo}>
