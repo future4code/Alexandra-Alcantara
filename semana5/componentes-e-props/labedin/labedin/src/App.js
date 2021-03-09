@@ -24,6 +24,12 @@ function App() {
           endereco="Rua das Areias do Egito, S/N."
           email="its-me@mail.com"
         />
+
+        <h2>Formação</h2>
+        <CardGrande
+          nome="Tecnologia em gestão ambiental"
+          descricao="Instituto Federal do Ceará (IFCE)"
+        />
         
         <ImagemButton 
           imagem="https://image.flaticon.com/icons/png/512/117/117472.png" 
