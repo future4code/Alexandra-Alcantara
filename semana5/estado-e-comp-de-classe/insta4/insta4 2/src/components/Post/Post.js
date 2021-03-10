@@ -17,7 +17,20 @@ class Post extends React.Component { // DECLARANDO UM COMPONENTE DE CLASSE
   }
 
   onClickCurtida = () => { // (1) 
-    console.log('Curtiu!')
+    // console.log('Curtiu!')
+    let temCurtida;
+
+    if (this.state.curtido) {
+      temCurtida = this.state.curtido - 1;
+    }
+    else {
+      temCurtida = this.state.curtido + 1;
+    }
+
+    this.setState({
+      curtido: !this.state.curtido,
+      numeroCurtidas: temCurtida
+    })
   }
 
   onClickComentario = () => {

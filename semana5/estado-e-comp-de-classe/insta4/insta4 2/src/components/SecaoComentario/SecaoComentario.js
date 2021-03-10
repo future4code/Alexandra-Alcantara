@@ -3,22 +3,23 @@ import './SecaoComentario.css'
 
 export class SecaoComentario extends Component {
 	state = {
-		// VAZIO PQ?
-	}
+		temComent: ''
+	};
 
-	onChangeComentario() {
-		// VAZIO PQ?
-	}
+	onChangeComentario = (event) => {
+		console.log(event.target.value)
+		this.setState({temComent: event.target.value});
+	};
 
 	render() {
 		return <div className={'comment-container'}>
-			<input
+			<input 
+				onChange={this.onChangeComentario}
 				className={'input-comentario'}
 				placeholder={'Comentário'}
-				value={''}
-				onChange={this.onChangeComentario}
+				value={this.state.temComent}
 			/>
 			<button onClick={this.props.aoEnviar}>Send</button>
 		</div>
-	}
+	};
 }
