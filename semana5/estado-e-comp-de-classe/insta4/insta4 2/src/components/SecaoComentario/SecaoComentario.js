@@ -3,11 +3,11 @@ import './SecaoComentario.css'
 
 export class SecaoComentario extends Component {
 	state = {
-
+		// VAZIO PQ?
 	}
 
 	onChangeComentario() {
-
+		// VAZIO PQ?
 	}
 
 	render() {
@@ -18,7 +18,7 @@ export class SecaoComentario extends Component {
 				value={''}
 				onChange={this.onChangeComentario}
 			/>
-			<button onClick={this.props.aoEnviar}>Enviar</button>
+			<button onClick={this.props.aoEnviar}>Send</button>
 		</div>
 	}
 }

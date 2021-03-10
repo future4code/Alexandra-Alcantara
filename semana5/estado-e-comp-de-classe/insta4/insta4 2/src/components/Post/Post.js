@@ -3,20 +3,20 @@ import './Post.css'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
 
-import iconeCoracaoBranco from '../../img/favorite-white.svg'
-import iconeCoracaoPreto from '../../img/favorite.svg'
-import iconeComentario from '../../img/comment_icon.svg'
+import iconeCoracaoBranco from '../../img/favorite-white.svg' // (1)
+import iconeCoracaoPreto from '../../img/favorite.svg' // (1)
+import iconeComentario from '../../img/comment_icon.svg' 
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 
-class Post extends React.Component {
+class Post extends React.Component { // DECLARANDO UM COMPONENTE DE CLASSE
   state = {
-    curtido: false,
-    numeroCurtidas: 0,
-    comentando: false,
+    curtido: false, // (1) OS POSTS COMEÇAM SEM CURTIDAS -> FALSE
+    numeroCurtidas: 0, // NÚMERO DE CURTIDAS = 0
+    comentando: false, // (2) O POST COMEÇA SEM COMENTÁRIOS -> FALSE
     numeroComentarios: 0
   }
 
-  onClickCurtida = () => {
+  onClickCurtida = () => { // (1) 
     console.log('Curtiu!')
   }
 
@@ -26,7 +26,7 @@ class Post extends React.Component {
     })
   }
 
-  aoEnviarComentario = () => {
+  aoEnviarComentario = () => { // FUNÇÃO QUE CONTROLA O CONTADOR DOS COMENTÁRIOS 
     this.setState({
       comentando: false,
       numeroComentarios: this.state.numeroComentarios + 1
@@ -34,22 +34,23 @@ class Post extends React.Component {
   }
 
   render() {
-    let iconeCurtida
+    let iconeCurtida // (1) DECLARAÇÃO DE VAR RELACIONADA AO "CURTIDO" DO STATE
 
-    if(this.state.curtido) {
-      iconeCurtida = iconeCoracaoPreto
+    if(this.state.curtido) { // (1) SE O STATE DE CURTIDO FOR TRUE...
+      iconeCurtida = iconeCoracaoPreto // ATRIBUIR A IMG 'ICONECORACAOPRETO' À VAR 'ICONECURTIDA'
     } else {
-      iconeCurtida = iconeCoracaoBranco
+      iconeCurtida = iconeCoracaoBranco // (1) SE NÃO, ATRIBUIR A IMG 'ICONECORACAOBRANCO' À VAR 'ICONECURTIDA'
     }
 
-    let componenteComentario
+    let componenteComentario // (2) DECLARAÇÃO DE VAR RELACIONADA AO "COMENTANDO" DO STATE
 
-    if(this.state.comentando) {
-      componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
+    if(this.state.comentando) { // (2) SE O STATE DE COMENTANDO FOR TRUE...
+      componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/> // ESSE TRECHO NÃO ESTÁ CLARO
     }
 
+    // CLASSNAME = CLASSE DE CSS (COM OU SEM CHAVES? ONTEM FIZ SEM CHAVES O.o)
     return <div className={'post-container'}>
-      <div className={'post-header'}>
+      <div className={'post-header'}> 
         <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{this.props.nomeUsuario}</p>
       </div>
@@ -57,13 +58,13 @@ class Post extends React.Component {
       <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'}/>
 
       <div className={'post-footer'}>
-        <IconeComContador
-          icone={iconeCurtida}
-          onClickIcone={this.onClickCurtida}
+        <IconeComContador // COMPONENTE PARA CONTAR AS CURTIDAS
+          icone={iconeCurtida} // (1) A IMG AQUI DEPENDE DO RESULTADO DO RENDER() PARA SER CORAÇÃO BRANCO OU PRETO
+          onClickIcone={this.onClickCurtida} // 
           valorContador={this.state.numeroCurtidas}
         />
 
-        <IconeComContador
+        <IconeComContador // COMPONENTE PARA CONTAR OS COMENTÁRIOS
           icone={iconeComentario}
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
