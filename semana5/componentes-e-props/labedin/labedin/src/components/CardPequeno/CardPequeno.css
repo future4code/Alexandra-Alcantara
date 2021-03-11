@@ -1,0 +1,15 @@
+.smallcard-container {
+    border-radius: 10px 30px;
+    padding: 20px 30px;
+    margin-bottom: 10px;
+}
+
+.smallcard-span {
+    font-weight: bold;
+}
+
+.smallcard-container > div > p,
+.smallcard-container > div > p > span,
+.smallcard-container {
+    background-color: rgb(199, 194, 180);
+}
