@@ -8,27 +8,39 @@ import bigale from './img/bigale.jpeg';
 
 
 class App extends React.Component { // DECLARANDO UM COMPONENTE DE CLASSE
+  state = {
+    posts: [
+      {
+        nomeUsuario: 'paulinha',
+        fotoUsuario: 'https://picsum.photos/50/50',
+        fotoPost: 'https://picsum.photos/200/150'
+      },
+      {
+        nomeUsuario: 'Ravioli',
+        fotoUsuario: ravioli,
+        fotoPost: raviolifolgada
+      },
+      {
+        nomeUsuario: 'Alê',
+        fotoUsuario: bigale,
+        fotoPost: miniale
+      }
+    ]
+  } 
+  
   render() {
+    const listaDePosts = this.state.posts.map((post) => {
+      return (
+        <Post // COMPONENTE
+          nomeUsuario={post.nomeUsuario}
+          fotoUsuario={post.fotoUsuario}
+          fotoPost={post.fotoPost}
+        />
+      );
+    });
     return (
       <div className={'app-container'}>
-        <Post // COMPONENTE
-          nomeUsuario={'paulinha'}
-          fotoUsuario={'https://picsum.photos/50/50'}
-          fotoPost={'https://picsum.photos/200/150'}
-        />
-
-        <Post // COMPONENTE
-          nomeUsuario={'Ravioli'}
-          fotoUsuario={ravioli}
-          fotoPost={raviolifolgada}
-        />    
-
-        <Post // COMPONENTE
-          nomeUsuario={'Alê'}
-          fotoUsuario={bigale}
-          fotoPost={miniale}
-        />
-
+        {listaDePosts}
       </div>
     );
   }
