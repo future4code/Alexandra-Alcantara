@@ -24,7 +24,7 @@
    1. [X] Thank you!
   
 ## Autora
-<table align="center">
+<table>
   <tr>
     <td align="center"><a href="https://github.com/alexa2me">
       <img src="https://avatars.githubusercontent.com/u/63327969?s=460&v=4" width="100px" alt="Imagem do perfil da Alexandra"/>
