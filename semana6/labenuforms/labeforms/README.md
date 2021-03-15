@@ -1,5 +1,8 @@
 # LabenuForms
 
+Atividade realizada para praticar renderização condicional e criação de componentes separados.
+Criação de um form do zero com React.
+
 ## Features
 
    Etapa 1
@@ -22,6 +25,11 @@
    Etapa final
     
    1. [X] Thank you!
+
+## 🛠 Tecnologia
+
+  <a href="https://pt-br.reactjs.org/">🔗 React</a>
+- Library para desenvolvimento de interfaces do usuário utilizando componentes reutilizáveis.
   
 ## Autora
 <table>
