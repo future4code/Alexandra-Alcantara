@@ -38,18 +38,27 @@ export default class App extends React.Component {
 
   componentDidUpdate() {
 
-  };
+  }
 
   componentDidMount() {
 
-  };
+  }
 
   onChangeInput = (event) => {
-
+    this.setState({inputValue: event.target.value})
   }
 
   criaTarefa = () => {
+    console.log("ADICIONAR TAREFA", this.state.inputValue);
+    const novaTarefa = {
+      id: Date.now(),
+      texto: this.state.inputValue,
+      completa: false
+    }
 
+    const novaListaDeTarefas = [...this.state.tarefas, novaTarefa]
+    this.setState({tarefas: novaListaDeTarefas})
+    console.log(novaListaDeTarefas);
   }
 
   selectTarefa = (id) => {
@@ -58,7 +67,7 @@ export default class App extends React.Component {
 
   onChangeFilter = (event) => {
 
-  }
+  };
 
   render() {
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
@@ -69,14 +78,17 @@ export default class App extends React.Component {
           return tarefa.completa
         default:
           return true
-      }
-    })
+      };
+    });
 
     return (
       <div className="App">
         <h1>Lista de tarefas</h1>
         <InputsContainer>
-          <input value={this.state.inputValue} onChange={this.onChangeInput}/>
+          <input value={this.state.inputValue} 
+                  onChange={this.onChangeInput}
+                  type="text"
+          />
           <button onClick={this.criaTarefa}>Adicionar</button>
         </InputsContainer>
         <br/>
@@ -102,6 +114,6 @@ export default class App extends React.Component {
           })}
         </TarefaList>
       </div>
-    )
-  }
-}
+    );
+  };
+};
