@@ -37,11 +37,13 @@ export default class App extends React.Component {
     }
 
   componentDidUpdate() {
-
+    localStorage.setItem('tarefas', JSON.stringify(this.state.tarefas))
   }
 
   componentDidMount() {
-
+    const tarefaEmString = localStorage.getItem('tarefas')
+    const tarefasEmObjeto = JSON.parse(tarefaEmString)
+    this.setState({tarefas: tarefasEmObjeto})
   }
 
   onChangeInput = (event) => {
@@ -49,7 +51,6 @@ export default class App extends React.Component {
   }
 
   criaTarefa = () => {
-    console.log("ADICIONAR TAREFA", this.state.inputValue);
     const novaTarefa = {
       id: Date.now(),
       texto: this.state.inputValue,
@@ -62,7 +63,6 @@ export default class App extends React.Component {
   }
 
   selectTarefa = (id) => {
-    console.log('ALTERAR SITUAÇÃO', id);
     const novaListaDeTarefas = this.state.tarefas.map((tarefa) => {
       if(id === tarefa.id) {
         const novaTarefa = {
@@ -79,9 +79,7 @@ export default class App extends React.Component {
   }
 
   onChangeFilter = (event) => {
-    console.log('SELECIONA COMPLETA OU INCOMPLETA')
     this.setState({filtro: event.target.value})
-    
   };
 
   render() {
