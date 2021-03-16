@@ -29,7 +29,7 @@ export default class App extends React.Component {
         {
           id: Date.now(),
           texto: "Estudar",
-          completa: true
+          completa: false
         }
       ],
       inputValue: '',
@@ -79,7 +79,9 @@ export default class App extends React.Component {
   }
 
   onChangeFilter = (event) => {
-
+    console.log('SELECIONA COMPLETA OU INCOMPLETA')
+    this.setState({filtro: event.target.value})
+    
   };
 
   render() {
