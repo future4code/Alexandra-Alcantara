@@ -62,7 +62,20 @@ export default class App extends React.Component {
   }
 
   selectTarefa = (id) => {
+    console.log('ALTERAR SITUAÇÃO', id);
+    const novaListaDeTarefas = this.state.tarefas.map((tarefa) => {
+      if(id === tarefa.id) {
+        const novaTarefa = {
+          ...tarefa,
+          completa: !tarefa.completa
+        }
+        return novaTarefa
+      } else {
+        return tarefa
+      }
+    })
 
+    this.setState({tarefas: novaListaDeTarefas})
   }
 
   onChangeFilter = (event) => {
