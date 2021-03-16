@@ -23,7 +23,7 @@ export default class App extends React.Component {
       tarefas: [
         {
           id: Date.now(),
-          texto: "regar as plantas",
+          texto: "Regar as plantas",
           completa: false
         },
         {
@@ -41,9 +41,11 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    const tarefaEmString = localStorage.getItem('tarefas')
-    const tarefasEmObjeto = JSON.parse(tarefaEmString)
-    this.setState({tarefas: tarefasEmObjeto})
+    if (localStorage.getItem('tarefas')) {
+      const tarefaEmString = localStorage.getItem('tarefas')
+      const tarefasEmObjeto = JSON.parse(tarefaEmString)
+      this.setState({tarefas: tarefasEmObjeto})
+    } 
   }
 
   onChangeInput = (event) => {
