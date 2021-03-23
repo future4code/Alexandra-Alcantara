@@ -1,21 +1,24 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import { UsersList } from './components/UsersList';
+import { UsersRegister } from './components/UsersRegister'
 
 export default class App extends React.Component {
   state = {
     users: [],
     inputName: "",
-    inputEmail: ""
+    inputEmail: "",
+    listUsers: false
   };
 
   componentDidMount() {
     this.getUsers();
   };
 
-  // componentDidUpdate(){
-  //   this.getUsers();
-  // }
+  componentDidUpdate(){
+    this.getUsers();
+  }
 
   handleInputChangeName = (e) => {
     this.setState({ inputName: e.target.value });
@@ -24,6 +27,12 @@ export default class App extends React.Component {
   handleInputChangeEmail = (e) => {
     this.setState({ inputEmail: e.target.value });
   };
+
+  changePage = ()=>{
+    this.setState({
+      listUsers: !this.state.listUsers
+    })
+  }
 
   getUsers = () => {
     axios
@@ -37,11 +46,10 @@ export default class App extends React.Component {
     )
     .then((response) => {
       this.setState({ users: response.data });
-      console.log(response.data);
-      alert("Entrou!")
+     
     })
     .catch((error) => {
-      console.log(error.response.data);
+      alert(error.response.data.message);
     });
   };
 
@@ -67,41 +75,48 @@ export default class App extends React.Component {
         alert("O usuário foi inserido com sucesso!")
       })
       .catch((error) => {
-        console.log(error.response.data)
+        alert(error.response.data.message)
       });
   };
 
+  deleteUser = (id) => {
+    axios
+      .delete(
+        `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
+        {
+          headers: {
+            Authorization: "alexandra-alcantara-cruz"
+          }
+        }
+      )
+      .then((response) => {
+        alert("O usuário foi excluído com sucesso!")
+      })
+      .catch((error) => {
+        alert("Ops! Algo saiu errado :(, tente novamente.")
+      })
+  }  
+
   render() {
-    const usersList = this.state.users.map((user) => {
-      return <li key={user.id}>{user.name}</li>
-    });
+    
     return(
       <div>
-        <button onClick={this.getUsers}>Ir para a página de lista</button>
-        {this.state.users.length > 0 ? (
-          <ul>{usersList}</ul>
-        ) : (
-          <p>Carregando...</p>
-        )}
-        <div>
-          <label>Nome:</label>
-            <input 
-              placeholder={"Seu nome"}
-              value={this.state.inputName}
-              onChange={this.handleInputChangeName}
-            />
-        </div>
-        <div>
-            <label>E-mail:</label>
-            <input 
-              placeholder={"Seu email"}
-              value={this.state.inputEmail}
-              onChange={this.handleInputChangeEmail}
-            />
-        </div>
-        <div>
-            <button onClick={this.createUser}>Salvar</button>
-        </div>
+        
+       {this.state.listUsers &&  <UsersList 
+          users={this.state.users} 
+          changePage={this.changePage}
+          deleteUser={this.deleteUser}
+        />}
+
+        {!this.state.listUsers && (<UsersRegister 
+          inputName={this.state.inputName} 
+          inputEmail={this.state.inputEmail} 
+          handleInputChangeName={this.handleInputChangeName}
+          handleInputChangeEmail={this.handleInputChangeEmail}
+          createUser={this.createUser}
+          changePage={this.changePage}
+        />)}
+        
       </div>
     );
   };
