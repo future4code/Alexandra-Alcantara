@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { UsersList } from './components/UsersList';
-import { UsersRegister } from './components/UsersRegister'
+import { UsersList } from './pages/UsersList';
+import { UsersRegister } from './pages/UsersRegister'
 import "./App.css";
 
 export default class App extends React.Component {
