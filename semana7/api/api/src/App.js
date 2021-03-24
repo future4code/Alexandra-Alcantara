@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 import { UsersList } from './components/UsersList';
 import { UsersRegister } from './components/UsersRegister'
+import "./App.css";
 
 export default class App extends React.Component {
   state = {
@@ -12,13 +12,17 @@ export default class App extends React.Component {
     listUsers: false
   };
 
+  //Lifecycle
+
   componentDidMount() {
-    this.getUsers();
+    this.getUsers()
   };
 
   componentDidUpdate(){
-    this.getUsers();
-  }
+    this.getUsers()
+  };
+
+  //onChange
 
   handleInputChangeName = (e) => {
     this.setState({ inputName: e.target.value });
@@ -28,11 +32,15 @@ export default class App extends React.Component {
     this.setState({ inputEmail: e.target.value });
   };
 
+  //Function
+
   changePage = ()=>{
     this.setState({
       listUsers: !this.state.listUsers
     })
-  }
+  };
+
+  //Requests
 
   getUsers = () => {
     axios
@@ -46,7 +54,6 @@ export default class App extends React.Component {
     )
     .then((response) => {
       this.setState({ users: response.data });
-     
     })
     .catch((error) => {
       alert(error.response.data.message);
@@ -71,7 +78,6 @@ export default class App extends React.Component {
       .then((response) => {
         this.setState({ inputName: '' })
         this.setState({ inputEmail: '' })
-        // this.getUsers()
         alert("O usuário foi inserido com sucesso!")
       })
       .catch((error) => {
@@ -94,20 +100,18 @@ export default class App extends React.Component {
       })
       .catch((error) => {
         alert("Ops! Algo saiu errado :(, tente novamente.")
-      })
-  }  
+      });
+  };  
 
   render() {
     
     return(
       <div>
-        
        {this.state.listUsers &&  <UsersList 
           users={this.state.users} 
           changePage={this.changePage}
           deleteUser={this.deleteUser}
         />}
-
         {!this.state.listUsers && (<UsersRegister 
           inputName={this.state.inputName} 
           inputEmail={this.state.inputEmail} 
@@ -116,7 +120,6 @@ export default class App extends React.Component {
           createUser={this.createUser}
           changePage={this.changePage}
         />)}
-        
       </div>
     );
   };
