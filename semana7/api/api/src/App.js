@@ -3,6 +3,7 @@ import axios from 'axios';
 import { UsersList } from './pages/UsersList';
 import { UsersRegister } from './pages/UsersRegister'
 import "./App.css";
+import { baseUrl,axiosConfig } from './parameters';
 
 export default class App extends React.Component {
   state = {
@@ -12,8 +13,6 @@ export default class App extends React.Component {
     listUsers: false
   };
 
-  //Lifecycle
-
   componentDidMount() {
     this.getUsers()
   };
@@ -21,8 +20,6 @@ export default class App extends React.Component {
   componentDidUpdate(){
     this.getUsers()
   };
-
-  //onChange
 
   handleInputChangeName = (e) => {
     this.setState({ inputName: e.target.value });
@@ -32,76 +29,45 @@ export default class App extends React.Component {
     this.setState({ inputEmail: e.target.value });
   };
 
-  //Function
-
   changePage = ()=>{
     this.setState({
       listUsers: !this.state.listUsers
     })
   };
 
-  //Requests
-
-  getUsers = () => {
-    axios
-      .get(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-      {
-        headers: {
-          Authorization: "alexandra-alcantara-cruz"
-        }
-      }
-    )
-    .then((response) => {
-      this.setState({ users: response.data });
-    })
-    .catch((error) => {
+  getUsers = async () => {
+    try {
+      const response = await axios.get(baseUrl, axiosConfig)
+      this.setState({ users: response.data })
+    } catch(error)  {
       alert(error.response.data.message);
-    });
+      }
   };
 
-  createUser = () => {
-    const body = {
-      name: this.state.inputName,
-      email: this.state.inputEmail
-    };
-    axios
-      .post(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-        body,
-        {
-          headers: {
-            Authorization: "alexandra-alcantara-cruz"
-          }
-        }
-      )
-      .then((response) => {
-        this.setState({ inputName: '' })
-        this.setState({ inputEmail: '' })
-        alert("O usuário foi inserido com sucesso!")
-      })
-      .catch((error) => {
-        alert(error.response.data.message)
-      });
+  createUser = async () => {
+    try {
+      const body = {
+        name: this.state.inputName,
+        email: this.state.inputEmail
+      };
+  
+      const response = await axios.post(baseUrl, body, axiosConfig)
+      this.setState({ inputName: '' })
+      this.setState({ inputEmail: '' })
+      alert("O usuário foi inserido com sucesso!")
+    } catch(error) {
+      alert(error.response.data.message)
+      }
   };
 
-  deleteUser = (id) => {
-    axios
-      .delete(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,
-        {
-          headers: {
-            Authorization: "alexandra-alcantara-cruz"
-          }
-        }
-      )
-      .then((response) => {
-        alert("O usuário foi excluído com sucesso!")
-      })
-      .catch((error) => {
-        alert("Ops! Algo saiu errado :(, tente novamente.")
-      });
-  };  
+  deleteUser = async (id) => {
+    try {
+      const response = await axios.delete(`${baseUrl}/${id}`, axiosConfig)
+      alert("O usuário foi excluído com sucesso!")
+    } catch(error) {
+      alert("Ops! Algo saiu errado :(, tente novamente.")
+      }
+  };
 
   render() {
     
