@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { baseUrl, axiosConfig } from "../parameters";
 
 export default class CreatePlaylistPage extends React.Component {
     state = {
@@ -8,6 +9,21 @@ export default class CreatePlaylistPage extends React.Component {
 
     handleName = (e) => {
         this.setState({ name: e.target.value })
+    }
+
+    createPlaylist = () => {
+        const body = {
+            name: this.state.name
+        }
+
+        axios.post(baseUrl, body, axiosConfig)
+        .then((res) => {
+         this.setState({ name: '' })
+         console.log(res)
+        })
+        .catch((err) => {
+         console.log(err)
+        })
     }
 
     render() {
@@ -20,7 +36,7 @@ export default class CreatePlaylistPage extends React.Component {
                  value={ this.state.name }
                  onChange={this.handleName} 
                 />
-                <button>Save</button>
+                <button onClick={ this.createPlaylist }>Save</button>
             </div>
         )
     }
