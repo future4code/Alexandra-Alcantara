@@ -11,19 +11,18 @@ export default class CreatePlaylistPage extends React.Component {
         this.setState({ name: e.target.value })
     }
 
-    createPlaylist = () => {
-        const body = {
+    createPlaylist = async () => {
+        try {
+          const body = {
             name: this.state.name
-        }
+          };
 
-        axios.post(baseUrl, body, axiosConfig)
-        .then((res) => {
-         this.setState({ name: '' })
-         alert("Playlist criada com sucesso!")
-        })
-        .catch((err) => {
-         alert("Ops! Saiu algo errado, tente novamente.")
-        })
+          const res = await axios.post(baseUrl, body, axiosConfig)
+          this.setState({ name: '' })
+          alert("Playlist criada com sucesso!")
+        } catch(err) {
+          alert("Ops! Saiu algo errado, tente novamente.")
+        }
     }
 
     render() {

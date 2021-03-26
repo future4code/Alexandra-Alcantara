@@ -15,24 +15,22 @@ export default class ListPlaylistPage extends React.Component {
         this.getPlaylist()
     }
     
-    getPlaylist = () => {
-        axios.get(baseUrl, axiosConfig)
-        .then((res) => {
-            this.setState({ playlists: res.data.result.list })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+    getPlaylist = async () => {
+        try {
+          const res = await axios.get(baseUrl, axiosConfig)
+          this.setState({ playlists: res.data.result.list })
+        } catch(err) {
+          console.log(err);
+        }
     }
 
-    deletePlaylist = (id) => {
-        axios.delete(`${baseUrl}/${id}`, axiosConfig)
-        .then((res) => {
-            alert("A playlist foi excluída com sucesso!")
-        })
-        .catch((err) => {
-            alert("Ops! Algo saiu errado, tente novamente.")
-        })
+    deletePlaylist = async (id) => {
+        try {
+          const res = await axios.delete(`${baseUrl}/${id}`, axiosConfig)
+          alert("A playlist foi excluída com sucesso!")
+        } catch(err)    {
+          alert("Ops! Algo saiu errado, tente novamente.")
+        }
     }
     
     render() {
