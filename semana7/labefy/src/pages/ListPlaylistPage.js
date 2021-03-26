@@ -10,6 +10,10 @@ export default class ListPlaylistPage extends React.Component {
     componentDidMount() {
         this.getPlaylist()
     }
+
+    componentDidUpdate() {
+        this.getPlaylist()
+    }
     
     getPlaylist = () => {
         axios.get(baseUrl, axiosConfig)
@@ -18,6 +22,16 @@ export default class ListPlaylistPage extends React.Component {
         })
         .catch((err) => {
             console.log(err)
+        })
+    }
+
+    deletePlaylist = (id) => {
+        axios.delete(`${baseUrl}/${id}`, axiosConfig)
+        .then((res) => {
+            alert("A playlist foi excluída com sucesso!")
+        })
+        .catch((err) => {
+            alert("Ops! Algo saiu errado, tente novamente.")
         })
     }
     
@@ -30,6 +44,7 @@ export default class ListPlaylistPage extends React.Component {
                     return(
                         <div key={playlist.id}>
                             <p>{playlist.name}</p>
+                            <button onClick={() => this.deletePlaylist(playlist.id)}>x</button>
                         </div>
                     )
                 }
