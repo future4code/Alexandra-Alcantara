@@ -2,6 +2,11 @@ import './App.css';
 import React from 'react';
 import CreatePlaylistPage from "./pages/CreatePlaylistPage";
 import ListPlaylistPage from "./pages/ListPlaylistPage";
+import styled from "styled-components";
+
+const TituloH1 = styled.h1`
+  color: #d64c00;
+`;
 
 export default class App extends React.Component {
   state = {
@@ -15,7 +20,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Labefy</h1>
+        <TituloH1>Labefy</TituloH1>
         {this.state.goToPlaylist && <ListPlaylistPage 
           changePage={ this.changePage }/>}
         {!this.state.goToPlaylist && <CreatePlaylistPage 
