@@ -6,6 +6,8 @@ import styled from "styled-components";
 
 const TituloH1 = styled.h1`
   color: #d64c00;
+  margin-top: 35px;
+  font-size: 50px;
 `;
 
 export default class App extends React.Component {

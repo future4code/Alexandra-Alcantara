@@ -3,17 +3,48 @@ import React from 'react';
 import { baseUrl, axiosConfig } from "../parameters";
 import styled from "styled-components";
 
-const Button = styled.button`
-    background-color: #705239;
+const ButtonGoToPlaylist = styled.button`
+    background-color: #FFFFFF;
+    color: #d64c00;
+    border: none;
+    width: 8vw;
+    border-radius: 10px;
+    padding: 3px;
+    font-size: 10.5px;
+    cursor: pointer;
+
+    :hover {
+        background-color: #e76200;
+        color: #FFFFFF;
+        box-shadow: 2px 2px 5px #c78900;
+    }
+`;
+
+const ButtonSave = styled.button`
+    background-color: #009f76;
+    color: #FFFFFF;
+    border: none;
+    height: 50%;
+    width: 40%;
+    border-radius: 50%;
+    grid-column-start: 2;
+    grid-row: 1 / 3;
+    margin: 0 auto;
+    box-shadow: 2px 2px 5px #705239;
+    cursor: pointer;
+
+    :hover {
+        background-color: #4dc8a0;
+    }
 `;
 
 const MainContainer = styled.div`
     background-color: #d64c00;
     border-radius: 10px;
     width: 40vw;
-    height: 150px;
+    height: 40vh;
     margin: 0 auto;
-    padding: 2px;
+    padding: 6px;
     display: flex;
     flex-direction: column;
 `;
@@ -23,16 +54,22 @@ const PlaylistContainer = styled.div`
     width: 37vw;
     height: 19vh;
     margin: 0 auto;
+    padding: 5px;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: space-evenly;
     align-items: center;
     color: #d64c00;
 `;
 
 const Input = styled.input`
-    width: 15vw;
+    width: 16vw;
+    margin: 0 auto;
+    align-self: baseline;
+    border: 1px solid #d64c00;
+    border-radius: 5px;
+    padding: 2px;
 `;
 
 const HeaderCreate = styled.div`
@@ -40,6 +77,10 @@ const HeaderCreate = styled.div`
     justify-content: space-around;
     align-items: center;
     color: #FFFFFF;
+`;
+
+const PlaylistName = styled.label`
+    font-size: 20px;
 `;
 
 export default class CreatePlaylistPage extends React.Component {
@@ -70,15 +111,15 @@ export default class CreatePlaylistPage extends React.Component {
             <MainContainer>
                 <HeaderCreate>
                     <h2>Create Playlist</h2>
-                    <Button onClick={this.props.changePage}>Go to my playlist</Button>
+                    <ButtonGoToPlaylist onClick={this.props.changePage}>Go to my playlist</ButtonGoToPlaylist>
                 </HeaderCreate>
                 <PlaylistContainer>
-                    <label>Playlist Name</label>
+                    <PlaylistName>Playlist Name</PlaylistName>
                     <Input 
                     value={ this.state.name }
                     onChange={this.handleName} 
                     />
-                    <button onClick={ this.createPlaylist }>Save</button>
+                    <ButtonSave onClick={ this.createPlaylist }>Save</ButtonSave>
                 </PlaylistContainer>
             </MainContainer>
         )
