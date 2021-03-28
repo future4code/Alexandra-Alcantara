@@ -4,10 +4,6 @@ Labefy, feito para você e as suas músicas favoritas!
 
 Acesse: https://exotic-person-labefy.surge.sh/
 
-# Conheça
-
-
-
 ### Features
 
 - Telas
