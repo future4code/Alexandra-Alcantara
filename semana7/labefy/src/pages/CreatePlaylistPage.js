@@ -7,10 +7,10 @@ const ButtonGoToPlaylist = styled.button`
     background-color: #FFFFFF;
     color: #d64c00;
     border: none;
-    width: 8vw;
+    width: 7vw;
     border-radius: 10px;
-    padding: 3px;
-    font-size: 10.5px;
+    padding: 5px;
+    font-size: 15px;
     cursor: pointer;
 
     :hover {
@@ -25,12 +25,13 @@ const ButtonSave = styled.button`
     color: #FFFFFF;
     border: none;
     height: 50%;
-    width: 40%;
+    width: 38%;
     border-radius: 50%;
     grid-column-start: 2;
     grid-row: 1 / 3;
     margin: 0 auto;
     box-shadow: 2px 2px 5px #705239;
+    font-size: 15px;
     cursor: pointer;
 
     :hover {
@@ -54,7 +55,7 @@ const PlaylistContainer = styled.div`
     width: 37vw;
     height: 19vh;
     margin: 0 auto;
-    padding: 5px;
+    padding: 8px;
     border-radius: 10px;
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -69,7 +70,7 @@ const Input = styled.input`
     align-self: baseline;
     border: 1px solid #d64c00;
     border-radius: 5px;
-    padding: 2px;
+    padding: 6px;
 `;
 
 const HeaderCreate = styled.div`
@@ -77,10 +78,11 @@ const HeaderCreate = styled.div`
     justify-content: space-around;
     align-items: center;
     color: #FFFFFF;
+    font-size: 25px;
 `;
 
 const PlaylistName = styled.label`
-    font-size: 20px;
+    font-size: 30px;
 `;
 
 export default class CreatePlaylistPage extends React.Component {
@@ -100,9 +102,9 @@ export default class CreatePlaylistPage extends React.Component {
 
           const res = await axios.post(baseUrl, body, axiosConfig)
           this.setState({ name: '' })
-          alert("Playlist criada com sucesso!")
+          alert("Playlist successfully added!")
         } catch(err) {
-          alert("Ops! Saiu algo errado, tente novamente.")
+          alert("Ops! Something got wrong, try again.")
         }
     }
 
@@ -111,13 +113,13 @@ export default class CreatePlaylistPage extends React.Component {
             <MainContainer>
                 <HeaderCreate>
                     <h2>Create Playlist</h2>
-                    <ButtonGoToPlaylist onClick={this.props.changePage}>Go to my playlist</ButtonGoToPlaylist>
+                    <ButtonGoToPlaylist onClick={()=>this.props.changePage(2)}>Go to my playlist</ButtonGoToPlaylist>
                 </HeaderCreate>
                 <PlaylistContainer>
                     <PlaylistName>Playlist Name</PlaylistName>
                     <Input 
-                    value={ this.state.name }
-                    onChange={this.handleName} 
+                     value={ this.state.name }
+                     onChange={this.handleName} 
                     />
                     <ButtonSave onClick={ this.createPlaylist }>Save</ButtonSave>
                 </PlaylistContainer>

@@ -21,24 +21,7 @@ const HeaderCreate = styled.div`
     justify-content: space-around;
     align-items: center;
     color: #FFFFFF;
-`;
-
-const ButtonCreatePlaylist = styled.button`
-    background-color: #FFFFFF;
-    color: #d64c00;
-    border: none;
-    width: 8vw;
-    border-radius: 10px;
-    padding: 3px;
-    font-size: 10.5px;
-    cursor: pointer;
-    padding: 5px;
-
-    :hover {
-        background-color: #e76200;
-        color: #FFFFFF;
-        box-shadow: 2px 2px 5px #c78900;
-    }
+    font-size: 25px;
 `;
 
 const PlaylistList = styled.div`
@@ -51,13 +34,14 @@ const PlaylistList = styled.div`
 const PlaylistNames = styled.p`
     margin: 5px;
     padding: 3px;
+    font-size: 23px;
 `;
 
 const ButtonRemove = styled.button`
     border: none;
     color: #FFFFFF;
     background-color: #d64c00;
-    font-size: 10px;
+    font-size: 15px;
     cursor: pointer;
     border-radius: 5px;
     padding: 5px; 
@@ -66,7 +50,42 @@ const ButtonRemove = styled.button`
         background-color: #FFFFFF;
         color: #d64c00;
     }
-`
+`;
+
+const ButtonDetails = styled.button`
+    border: none;
+    color: #FFFFFF;
+    background-color: #d64c00;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 3px;
+    align-self: flex-end;
+    margin-right: auto;
+    margin-bottom: 2px;
+
+    :hover {
+        background-color: #FFFFFF;
+        color: #d64c00;
+    }
+`;
+
+const ButtonCreatePlaylist = styled.button`
+     background-color: #FFFFFF;
+    color: #d64c00;
+    border: none;
+    width: 7vw;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 15px;
+    cursor: pointer;
+
+    :hover {
+        background-color: #e76200;
+        color: #FFFFFF;
+        box-shadow: 2px 2px 5px #c78900;
+    }
+`;
 
 export default class ListPlaylistPage extends React.Component {
     state = {
@@ -93,9 +112,9 @@ export default class ListPlaylistPage extends React.Component {
     deletePlaylist = async (id) => {
         try {
           const res = await axios.delete(`${baseUrl}/${id}`, axiosConfig)
-          alert("A playlist foi excluída com sucesso!")
+          alert("Playlist successfully deleted!!")
         } catch(err)    {
-          alert("Ops! Algo saiu errado, tente novamente.")
+          alert("Ops! Something got wrong, try again.")
         }
     }
     
@@ -104,12 +123,13 @@ export default class ListPlaylistPage extends React.Component {
             <MainContainer>
                 <HeaderCreate>
                     <h2>Playlists</h2>
-                    <ButtonCreatePlaylist onClick={this.props.changePage}>Create a new playlist</ButtonCreatePlaylist>
+                    <ButtonCreatePlaylist onClick={()=>this.props.changePage(1)}>Create a new playlist</ButtonCreatePlaylist>
                 </HeaderCreate>
                 {this.state.playlists.map((playlist) => {
                     return(
                         <PlaylistList key={playlist.id}>
                             <PlaylistNames>{playlist.name}</PlaylistNames>
+                            <ButtonDetails onClick={()=>this.props.showDetails(3, playlist)}>Details</ButtonDetails>
                             <ButtonRemove onClick={() => this.deletePlaylist(playlist.id)}>remove</ButtonRemove>
                         </PlaylistList>
                     )
