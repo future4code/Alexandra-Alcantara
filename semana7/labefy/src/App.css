@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', cursive  ;
+}
+
+  body::before {
+    background-image: url("./img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    content: '';
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.App {
+  text-align: center;
+}
+
