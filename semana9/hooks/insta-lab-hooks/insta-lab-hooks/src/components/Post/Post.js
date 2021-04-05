@@ -24,14 +24,14 @@ const Post = (props) => {
       setCurtido(!curtido)
       setNumeroCurtidas(numeroCurtidas + 1)
     }
-    console.log("Entrei no onclick curtida")
   };
 
-  const iconeCurtida = curtido ? (iconeCoracaoPreto) : (iconeCoracaoBranco)
+  const iconeCurtida = curtido ? 
+                      (iconeCoracaoPreto) :
+                      (iconeCoracaoBranco)
 
   const onClickComentario = () => {
     setComentando(!comentando)
-    console.log("Entrei no comentário")
   };
   
   const enviarComentario = (comentario) => {

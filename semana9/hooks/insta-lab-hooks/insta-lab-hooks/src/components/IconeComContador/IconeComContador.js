@@ -11,7 +11,9 @@ const IconeContainer = styled.div`
 
 function IconeComContador(props) {
 	return <IconeContainer>
-		<img alt={'Icone'} src={props.icone} onClick={props.onClickCurtida}/>
+		<img alt={'Icone'} 
+			 src={props.icone} 
+			 onClick={props.onClickIcone}/>
 		<p>{props.valorContador}</p>
 	</IconeContainer>
 }
