@@ -13,20 +13,21 @@ const InputComment = styled.input `
 `
 
 const SecaoComentario = (props) => {
-
+	const [inputValor, setInputValor] = useState("");
 
 	const onChangeComentario = (event) => {
-	}
+		setInputValor(event.target.value);
+	};
 
 	return (
 		<CommentContainer>
 			<InputComment
 				className={'input-comentario'}
 				placeholder={'Comentário'}
-				value={""}
+				value={inputValor}
 				onChange={onChangeComentario}
 			/>
-			<button onClick={() => { props.enviarComentario() }} >Enviar</button>
+			<button onClick={() => { props.enviarComentario(inputValor) }} >Enviar</button>
 		</CommentContainer>
 	)
 }
