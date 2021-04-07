@@ -12,19 +12,20 @@ const ProfileCard = (props) => {
                 .catch((err) => console.log(err));
         };
         getMatches();
-    }, [setProfile])
+    }, [profiles])
 
     return(
         <div>
             {profiles.map((profile) => {
                 return(
-                    <div>
+                    <div key={profile.id}>
                         <p>Matches Page</p>
                         <p>{profile.name}</p>
                         <img width="20%" src={profile.photo} alt={profile.name}/>
                     </div>
                 )
             })}
+            <button onClick={() => props.changePage(1)}>Home</button>
         </div>
     )
 }
