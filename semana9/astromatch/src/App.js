@@ -5,6 +5,7 @@ import axios from 'axios';
 const App = () => {
   const [profileList, setProfileList] = useState({});
   const [id, setId] = useState("")
+  const [choice, setChoice] = useState(false)
 
   const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/alexandra-alcantara-cruz/person";
 
@@ -18,20 +19,17 @@ const App = () => {
     getProfile();
   }, [setProfileList, baseUrl])
 
-  // const chooseProfile = (id) => {
-  //   setChosenOne(id.id)
-  //   console.log("entrei")
-  // }
+  const choosePerson = async () => {
+    const body = {
+      id: profileList.id,
+      choice: (!choice)
+    }
+    const response = await axios.post(
+      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/alexandra-alcantara-cruz/choose-person", body)
+      console.log(response)
+  }
 
-  // useEffect(() => {
-  //   const makeChoice = () => {
-  //     axios
-  //       .post("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/alexandra-alcantara-cruz/choose-person")
-  //       .then((res) => setId(res.data))
-  //       .catch((err) => console.log(err));
-  //   };
-  //   makeChoice();
-  // }, [setId])
+
 
   return(
     <div>
@@ -41,7 +39,7 @@ const App = () => {
       <p width="20%">{profileList.bio}</p>
 
       <button>Vá-se!</button>
-      <button /*onClick={chooseProfile}*/>Venha!</button>
+      <button onClick={choosePerson}>Venha!</button>
       <br /> <br />
       <button>Clear</button>
       <hr />
