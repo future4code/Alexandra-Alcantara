@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-// import ProfileCard from "./components/ProfileCard";
+import ProfileCard from "./components/ProfileCard";
 
 const App = () => {
   const [profileList, setProfileList] = useState({});
@@ -29,7 +29,11 @@ const App = () => {
       console.log(response)
   }
 
-
+  const clear = async () => {
+    const response = await axios.put(
+      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/alexandra-alcantara-cruz/clear")
+      console.log(response)
+  }
 
   return(
     <div>
@@ -41,9 +45,9 @@ const App = () => {
       <button>Vá-se!</button>
       <button onClick={choosePerson}>Venha!</button>
       <br /> <br />
-      <button>Clear</button>
+      <button onClick={clear}>Clear</button>
       <hr />
-
+      <ProfileCard />
     </div>
   )
 }
