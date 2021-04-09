@@ -4,15 +4,15 @@ import matches from "../images/matches-icon.png";
 import astroname from "../images/astroname.png";
 import styled from "styled-components";
 
-const Img = styled.img`
-    cursor: pointer;
-    position: relative;
-    left: 355px;
-    :hover {
-        transform: scale(1.05);
-        transition: all 0.3s ease 0s;
-    }
-`;
+// const Img = styled.img`
+//     cursor: pointer;
+//     position: relative;
+//     left: 355px;
+//     :hover {
+//         transform: scale(1.05);
+//         transition: all 0.3s ease 0s;
+//     }
+// `;
 
 const HeaderContainer = styled.div`
     display: flex;
@@ -33,7 +33,7 @@ const Header = (props) => {
         <div>
             <HeaderContainer>
                 <Titulo src={astroname} />
-                <Img src={matches} onClick={() => props.changePage(2)} />
+                {/* <Img src={matches} onClick={() => props.changePage(2)} /> */}
             </HeaderContainer>
         </div>
     )

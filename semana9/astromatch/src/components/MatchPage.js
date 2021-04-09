@@ -1,11 +1,40 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import baseUrl from "../parameters";
-import { AbsoluteCenter, ChakraProvider } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react"
 import styled from "styled-components";
-import { Flex, Spacer } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
+import Header from "./Header";
+import matches from "../images/matches-icon.png";
+import clearicon from "../images/clearicon.png";
+import { Tooltip } from "@chakra-ui/react";
+import Clear from "./Clear";
+
+const ClearButton = styled.img`
+  width: 35px;
+  cursor: pointer;
+  position: relative;
+  bottom: 220px;
+  left: 4px;
+
+  :hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease 0s;
+  }
+`;
+
+const Img = styled.img`
+    cursor: pointer;
+    position: relative;
+    left: 355px;
+    bottom: 40px;
+    width: 38px;
+    :hover {
+        transform: scale(1.05);
+        transition: all 0.3s ease 0s;
+    }
+`;
 
 const Comma = styled.p`
     margin-right: 4px;
@@ -63,7 +92,7 @@ const Age = styled.p`
     align-self: center;
 `;
 
-const MatchPage = () => {
+const MatchPage = (props) => {
     const [profileList, setProfileList] = useState({});
     const [isMatch, setIsMatch] = useState()
 
@@ -90,9 +119,15 @@ const MatchPage = () => {
 
     return(
         <div>
-            <Box 
-             margin= "0 auto"
-           >
+
+            <Header 
+                changePage={props.changePage}
+            />
+            <Img src={matches} onClick={() => props.changePage(2)} />
+            <Box
+            position="relative"
+            bottom="30px"
+            >
                 <Image 
                   src={profileList.photo}
                   alt={profileList.name}
@@ -101,33 +136,33 @@ const MatchPage = () => {
                   borderRadius="20px"
                   objectFit="cover"
                   height="448px"
+                  filter= "drop-shadow(0px 4px 9px gray)"
                 />
             </Box>
-                <Box
-                  borderRadius="8px"
-                  marginLeft="15px"
-                  marginTop="50px"
-                  width="378px"
-                  paddingLeft="20px"
-                  position="relative"
-                  bottom="200px"
-                  color="#FFFFFF"
-                  height="132px"
-                  backgroundImage= "linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent)"
+            <Box
+                borderRadius="5px"
+                marginLeft="15px"
+                marginTop="50px"
+                width="378px"
+                paddingLeft="20px"
+                position="relative"
+                bottom="230px"
+                color="#FFFFFF"
+                height="132px"
+                backgroundImage= "linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent)"
+            >
+                <Flex>
+                    <Name>{profileList.name}</Name>
+                    <Comma>,</Comma>
+                    <Age>{profileList.age}</Age>
+                </Flex>
+                <Flex
+                    position="relative"
+                    bottom="22px"
                 >
-                    <Flex
-                    >
-                        <Name>{profileList.name}</Name>
-                        <Comma>,</Comma>
-                        <Age>{profileList.age}</Age>
-                    </Flex>
-                    <Flex
-                        position="relative"
-                        bottom="22px"
-                    >
-                    <p>{profileList.bio}</p>
-                    </Flex>
-                </Box>
+                <p>{profileList.bio}</p>
+                </Flex>
+            </Box>
             <Flex
                 justifyContent="space-evenly"
                 position= "relative"
@@ -136,7 +171,14 @@ const MatchPage = () => {
                 <NahButton onClick={() => choosePerson(false)}>Oh No</NahButton>
                 <YeahButton onClick={() => choosePerson(true)}>Oh Yeah</YeahButton>
             </Flex>
-            
+            <Tooltip 
+                label="Limpar swipes e matches" 
+                aria-label="A tooltip"
+                backgroundColor= "lightgray"
+                padding="4px"
+                borderRadius="8px">
+                <Clear />
+            </Tooltip>
         </div>
     )
 }

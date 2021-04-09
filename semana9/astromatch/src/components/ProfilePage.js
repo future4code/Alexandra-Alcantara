@@ -2,6 +2,20 @@ import React, {useEffect, useState} from 'react';
 import axios from  'axios';
 import baseUrl from "../parameters"
 import styled from "styled-components";
+import Header from "./Header";
+import backicon from "../images/backicon.png";
+
+const Img = styled.img`
+    cursor: pointer;
+    position: relative;
+    bottom: 40px;
+    left: 8px;
+    width: 30px;
+    :hover {
+        transform: scale(1.05);
+        transition: all 0.3s ease 0s;
+    }
+`;
 
 const ProfileImg = styled.img`
     width: 10%;
@@ -23,6 +37,11 @@ const ProfileCard = (props) => {
 
     return(
         <div>
+            <Header 
+                changePage={props.changePage}
+            />
+            <Img src={backicon} onClick={() => props.changePage(1)} />
+
             {profiles.map((profile) => {
                 return(
                     <div key={profile.id}>
@@ -31,7 +50,6 @@ const ProfileCard = (props) => {
                     </div>
                 )
             })}
-            <button onClick={() => props.changePage(1)}>Home</button>
         </div>
     )
 }
