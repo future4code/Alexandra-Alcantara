@@ -1,21 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import axios from  'axios';
-import baseUrl from "../parameters"
-import styled from "styled-components";
-import Header from "./Header";
+import baseUrl from "../parameters";
 import backicon from "../images/backicon.png";
-
-const Img = styled.img`
-    cursor: pointer;
-    position: relative;
-    bottom: 40px;
-    left: 8px;
-    width: 30px;
-    :hover {
-        transform: scale(1.05);
-        transition: all 0.3s ease 0s;
-    }
-`;
+import Header from "./Header";
+import Clear from "./Clear";
+import styled from "styled-components";
 
 const ProfileImg = styled.img`
     width: 10%;
@@ -39,9 +28,9 @@ const ProfileCard = (props) => {
         <div>
             <Header 
                 changePage={props.changePage}
+                image={backicon} leftPosition={"15px"} widthIcon={"35px"}
+                numPage={1}
             />
-            <Img src={backicon} onClick={() => props.changePage(1)} />
-
             {profiles.map((profile) => {
                 return(
                     <div key={profile.id}>

@@ -1,18 +1,7 @@
 import React from 'react';
-import { ChakraProvider } from "@chakra-ui/react";
-import matches from "../images/matches-icon.png";
 import astroname from "../images/astroname.png";
 import styled from "styled-components";
-
-// const Img = styled.img`
-//     cursor: pointer;
-//     position: relative;
-//     left: 355px;
-//     :hover {
-//         transform: scale(1.05);
-//         transition: all 0.3s ease 0s;
-//     }
-// `;
+import Clear from "./Clear";
 
 const HeaderContainer = styled.div`
     display: flex;
@@ -28,12 +17,31 @@ const Titulo = styled.img`
     transform: translateX(-50%);
 `;
 
+const Img = styled.img`
+    cursor: pointer;
+    position: relative;
+    left: ${props => props.leftPosition || "15px"};
+    width: ${props => props.widthIcon || "40px"};
+    :hover {
+        transform: scale(1.05);
+        transition: all 0.3s ease 0s;
+    }
+`;
+
 const Header = (props) => {
+    const {image, changePage, numPage, leftPosition, widthIcon} = props
+
     return(
         <div>
             <HeaderContainer>
                 <Titulo src={astroname} />
-                {/* <Img src={matches} onClick={() => props.changePage(2)} /> */}
+                <Img 
+                    src={image} 
+                    onClick={() => changePage(numPage)} 
+                    leftPosition={leftPosition}
+                    widthIcon={widthIcon}
+                />
+                <Clear />
             </HeaderContainer>
         </div>
     )
