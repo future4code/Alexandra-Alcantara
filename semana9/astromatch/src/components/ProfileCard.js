@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import axios from  'axios';
+import baseUrl from "../parameters"
+import styled from "styled-components";
+
+const ProfileImg = styled.img`
+    width: 10%;
+    border-radius: 50%;
+`;
 
 const ProfileCard = (props) => {
     const [profiles, setProfile] = useState([])
@@ -7,7 +14,7 @@ const ProfileCard = (props) => {
     useEffect(() => {
         const getMatches = () => {
             axios
-                .get("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/alexandra-alcantara-cruz/matches")
+                .get(`${baseUrl}/matches`)
                 .then((res) => setProfile(res.data.matches))
                 .catch((err) => console.log(err));
         };
@@ -19,9 +26,8 @@ const ProfileCard = (props) => {
             {profiles.map((profile) => {
                 return(
                     <div key={profile.id}>
-                        <p>Matches Page</p>
+                        <ProfileImg src={profile.photo} alt={profile.name}/>
                         <p>{profile.name}</p>
-                        <img width="20%" src={profile.photo} alt={profile.name}/>
                     </div>
                 )
             })}
