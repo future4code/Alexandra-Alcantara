@@ -18,7 +18,6 @@ https://exotic-person-astromatch.surge.sh/
 - [x] Botão reset para reiniciar os swipes;
 - [x] 2 botões para dar "like" ou "dislike";
 - [x] Mensagem de "It's a match!" caso o match aconteça;
-- [x] Responsivo para desktop, <strong>iPhone 6/7/8</strong> e <strong>iPhoneX</strong>;
 
 ## Imagens
 
