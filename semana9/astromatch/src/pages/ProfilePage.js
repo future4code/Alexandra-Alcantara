@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import baseUrl from "../parameters";
 import backicon from "../images/backicon.png";
-import Header from "./Header";
+import Header from "../components/Header";
 import styled from "styled-components";
 import { Box } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
@@ -51,7 +51,7 @@ const ProfileCard = (props) => {
                 src={profile.photo}
                 alt={profile.name}
                 boxSize="100%"
-                height="52px"
+                height="49px"
                 borderRadius="50%"
                 objectFit="cover"
                 filter="drop-shadow(0px 4px 9px gray)"
