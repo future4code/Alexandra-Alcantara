@@ -6,6 +6,10 @@
 
 Projeto de WhatsApp, feito como prática dos conhecimento adquiridos no decorrer da semana.
 
+## Link do surge
+
+https://exotic-person-astromatch.surge.sh/
+
 ### Features
 
 - [x] Página de swipes;
@@ -15,6 +19,12 @@ Projeto de WhatsApp, feito como prática dos conhecimento adquiridos no decorrer
 - [x] 2 botões para dar "like" ou "dislike";
 - [x] Mensagem de "It's a match!" caso o match aconteça;
 - [x] Responsivo para desktop, <strong>iPhone 6/7/8</strong> e <strong>iPhoneX</strong>;
+
+## Imagens
+
+<img src="https://i.ibb.co/mFwVryD/profiles.png" alt="profiles">
+<img src="https://i.ibb.co/QFmZ8M2/msg.png" alt="msg">
+<img src="https://i.ibb.co/Wx59QRc/swipes.png" alt="swipes">
 
 ## 🛠 Tecnologias
 
