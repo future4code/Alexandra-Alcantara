@@ -14,6 +14,7 @@ const ProfileName = styled.p`
   display: flex;
   align-items: center;
   width: 342px;
+  color: #6c6870;
 `;
 
 const ProfileCard = (props) => {
