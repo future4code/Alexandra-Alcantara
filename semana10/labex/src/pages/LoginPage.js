@@ -31,6 +31,9 @@ const LoginPage = () => {
       })
       .catch((err) => {
         console.log(err);
+        alert(
+          "Ops, algo deu errado! Verifique se o e-mail e senha digitados estão corretos e tente novamente."
+        );
       });
   };
 
