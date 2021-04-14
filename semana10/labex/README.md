@@ -15,9 +15,9 @@
 
 https://exotic-person-labex.surge.sh/
 
-### Features
+## Features
 
-#### 8 Páginas
+### 8 Páginas
 
 - [x] Admin Home Page;
 - [x] Application Form Page;
@@ -28,14 +28,14 @@ https://exotic-person-labex.surge.sh/
 - [x] Login Page;
 - [x] Trip Details Page;
 
-#### Integração com os seguintes endpoints da API LabeX
+### Integração com os seguintes endpoints da API LabeX
 
 - [ ] Get Trips;
 - [ ] Get Trip Detail;
 - [ ] Create Trip;
 - [ ] Apply to Trip;
 - [ ] Delete Trip;
-- [ ] Login;
+- [x] Login;
 - [ ] Decide Candidate;
 
 ## Imagens

@@ -1,5 +1,7 @@
 import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useProtectedPage } from "../hooks/useProtectedPage";
 import {
   goToCreateTripPage,
   goToListTripsPage,
@@ -7,7 +9,7 @@ import {
   goToTripDetailsPage,
 } from "../routes/coordinator";
 
-const ApplicationFormPage = () => {
+const AdminHomePage = () => {
   const history = useHistory();
 
   return (
@@ -25,4 +27,4 @@ const ApplicationFormPage = () => {
   );
 };
 
-export default ApplicationFormPage;
+export default AdminHomePage;
