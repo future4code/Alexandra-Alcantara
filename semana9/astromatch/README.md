@@ -1,0 +1,46 @@
+# <h1 align='center'>Astromatch </h1>
+
+## Descrição do projeto
+
+<p align="justify">Projeto realizado como prática de React, useState e useEffect</p>
+
+Projeto de WhatsApp, feito como prática dos conhecimento adquiridos no decorrer da semana.
+
+## Link do surge
+
+https://exotic-person-astromatch.surge.sh/
+
+### Features
+
+- [x] Página de swipes;
+- [x] Página com a lista de perfis que deram match;
+- [x] 2 Botões para trocar de página;
+- [x] Botão reset para reiniciar os swipes;
+- [x] 2 botões para dar "like" ou "dislike";
+- [x] Mensagem de "It's a match!" caso o match aconteça;
+
+## Imagens
+
+<img src="https://i.ibb.co/mFwVryD/profiles.png" alt="profiles">
+<img src="https://i.ibb.co/QFmZ8M2/msg.png" alt="msg">
+<img src="https://i.ibb.co/Wx59QRc/swipes.png" alt="swipes">
+
+## 🛠 Tecnologias
+
+<a href="https://pt-br.reactjs.org/">🔗 React</a>
+
+- Library para desenvolvimento de interfaces do usuário utilizando componentes reutilizáveis.
+
+<a href="https://chakra-ui.com/">🔗 Chakra UI</a>
+
+- Library de componentes do React utilizada para facilitar o desenvolvimento da UI.
+
+## 🚀 Autora
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/alexa2me">
+    <img src="https://avatars.githubusercontent.com/u/63327969?s=460&v=4" width="100px" alt="Imagem do perfil da Alexandra"/>
+    <br />
+    <sub><b>Alexandra Alcantara</b></sub><br />:snowflake::snowman::snowflake:</td>
+</table>
