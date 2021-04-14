@@ -3,25 +3,25 @@ export const goToHomePage = (history) => {
 };
 
 export const goToAdminHomePage = (history) => {
-  history.push("/admpainel");
+  history.push("/admin/trips/list");
 };
 
 export const goToApplicationFormPage = (history) => {
-  history.push("/application");
+  history.push("/trips/application");
 };
 
 export const goToCreateTripPage = (history) => {
-  history.push("/createtrip");
+  history.push("/admin/trips/create");
 };
 
 export const goToLoginPage = (history) => {
-  history.push("loginpage");
+  history.push("/login");
 };
 
 export const goToListTripsPage = (history) => {
-  history.push("/listtrips");
+  history.push("/trips/list");
 };
 
 export const goToTripDetailsPage = (history) => {
-  history.push("/tripsdetails");
+  history.push("/admin/trips/:id");
 };
