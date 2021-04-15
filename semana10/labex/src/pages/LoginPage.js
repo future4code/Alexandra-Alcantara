@@ -2,24 +2,28 @@ import { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { baseUrl } from "../parameters/baseUrl";
+import { useForm } from "../hooks/useForm";
+
+const initialForm = {
+  email: "",
+  password: "",
+};
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, onChange, resetForm] = useForm(initialForm);
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log(form);
+    resetForm();
+  };
+
   const history = useHistory();
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
 
   const login = () => {
     const body = {
-      email: email,
-      password: password,
+      email: form.email,
+      password: form.password,
     };
 
     axios
@@ -39,11 +43,28 @@ const LoginPage = () => {
 
   return (
     <div>
-      <h1>Página de login do adm</h1>
-      <label>Email</label>
-      <input value={email} onChange={handleEmail} />
-      <label>Senha</label>
-      <input valu={password} onChange={handlePassword} />
+      <label>
+        E-mail
+        <input
+          required
+          name="email"
+          value={form.email}
+          onChange={onChange}
+          type="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
+        />
+      </label>
+      <label>
+        Senha
+        <input
+          required
+          name="password"
+          value={form.password}
+          onChange={onChange}
+          type="password"
+          pattern=""
+        />
+      </label>
       <button onClick={login}>Entrar</button>
     </div>
   );

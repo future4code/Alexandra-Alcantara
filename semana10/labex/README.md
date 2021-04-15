@@ -30,7 +30,7 @@ https://exotic-person-labex.surge.sh/
 
 ### Integração com os seguintes endpoints da API LabeX
 
-- [ ] Get Trips;
+- [x] Get Trips;
 - [ ] Get Trip Detail;
 - [ ] Create Trip;
 - [ ] Apply to Trip;
