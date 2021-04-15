@@ -11,16 +11,13 @@ const initialForm = {
 
 const LoginPage = () => {
   const [form, onChange, resetForm] = useForm(initialForm);
+  const history = useHistory();
 
   const handleClick = (event) => {
     event.preventDefault();
     console.log(form);
     resetForm();
-  };
 
-  const history = useHistory();
-
-  const login = () => {
     const body = {
       email: form.email,
       password: form.password,
@@ -43,29 +40,31 @@ const LoginPage = () => {
 
   return (
     <div>
-      <label>
-        E-mail
-        <input
-          required
-          name="email"
-          value={form.email}
-          onChange={onChange}
-          type="email"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
-        />
-      </label>
-      <label>
-        Senha
-        <input
-          required
-          name="password"
-          value={form.password}
-          onChange={onChange}
-          type="password"
-          pattern=""
-        />
-      </label>
-      <button onClick={login}>Entrar</button>
+      <form onSubmit={handleClick}>
+        <label>
+          E-mail
+          <input
+            required
+            name="email"
+            value={form.email}
+            onChange={onChange}
+            type="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          />
+        </label>
+        <label>
+          Senha
+          <input
+            required
+            name="password"
+            value={form.password}
+            onChange={onChange}
+            type="password"
+            // pattern=""
+          />
+        </label>
+        <button>Entrar</button>
+      </form>
     </div>
   );
 };

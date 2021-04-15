@@ -4,7 +4,7 @@ import { goToApplicationFormPage } from "../routes/coordinator";
 import { baseUrl } from "../parameters/baseUrl";
 import React, { useEffect, useState } from "react";
 
-const ListTripsPage = () => {
+const ListTripsPage = (props) => {
   const [trips, setTrips] = useState([]);
   const history = useHistory();
 
