@@ -1,17 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-// import { useProtectedPage } from "../hooks/useProtectedPage";
-import { baseUrl } from "../parameters/baseUrl";
+import { useProtectedPage } from "../hooks/useProtectedPage";
+import { axiosConfig, baseUrl } from "../parameters/baseUrl";
 import {
   goToCreateTripPage,
   goToListTripsPage,
   goToLoginPage,
   goToTripDetailsPage,
 } from "../routes/coordinator";
+import getTrips from "../hooks/useListTrips";
 
 const AdminHomePage = () => {
-  // useProtectedPage();
+  useProtectedPage();
+  console.log("Teste de userProtected");
   const [trips, setTrips] = useState([]);
   const history = useHistory();
 
@@ -32,30 +34,26 @@ const AdminHomePage = () => {
   };
 
   const deleteTrip = async (id) => {
-    const token = window.localStorage.getItem("token");
     try {
-      const res = await axios.delete(`${baseUrl}/trips/${id}`, {
-        headers: {
-          auth: token,
-        },
-      });
+      const res = await axios.delete(`${baseUrl}/trips/${id}`, axiosConfig);
       alert("Viagem removida com sucesso!");
-      console.log(res.data);
     } catch (err) {
-      console.log(err.data);
       alert("Ops, algo deu errado!");
     }
   };
 
   return (
     <div>
+      <button onClick={() => goToListTripsPage(history)}>Home</button>
       <h1>Página do painel do admin (acesso adm).</h1>
       <button onClick={() => goToCreateTripPage(history)}>+ Viagem</button>
       {/* <button onClick={() => goToLoginPage(history)}>Logout</button> */}
       {trips.map((trip) => {
         return (
           <div>
-            <p>{trip.name}</p>
+            <p onClick={() => goToTripDetailsPage(history, trip.id)}>
+              {trip.name}
+            </p>
             <button onClick={() => deleteTrip(trip.id)}>Remove</button>
           </div>
         );

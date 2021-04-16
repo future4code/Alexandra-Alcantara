@@ -1,36 +1,35 @@
-import axios from "axios";
+import React from "react";
 import { useHistory } from "react-router-dom";
-import { goToApplicationFormPage } from "../routes/coordinator";
-import { baseUrl } from "../parameters/baseUrl";
-import React, { useEffect, useState } from "react";
+import {
+  goToAdminHomePage,
+  goToApplicationFormPage,
+} from "../routes/coordinator";
+import { useRequestData } from "../hooks/useRequestData";
 
 const ListTripsPage = (props) => {
-  const [trips, setTrips] = useState([]);
   const history = useHistory();
+  const getTrips = useRequestData("/trips", []);
+  console.log(getTrips);
 
-  useEffect(() => {
-    const getTrips = () => {
-      axios
-        .get(`${baseUrl}/trips`)
-        .then((res) => setTrips(res.data.trips))
-        .catch((err) => console.log(err));
-    };
-    getTrips();
-  }, [trips]);
+  const tripsComponents =
+    getTrips.trips &&
+    getTrips.trips.map((trip) => {
+      return (
+        <div>
+          <p>{trip.name}</p>
+        </div>
+      );
+    });
 
   return (
     <div>
       <h1>Página em que aparecerão os cards com as viagens.</h1>
+      <button onClick={() => goToAdminHomePage(history)}>Admin</button>
+
       <button onClick={() => goToApplicationFormPage(history)}>
         Inscrever
       </button>
-      {trips.map((trip) => {
-        return (
-          <div>
-            <p>{trip.name}</p>
-          </div>
-        );
-      })}
+      {tripsComponents}
     </div>
   );
 };

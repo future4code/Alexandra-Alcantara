@@ -14,7 +14,7 @@ const initialForm = {
   id: "",
 };
 
-const ApplicationFormPage = () => {
+const ApplicationFormPage = (props) => {
   const [trips, setTrips] = useState([]);
   const [form, onChange, resetForm] = useForm(initialForm);
   const history = useHistory();
@@ -31,11 +31,11 @@ const ApplicationFormPage = () => {
       country: form.country,
       applicationText: form.applicationText,
     };
-    console.log("Form.Id:", form.id);
     axios
       .post(`${baseUrl}/trips/${form.id}/apply`, body)
       .then((res) => {
         console.log(res.data);
+        alert("Inscrição realizada com sucesso!");
       })
       .catch((err) => {
         console.log(err);
@@ -62,7 +62,7 @@ const ApplicationFormPage = () => {
       <form onSubmit={apply}>
         <label>
           Viagem
-          <select name="id" value={form.id} onChange={onChange}>
+          <select required name="id" value={form.id} onChange={onChange}>
             <option selected>Selecione uma viagem</option>
             {trips.map((trip) => {
               return (
@@ -75,15 +75,16 @@ const ApplicationFormPage = () => {
         </label>
         <label>
           Nome
-          <input name="name" value={form.name} onChange={onChange} />
+          <input required name="name" value={form.name} onChange={onChange} />
         </label>
         <label>
           Idade
-          <input name="age" value={form.age} onChange={onChange} />
+          <input required name="age" value={form.age} onChange={onChange} />
         </label>
         <label>
           Profissão
           <input
+            required
             name="profession"
             value={form.profession}
             onChange={onChange}
@@ -91,11 +92,17 @@ const ApplicationFormPage = () => {
         </label>
         <label>
           País
-          <input name="country" value={form.country} onChange={onChange} />
+          <input
+            required
+            name="country"
+            value={form.country}
+            onChange={onChange}
+          />
         </label>
         <label>
           Motivação
           <input
+            required
             name="applicationText"
             value={form.applicationText}
             onChange={onChange}

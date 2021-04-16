@@ -3,6 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { baseUrl } from "../parameters/baseUrl";
 import { useForm } from "../hooks/useForm";
+import { useProtectedPage } from "../hooks/useProtectedPage";
 
 const initialForm = {
   email: "",
@@ -12,6 +13,7 @@ const initialForm = {
 const LoginPage = () => {
   const [form, onChange, resetForm] = useForm(initialForm);
   const history = useHistory();
+  useProtectedPage();
 
   const handleClick = (event) => {
     event.preventDefault();
