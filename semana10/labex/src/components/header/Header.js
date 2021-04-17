@@ -28,6 +28,15 @@ const Slogan = styled.p`
 
 const LinksContainer = styled.nav`
   background-color: #4a919e;
+  text-align: center;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+`;
+
+const Link = styled.a`
+  margin-right: 60px;
+  color: #ffffff;
 `;
 
 export default function Header() {
@@ -44,10 +53,10 @@ export default function Header() {
         <GridItem color="#00e0ae" alignSelf="end"></GridItem>
       </Grid>
       <LinksContainer>
-        <a href="">Home</a>
-        <a href="">Pacotes</a>
-        <a href="">Blog</a>
-        <a href="">Contato</a>
+        <Link href="">Home</Link>
+        <Link href="">Pacotes</Link>
+        <Link href="">Blog</Link>
+        <Link href="">Contato</Link>
       </LinksContainer>
     </HeaderContainer>
   );
