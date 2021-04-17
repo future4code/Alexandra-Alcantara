@@ -42,8 +42,14 @@ const AdminHomePage = () => {
     }
   };
 
+  const logout = () => {
+    window.localStorage.removeItem("token");
+    history.push("/login");
+  };
+
   return (
     <div>
+      <button onClick={logout}>Logout</button>
       <button onClick={() => goToListTripsPage(history)}>Home</button>
       <h1>Página do painel do admin (acesso adm).</h1>
       <button onClick={() => goToCreateTripPage(history)}>+ Viagem</button>
