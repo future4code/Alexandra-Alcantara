@@ -3,6 +3,7 @@ import styled from "styled-components";
 import logo from "../../images/logo.png";
 import logoname from "../../images/logoname.png";
 import { Grid, GridItem } from "@chakra-ui/react";
+import { Flex, Spacer } from "@chakra-ui/react";
 
 const HeaderContainer = styled.div`
   background-color: #170028;
@@ -27,7 +28,7 @@ const Slogan = styled.p`
 `;
 
 const LinksContainer = styled.nav`
-  background-color: #4a919e;
+  background-color: #6ba292;
   text-align: center;
   padding: 4px;
   display: flex;
@@ -37,6 +38,8 @@ const LinksContainer = styled.nav`
 const Link = styled.a`
   margin-right: 60px;
   color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
 
 export default function Header() {
@@ -52,12 +55,21 @@ export default function Header() {
         </GridItem>
         <GridItem color="#00e0ae" alignSelf="end"></GridItem>
       </Grid>
-      <LinksContainer>
-        <Link href="">Home</Link>
-        <Link href="">Pacotes</Link>
-        <Link href="">Blog</Link>
-        <Link href="">Contato</Link>
-      </LinksContainer>
+      <Grid
+        templateColumns="repeat(4, 1px)"
+        backgroundColor="#6ba292"
+        w="100%"
+        alignItems="center"
+        justifyContent="space-evenly"
+        padding="4px"
+        color="#FFFFFF"
+        justifyItems="center"
+      >
+        <a href="">Home</a>
+        <a href="">Pacotes</a>
+        <a href="">Blog</a>
+        <a href="">Contato</a>
+      </Grid>
     </HeaderContainer>
   );
 }
