@@ -4,6 +4,7 @@ import { goToListTripsPage } from "../routes/coordinator";
 import { baseUrl } from "../parameters/baseUrl";
 import axios from "axios";
 import { useForm } from "../hooks/useForm";
+import HeaderGeneral from "../components/header/HeaderGeneral";
 
 const initialForm = {
   name: "",
@@ -58,8 +59,9 @@ const ApplicationFormPage = (props) => {
 
   return (
     <div>
+      <HeaderGeneral />
       <h1>Página do formulário de candidatura</h1>
-      <form onSubmit={apply}>
+      <form onSubmit={apply} border="1px solid black" marginTop="30px">
         <label>
           Viagem
           <select required name="id" value={form.id} onChange={onChange}>

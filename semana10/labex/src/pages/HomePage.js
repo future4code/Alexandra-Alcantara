@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Header from "../components/header/Header";
+import HeaderHome from "../components/header/HeaderHome";
 import { goToListTripsPage } from "../routes/coordinator";
 import { goToLoginPage } from "../routes/coordinator";
 import { Box } from "@chakra-ui/react";
@@ -12,10 +12,10 @@ import styled from "styled-components";
 
 const WelcomeText = styled.p`
   position: relative;
-  top: 70px;
+  top: 60px;
   width: fit-content;
   margin: 0 auto;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 `;
@@ -24,7 +24,7 @@ const HomePage = () => {
   const history = useHistory();
   return (
     <div>
-      <Header />
+      <HeaderHome />
       <WelcomeText>Olá! Escolha abaixo para começar :)</WelcomeText>
       <Grid
         templateColumns="repeat(2, 1fr)"
