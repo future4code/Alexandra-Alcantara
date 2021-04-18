@@ -7,6 +7,7 @@ import styled from "styled-components";
 import {
   goToAdminHomePage,
   goToApplicationFormPage,
+  goToListTripsPage,
 } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 
@@ -18,6 +19,11 @@ const AdmMenu = styled.button`
 
 export default function HeaderGeneral() {
   const history = useHistory();
+
+  const logout = () => {
+    window.localStorage.removeItem("token");
+    history.push("/login");
+  };
   return (
     <HeaderContainer>
       <Grid h="130px" templateColumns="repeat(4, 1fr)">
@@ -28,7 +34,6 @@ export default function HeaderGeneral() {
           <LogoName src={logoname} alt="nome da logo" />
           <Slogan> Encontre as melhores viagens espaciais</Slogan>
         </GridItem>
-        <GridItem color="#00e0ae" alignSelf="end"></GridItem>
       </Grid>
       <Grid
         templateColumns="repeat(4, 50px) repeat(2, 120px)"
@@ -41,7 +46,7 @@ export default function HeaderGeneral() {
         justifyItems="center"
         paddingLeft="250px"
       >
-        <a href="">Home</a>
+        <a onClick={() => goToListTripsPage(history)}>Home</a>
         <a href="">Pacotes</a>
         <a href="">Blog</a>
         <a href="">Contato</a>
@@ -55,7 +60,7 @@ export default function HeaderGeneral() {
           <AdmMenu onClick={() => goToAdminHomePage(history)}>
             Painel Admin
           </AdmMenu>
-          <AdmMenu>Logout</AdmMenu>
+          <AdmMenu onClick={logout}>Logout</AdmMenu>
         </Grid>
       </Grid>
     </HeaderContainer>

@@ -4,6 +4,22 @@ import { useHistory } from "react-router-dom";
 import { baseUrl } from "../parameters/baseUrl";
 import { useForm } from "../hooks/useForm";
 import { useProtectedPage } from "../hooks/useProtectedPage";
+import HeaderGeneral from "../components/header/HeaderGeneral";
+import styled from "styled-components";
+import { Image } from "@chakra-ui/react";
+import astronaut from "../images/astronaut2.jpeg";
+import { FormControl, FormLabel, Grid, GridItem } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+
+const InscriptionText = styled.p`
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 70px;
+  font-size: 1.4em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+`;
 
 const initialForm = {
   email: "",
@@ -42,31 +58,68 @@ const LoginPage = () => {
 
   return (
     <div>
-      <form onSubmit={handleClick}>
-        <label>
-          E-mail
-          <input
-            required
-            name="email"
-            value={form.email}
-            onChange={onChange}
-            type="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          />
-        </label>
-        <label>
-          Senha
-          <input
-            required
-            name="password"
-            value={form.password}
-            onChange={onChange}
-            type="password"
-            // pattern=""
-          />
-        </label>
-        <button>Entrar</button>
-      </form>
+      <HeaderGeneral />
+      <InscriptionText>Bem-vinda, pessoa administradora!</InscriptionText>
+      <Grid templateColumns="repeat(2, 1fr)">
+        <GridItem w="500px" ml="80px">
+          <Box margin="60px 0 0 100px">
+            <form onSubmit={handleClick}>
+              <FormControl w="370px" float="right" isRequired>
+                <FormLabel mt="8px" color="2e2e2e">
+                  Email
+                </FormLabel>
+                <Input
+                  placeholder="Email"
+                  variant="filled"
+                  name="email"
+                  value={form.email}
+                  onChange={onChange}
+                  type="email"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                />
+              </FormControl>
+
+              <FormControl w="370px" float="right" isRequired>
+                <FormLabel mt="8px" color="2e2e2e">
+                  Senha
+                </FormLabel>
+                <Input
+                  type="password"
+                  placeholder="Senha"
+                  variant="filled"
+                  name="password"
+                  value={form.password}
+                  onChange={onChange}
+                  type="password"
+                />
+              </FormControl>
+              <Box
+                as="button"
+                borderRadius="md"
+                bg="tomato"
+                color="white"
+                h={8}
+                w="120px"
+                margin="30px 0 0 140px"
+                fontFamily="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif"
+              >
+                Entrar
+              </Box>
+            </form>
+          </Box>
+        </GridItem>
+        <GridItem>
+          <Box opacity="0.8" mt="60px">
+            <Image
+              w="70%"
+              borderRadius="20px"
+              src={astronaut}
+              alt="Imagem de um astronauta"
+            />
+          </Box>
+        </GridItem>
+      </Grid>
     </div>
   );
 };

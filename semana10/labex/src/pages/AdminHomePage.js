@@ -8,8 +8,29 @@ import {
   goToListTripsPage,
   goToLoginPage,
   goToTripDetailsPage,
+  goToApplicationFormPage,
 } from "../routes/coordinator";
 import getTrips from "../hooks/useListTrips";
+import HeaderGeneral from "../components/header/HeaderGeneral";
+import { background, Grid, GridItem } from "@chakra-ui/react";
+import styled from "styled-components";
+import { Box } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+
+const InscriptionText = styled.p`
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 1.3em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+`;
+
+const TrashButton = styled.button`
+  margin-left: 5px;
+`;
 
 const AdminHomePage = () => {
   useProtectedPage();
@@ -49,19 +70,62 @@ const AdminHomePage = () => {
 
   return (
     <div>
-      <button onClick={logout}>Logout</button>
-      <button onClick={() => goToListTripsPage(history)}>Home</button>
-      <h1>Página do painel do admin (acesso adm).</h1>
-      <button onClick={() => goToCreateTripPage(history)}>+ Viagem</button>
-      {/* <button onClick={() => goToLoginPage(history)}>Logout</button> */}
+      <HeaderGeneral />
+      <Grid templateColumns="1fr 450px">
+        <InscriptionText>Viagens Cadastradas</InscriptionText>
+        <Box
+          as="button"
+          borderRadius="md"
+          bg="tomato"
+          color="white"
+          h={8}
+          w="100px"
+          mt="55px"
+          fontFamily="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif"
+          onClick={() => goToCreateTripPage(history)}
+        >
+          +Viagem
+        </Box>
+      </Grid>
+
       {trips.map((trip) => {
         return (
-          <div>
-            <p onClick={() => goToTripDetailsPage(history, trip.id)}>
-              {trip.name}
-            </p>
-            <button onClick={() => deleteTrip(trip.id)}>Remove</button>
-          </div>
+          <Grid
+            templateColumns="1fr 50px"
+            margin="0 auto"
+            alignItems="center"
+            justifyContent="start"
+            padding="8px"
+            borderBottom="1px solid gray"
+            // borderRadius="12px 0 12px"
+            w="50%"
+            h="fit-content"
+            backgroundColor=""
+            onClick={() => goToTripDetailsPage(history, trip.id)}
+            _hover={{
+              background: "teal.500",
+              color: "white",
+              cursor: "pointer",
+            }}
+          >
+            <GridItem>
+              <p>{trip.name}</p>
+            </GridItem>
+            <GridItem
+              w="35px"
+              padding="5px"
+              borderRadius="50%"
+              _hover={{
+                background: "white",
+                color: "white",
+              }}
+            >
+              <TrashButton onClick={() => deleteTrip(trip.id)}>
+                <FontAwesomeIcon color="gray" icon={faTrash} />
+              </TrashButton>
+            </GridItem>
+          </Grid>
         );
       })}
     </div>
