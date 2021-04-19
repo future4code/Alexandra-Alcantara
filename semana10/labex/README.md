@@ -11,9 +11,13 @@
     <li>Integração da API LabeX</li>
 </ul>
 
-## Link do surge
+## Link do surge e login admin
 
 https://exotic-person-labex.surge.sh/
+
+- Login admin
+  e-mail: ale@mail.com
+  senha: 147258
 
 ## Features
 
@@ -31,18 +35,18 @@ https://exotic-person-labex.surge.sh/
 ### Integração com os seguintes endpoints da API LabeX
 
 - [x] Get Trips;
-- [ ] Get Trip Detail;
-- [ ] Create Trip;
-- [ ] Apply to Trip;
-- [ ] Delete Trip;
+- [x] Get Trip Detail;
+- [x] Create Trip;
+- [x] Apply to Trip;
+- [x] Delete Trip;
 - [x] Login;
-- [ ] Decide Candidate;
+- [x] Decide Candidate;
+
+### Extras
+
+- [x] Logout implementado;
 
 ## Imagens
-
-<img src="" alt="">
-<img src="" alt="">
-<img src="" alt="">
 
 ## 🛠 Tecnologias
 

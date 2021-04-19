@@ -22,7 +22,6 @@ const InscriptionText = styled.p`
 const ListTripsPage = () => {
   const history = useHistory();
   const getTrips = useRequestData("/trips", []);
-  console.log(getTrips);
 
   const tripsComponents =
     getTrips.trips &&

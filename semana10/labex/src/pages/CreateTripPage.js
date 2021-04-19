@@ -1,7 +1,6 @@
 import { useHistory } from "react-router-dom";
-import { goToAdminHomePage } from "../routes/coordinator";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "../hooks/useForm";
 import { axiosConfig, baseUrl } from "../parameters/baseUrl";
 import HeaderGeneral from "../components/header/HeaderGeneral";
@@ -9,18 +8,11 @@ import { FormControl, FormLabel, Grid, GridItem } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
 import { Select } from "@chakra-ui/react";
-import {
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-} from "@chakra-ui/react";
 import { Textarea } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 import styled from "styled-components";
 import { Image } from "@chakra-ui/react";
-import astronaut from "../images/astronaut2.jpeg";
+import anunciook from "../images/anunciook.jpg";
 
 const InscriptionText = styled.p`
   width: fit-content;
@@ -33,6 +25,20 @@ const InscriptionText = styled.p`
 
 const RedStar = styled.span`
   color: #ff0000;
+`;
+
+const InputDays = styled.input`
+  background-color: #edf1f8;
+  height: 40px;
+  width: 16.5em;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 8px 0 0 20px;
+`;
+
+const LabelDays = styled.label`
+  margin-left: 23px;
+  color: #2e2e2e;
 `;
 
 const initialForm = {
@@ -50,7 +56,6 @@ const CreateTripPage = () => {
 
   const createTrip = (event) => {
     event.preventDefault();
-    console.log(form);
     resetForm();
     const token = window.localStorage.getItem("token");
 
@@ -124,29 +129,16 @@ const CreateTripPage = () => {
                   onChange={onChange}
                 />
               </FormControl>
-
-              <FormControl
-                isRequired
-                w="250px"
-                display="inline-block"
-                float="right"
-              >
-                <FormLabel
-                  color="2e2e2e"
-                  name="durationInDays"
-                  value={form.durationInDays}
-                  onChange={onChange}
-                >
-                  Duração (dias)
-                </FormLabel>
-                <NumberInput min={18} variant="filled">
-                  <NumberInputField />
-                  <NumberInputStepper>
-                    <NumberIncrementStepper />
-                    <NumberDecrementStepper />
-                  </NumberInputStepper>
-                </NumberInput>
-              </FormControl>
+              <LabelDays>
+                Duração (dias) <RedStar>*</RedStar>
+              </LabelDays>
+              <InputDays
+                name="durationInDays"
+                value={form.durationInDays}
+                onChange={onChange}
+                type="number"
+                required
+              />
 
               <FormControl display="inline-block" isRequired>
                 <FormLabel mt="8px" color="2e2e2e">
@@ -189,10 +181,10 @@ const CreateTripPage = () => {
           </Box>
         </GridItem>
         <GridItem position="relative" right="30px">
-          <Box opacity="0.8" mt="80px">
+          <Box mt="80px">
             <Image
               borderRadius="20px"
-              src={astronaut}
+              src={anunciook}
               alt="Imagem de um astronauta"
             />
           </Box>

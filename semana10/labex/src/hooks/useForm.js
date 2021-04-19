@@ -5,7 +5,6 @@ export const useForm = (initialForm) => {
 
   const onChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setForm({ ...form, [name]: value });
   };
 

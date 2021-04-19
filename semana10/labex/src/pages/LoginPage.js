@@ -7,7 +7,7 @@ import { useProtectedPage } from "../hooks/useProtectedPage";
 import HeaderGeneral from "../components/header/HeaderGeneral";
 import styled from "styled-components";
 import { Image } from "@chakra-ui/react";
-import astronaut from "../images/astronaut2.jpeg";
+import space from "../images/space.jpeg";
 import { FormControl, FormLabel, Grid, GridItem } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
@@ -33,7 +33,6 @@ const LoginPage = () => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    console.log(form);
     resetForm();
 
     const body = {
@@ -110,11 +109,11 @@ const LoginPage = () => {
           </Box>
         </GridItem>
         <GridItem>
-          <Box opacity="0.8" mt="60px">
+          <Box mt="60px">
             <Image
               w="70%"
               borderRadius="20px"
-              src={astronaut}
+              src={space}
               alt="Imagem de um astronauta"
             />
           </Box>

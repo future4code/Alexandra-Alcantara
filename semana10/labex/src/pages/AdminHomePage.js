@@ -3,16 +3,9 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useProtectedPage } from "../hooks/useProtectedPage";
 import { axiosConfig, baseUrl } from "../parameters/baseUrl";
-import {
-  goToCreateTripPage,
-  goToListTripsPage,
-  goToLoginPage,
-  goToTripDetailsPage,
-  goToApplicationFormPage,
-} from "../routes/coordinator";
-import getTrips from "../hooks/useListTrips";
+import { goToCreateTripPage, goToTripDetailsPage } from "../routes/coordinator";
 import HeaderGeneral from "../components/header/HeaderGeneral";
-import { background, Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import styled from "styled-components";
 import { Box } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -34,7 +27,6 @@ const TrashButton = styled.button`
 
 const AdminHomePage = () => {
   useProtectedPage();
-  console.log("Teste de userProtected");
   const [trips, setTrips] = useState([]);
   const history = useHistory();
 
@@ -98,7 +90,6 @@ const AdminHomePage = () => {
             justifyContent="start"
             padding="8px"
             borderBottom="1px solid gray"
-            // borderRadius="12px 0 12px"
             w="50%"
             h="fit-content"
             backgroundColor=""

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { goToListTripsPage } from "../routes/coordinator";
 import { baseUrl } from "../parameters/baseUrl";
 import axios from "axios";
 import { useForm } from "../hooks/useForm";
@@ -9,13 +8,6 @@ import { FormControl, FormLabel, Grid, GridItem } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
 import { Select } from "@chakra-ui/react";
-import {
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
-} from "@chakra-ui/react";
 import { Textarea } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 import styled from "styled-components";
@@ -33,6 +25,14 @@ const InscriptionText = styled.p`
   font-size: 1.4em;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+`;
+
+const InputAge = styled.input`
+  background-color: #edf1f8;
+  height: 40px;
+  width: 9em;
+  border-radius: 5px;
+  padding: 10px;
 `;
 
 const initialForm = {
@@ -53,7 +53,6 @@ const ApplicationFormPage = (props) => {
 
   const apply = (event) => {
     event.preventDefault();
-    console.log(form);
     resetForm();
 
     const body = {
@@ -96,14 +95,15 @@ const ApplicationFormPage = (props) => {
         <GridItem position="relative" left="20px">
           <Box margin="60px 0 0 40px" w="80%">
             <form onSubmit={apply}>
-              <FormControl
-                name="id"
-                value={form.id}
-                onChange={onChange}
-                isRequired
-              >
+              <FormControl isRequired>
                 <FormLabel color="2e2e2ee2e">Viagem</FormLabel>
-                <Select placeholder="Selecione uma viagem" variant="filled">
+                <Select
+                  name="id"
+                  value={form.id}
+                  onChange={onChange}
+                  placeholder="Selecione uma viagem"
+                  variant="filled"
+                >
                   {trips.map((trip) => {
                     return (
                       <option value={trip.id}>
@@ -113,21 +113,19 @@ const ApplicationFormPage = (props) => {
                   })}
                 </Select>
               </FormControl>
-              <FormControl
-                name="name"
-                value={form.name}
-                onChange={onChange}
-                isRequired
-              >
+              <FormControl isRequired>
                 <FormLabel mt="8px" color="2e2e2e">
                   Nome
                 </FormLabel>
-                <Input placeholder="Thanos O Grande" variant="filled" />
+                <Input
+                  name="name"
+                  value={form.name}
+                  onChange={onChange}
+                  placeholder="Thanos O Grande"
+                  variant="filled"
+                />
               </FormControl>
               <FormControl
-                name="age"
-                value={form.age}
-                onChange={onChange}
                 isRequired
                 w="150px"
                 display="inline-block"
@@ -136,41 +134,37 @@ const ApplicationFormPage = (props) => {
                 <FormLabel mt="8px" color="2e2e2e">
                   Idade
                 </FormLabel>
-                <NumberInput min={18} variant="filled">
-                  <NumberInputField />
-                  <NumberInputStepper>
-                    <NumberIncrementStepper />
-                    <NumberDecrementStepper />
-                  </NumberInputStepper>
-                </NumberInput>
+                <InputAge
+                  min="18"
+                  name="age"
+                  value={form.age}
+                  onChange={onChange}
+                  type="number"
+                />
               </FormControl>
-              <FormControl
-                name="profession"
-                value={form.profession}
-                onChange={onChange}
-                w="370px"
-                float="right"
-                isRequired
-              >
+              <FormControl w="370px" float="right" isRequired>
                 <FormLabel mt="8px" color="2e2e2e">
                   Profissão
                 </FormLabel>
                 <Input
+                  name="profession"
+                  value={form.profession}
+                  onChange={onChange}
                   placeholder="Conquistador de galáxias"
                   variant="filled"
                 />
               </FormControl>
-              <FormControl
-                name="country"
-                value={form.country}
-                onChange={onChange}
-                display="inline-block"
-                isRequired
-              >
+              <FormControl display="inline-block" isRequired>
                 <FormLabel mt="8px" color="2e2e2e">
                   País
                 </FormLabel>
-                <Select placeholder="Selecione o seu país" variant="filled">
+                <Select
+                  name="country"
+                  value={form.country}
+                  onChange={onChange}
+                  placeholder="Selecione o seu país"
+                  variant="filled"
+                >
                   <option value="Brasil" selected="selected">
                     Brasil
                   </option>
@@ -497,12 +491,11 @@ const ApplicationFormPage = (props) => {
               >
                 Enviar
               </Box>
-              {/* <button>Inscrever</button> */}
             </form>
           </Box>
         </GridItem>
         <GridItem position="relative" right="30px">
-          <Box opacity="0.8" mt="80px">
+          <Box mt="80px">
             <Image
               borderRadius="20px"
               src={astronaut}
