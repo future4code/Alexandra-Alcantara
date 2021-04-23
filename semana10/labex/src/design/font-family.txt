@@ -1,0 +1,11 @@
+font-family:
+
+- LOGO (Labex)
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+font-family: 'Audiowide', cursive;
+
+- SLOGAN (Encontre as melhores viagens espaciais!)
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+font-family: 'Montserrat', sans-serif;
+
+
