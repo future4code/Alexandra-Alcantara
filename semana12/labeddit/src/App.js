@@ -1,7 +1,12 @@
 import React from "react";
+import Router from "./routes/Router";
 
 function App() {
-  return <div>Teste LabEddit</div>;
+  return (
+    <div>
+      <Router />
+    </div>
+  );
 }
 
 export default App;
