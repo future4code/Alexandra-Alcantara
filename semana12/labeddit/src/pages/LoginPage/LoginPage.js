@@ -1,10 +1,40 @@
 import React from "react";
+import {
+  LogoImage,
+  ScreenContainer,
+  Title,
+  LogoContainer,
+  SignUpButtonContainer,
+} from "./styled";
+import logo from "../../assets/images/logo.png";
+import { Button } from "@material-ui/core";
+import { goToSignUp } from "../../routes/coordinator";
+import LoginForm from "./LoginForm";
+import { useHistory } from "react-router";
 
 const LoginPage = () => {
+  const history = useHistory();
+
   return (
-    <div>
-      <h1>LoginPage</h1>
-    </div>
+    <ScreenContainer>
+      <LogoContainer>
+        <LogoImage src={logo} />
+        <Title>LABEDDIT</Title>
+      </LogoContainer>
+      <LoginForm />
+      <SignUpButtonContainer>
+        <Button
+          onClick={() => goToSignUp(history)}
+          type={"submit"}
+          variant={"text"}
+          color={"primary"}
+          margin={"normal"}
+          fullWidth
+        >
+          Não possui conta? Cadastre-se!
+        </Button>
+      </SignUpButtonContainer>
+    </ScreenContainer>
   );
 };
 

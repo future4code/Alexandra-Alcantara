@@ -10,10 +10,10 @@ export const goToAddPost = (history) => {
   history.push("/adicionar-post");
 };
 
-export const goToPostDetail = (history) => {
+export const goToPostDetail = (history, id) => {
   history.push(`/detalhe/${id}`);
 };
 
-export const goToPostslist = (history) => {
+export const goToPostsList = (history) => {
   history.push("/");
 };
