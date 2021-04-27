@@ -2,12 +2,24 @@ import React from "react";
 import { InputContainer } from "./styled";
 import { TextField, Button, Box } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
+import BASE_URL from "../../constants/urls";
+import axios from "axios";
 
 const LoginForm = () => {
   const [form, onChange, clear] = useForm({ email: "", password: "" });
   const onSubmitForm = (e) => {
-    console.log(form);
     e.preventDefault();
+    login();
+  };
+
+  const login = () => {
+    axios
+      .post(`${BASE_URL}/labEddit/login`, form)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        clear();
+      })
+      .catch((err) => alert("Erro no login"));
   };
 
   return (

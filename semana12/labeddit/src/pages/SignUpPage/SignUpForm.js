@@ -2,6 +2,8 @@ import React from "react";
 import { InputContainer } from "./styled";
 import { TextField, Button, Box } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
+import BASE_URL from "../../constants/urls";
+import axios from "axios";
 
 const SignUpForm = () => {
   const [form, onChange, clear] = useForm({
@@ -12,6 +14,20 @@ const SignUpForm = () => {
   const onSubmitForm = (e) => {
     console.log(form);
     e.preventDefault();
+    signup();
+  };
+
+  const signup = () => {
+    axios
+      .post(`${BASE_URL}/labEddit/signup`, form)
+      .then((res) => {
+        console.log(res);
+        clear();
+      })
+      .catch((err) => {
+        alert("Erro no cadastro");
+        console.log(err);
+      });
   };
 
   return (
