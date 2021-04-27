@@ -1,6 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -8,8 +6,24 @@ import { StyledToolbar } from "./styled";
 import { goToLogin, goToPostsList } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ accessButton, setAccessButton }) => {
+  const token = localStorage.getItem("token");
   const history = useHistory();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+  };
+
+  const accessButtonAction = () => {
+    if (token) {
+      logout();
+      setAccessButton("Login");
+      goToLogin(history);
+    } else {
+      goToLogin(history);
+    }
+  };
+
   return (
     <AppBar position="static">
       <StyledToolbar>
@@ -19,8 +33,8 @@ const Header = () => {
         <Button onClick={() => goToPostsList(history)} color="inherit">
           Home
         </Button>
-        <Button onClick={() => goToLogin(history)} color="inherit">
-          Login
+        <Button onClick={accessButtonAction} color="inherit">
+          {accessButton}
         </Button>
       </StyledToolbar>
     </AppBar>

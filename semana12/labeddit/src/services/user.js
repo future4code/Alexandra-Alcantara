@@ -2,17 +2,18 @@ import BASE_URL from "../constants/urls";
 import axios from "axios";
 import { goToPostsList, goToLogin } from "../routes/coordinator";
 
-export const login = (body, clear, history) => {
+export const login = (body, clear, history, setAccessButton) => {
   axios
     .post(`${BASE_URL}/labEddit/login`, body)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      alert("Usuário logado com sucesso!");
       clear();
       goToPostsList(history);
+      clear();
+      setAccessButton("Logout");
     })
     .catch((err) => {
-      alert("Erro no login");
+      alert(err.response.data.message);
       console.log(err);
     });
 };
@@ -27,7 +28,7 @@ export const signup = (body, clear, history) => {
       goToLogin(history);
     })
     .catch((err) => {
-      alert("Erro no cadastro");
+      alert(err.response.data.message);
       console.log(err);
     });
 };
