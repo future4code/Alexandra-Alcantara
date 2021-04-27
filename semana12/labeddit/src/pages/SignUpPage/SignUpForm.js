@@ -3,6 +3,7 @@ import { InputContainer } from "./styled";
 import { TextField, Button, Box } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 import { signup } from "../../services/user";
+import { useHistory } from "react-router-dom";
 
 const SignUpForm = () => {
   const [form, onChange, clear] = useForm({
@@ -10,9 +11,11 @@ const SignUpForm = () => {
     email: "",
     password: "",
   });
+  const history = useHistory();
+
   const onSubmitForm = (e) => {
     e.preventDefault();
-    signup(form, clear);
+    signup(form, clear, history);
   };
 
   return (
