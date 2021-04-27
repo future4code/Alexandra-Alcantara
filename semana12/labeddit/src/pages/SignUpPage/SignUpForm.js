@@ -3,8 +3,12 @@ import { InputContainer } from "./styled";
 import { TextField, Button, Box } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 
-const LoginForm = () => {
-  const [form, onChange, clear] = useForm({ email: "", password: "" });
+const SignUpForm = () => {
+  const [form, onChange, clear] = useForm({
+    username: "",
+    email: "",
+    password: "",
+  });
   const onSubmitForm = (e) => {
     console.log(form);
     e.preventDefault();
@@ -13,6 +17,18 @@ const LoginForm = () => {
   return (
     <InputContainer>
       <form onSubmit={onSubmitForm}>
+        <TextField
+          name={"username"}
+          value={form.username}
+          onChange={onChange}
+          label={"Nome"}
+          margin={"dense"}
+          variant={"outlined"}
+          type={"text"}
+          required
+          fullWidth
+        />
+
         <TextField
           name={"email"}
           value={form.email}
@@ -41,10 +57,9 @@ const LoginForm = () => {
             type={"submit"}
             variant={"contained"}
             color={"primary"}
-            margin={"normal"}
             fullWidth
           >
-            Login
+            Cadastrar
           </Button>
         </Box>
       </form>
@@ -52,4 +67,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default SignUpForm;
