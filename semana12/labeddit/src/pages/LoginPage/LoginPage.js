@@ -11,8 +11,10 @@ import { Button } from "@material-ui/core";
 import { goToSignUp } from "../../routes/coordinator";
 import LoginForm from "./LoginForm";
 import { useHistory } from "react-router";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
 const LoginPage = () => {
+  useUnprotectedPage();
   const history = useHistory();
 
   return (
