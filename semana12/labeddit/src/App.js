@@ -4,6 +4,7 @@ import theme from "./constants/theme";
 import Router from "./routes/Router";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
+import GlobalState from "./global/GlobalState";
 
 const App = () => {
   const token = localStorage.getItem("token");
@@ -11,10 +12,15 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Header accessButton={accessButton} setAccessButton={setAccessButton} />
-        <Router setAccessButton={setAccessButton} />
-      </BrowserRouter>
+      <GlobalState>
+        <BrowserRouter>
+          <Header
+            accessButton={accessButton}
+            setAccessButton={setAccessButton}
+          />
+          <Router setAccessButton={setAccessButton} />
+        </BrowserRouter>
+      </GlobalState>
     </ThemeProvider>
   );
 };
