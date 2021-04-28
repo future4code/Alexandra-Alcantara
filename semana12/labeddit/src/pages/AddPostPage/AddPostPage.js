@@ -1,13 +1,16 @@
 import React from "react";
 import useProtectedPage from "../../hooks/useProtectedPage";
+import AddPostsForm from "./AddPostsForm";
+import { ScreenContainer } from "./styled";
 
 const AddPostPage = () => {
   useProtectedPage();
 
   return (
-    <div>
-      <h1>AddPostPage</h1>
-    </div>
+    <ScreenContainer>
+      <p>Criar Posts</p>
+      <AddPostsForm />
+    </ScreenContainer>
   );
 };
 

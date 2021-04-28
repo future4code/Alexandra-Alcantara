@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import GlobalStateContext from "./GlobalStateContext";
 import axios from "axios";
 import BASE_URL from "../constants/urls";
+import { useParams } from "react-router-dom";
 
 const GlobalState = (props) => {
   const [posts, setPosts] = useState([]);
@@ -24,7 +25,7 @@ const GlobalState = (props) => {
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [posts]);
 
   const states = { posts };
   const setters = { setPosts };

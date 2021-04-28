@@ -1,17 +1,18 @@
-import React from "react";
-import { InputContainer } from "./styled";
-import { TextField, Button, Box } from "@material-ui/core";
+import React, { useState } from "react";
 import useForm from "../../hooks/useForm";
-import { login } from "../../services/user";
 import { useHistory } from "react-router-dom";
+import { login } from "../../services/user";
+import { InputContainer } from "./styled";
+import { TextField, Button, Box, CircularProgress } from "@material-ui/core";
 
 const LoginForm = ({ setAccessButton }) => {
-  const [form, onChange, clear] = useForm({ email: "", password: "" });
   const history = useHistory();
+  const [form, onChange, clear] = useForm({ email: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmitForm = (e) => {
     e.preventDefault();
-    login(form, clear, history, setAccessButton);
+    login(form, clear, history, setAccessButton, setIsLoading);
   };
 
   return (
@@ -48,7 +49,11 @@ const LoginForm = ({ setAccessButton }) => {
             margin={"normal"}
             fullWidth
           >
-            Login
+            {isLoading ? (
+              <CircularProgress color={"inherit"} size={24} />
+            ) : (
+              <>Login</>
+            )}
           </Button>
         </Box>
       </form>

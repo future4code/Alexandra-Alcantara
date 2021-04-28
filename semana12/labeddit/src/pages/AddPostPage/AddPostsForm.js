@@ -2,58 +2,44 @@ import React, { useState } from "react";
 import { InputContainer } from "./styled";
 import { TextField, Button, Box, CircularProgress } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
-import { signup } from "../../services/user";
 import { useHistory } from "react-router-dom";
+import { createPost } from "../../services/post";
 
-const SignUpForm = () => {
+const AddPostsForm = () => {
   const history = useHistory();
-  const [form, onChange, clear] = useForm({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const [form, onChange, clear] = useForm({ title: "", text: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmitForm = (e) => {
     e.preventDefault();
-    signup(form, clear, history, setIsLoading);
+    console.log(form);
+    createPost(form, clear, setIsLoading);
   };
 
   return (
     <InputContainer>
       <form onSubmit={onSubmitForm}>
         <TextField
-          name={"username"}
-          value={form.username}
+          name={"title"}
+          value={form.title}
           onChange={onChange}
-          label={"Nome"}
-          margin={"dense"}
+          label={"Título"}
           variant={"outlined"}
+          margin={"dense"}
           type={"text"}
           required
           fullWidth
+          color={"black"}
         />
 
         <TextField
-          name={"email"}
-          value={form.email}
+          name={"text"}
+          value={form.text}
           onChange={onChange}
-          label={"E-mail"}
+          label={"Texto"}
           margin={"dense"}
           variant={"outlined"}
-          type={"email"}
-          required
-          fullWidth
-        />
-
-        <TextField
-          name={"password"}
-          value={form.password}
-          onChange={onChange}
-          label={"password"}
-          variant={"outlined"}
-          margin={"dense"}
-          type={"password"}
+          type={"text"}
           required
           fullWidth
         />
@@ -62,12 +48,13 @@ const SignUpForm = () => {
             type={"submit"}
             variant={"contained"}
             color={"primary"}
+            margin={"normal"}
             fullWidth
           >
             {isLoading ? (
               <CircularProgress color={"inherit"} size={24} />
             ) : (
-              <>Cadastrar</>
+              <>Criar Post</>
             )}
           </Button>
         </Box>
@@ -76,4 +63,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default AddPostsForm;
