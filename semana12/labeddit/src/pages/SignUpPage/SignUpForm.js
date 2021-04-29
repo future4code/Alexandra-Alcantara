@@ -67,7 +67,7 @@ const SignUpForm = () => {
             {isLoading ? (
               <CircularProgress color={"inherit"} size={24} />
             ) : (
-              <>Cadastrar</>
+              <> Cadastrar </>
             )}
           </Button>
         </Box>

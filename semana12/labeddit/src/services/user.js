@@ -1,6 +1,6 @@
 import BASE_URL from "../constants/urls";
 import axios from "axios";
-import { goToPostsList, goToLogin } from "../routes/coordinator";
+import { goToPostsList } from "../routes/coordinator";
 
 export const login = (body, clear, history, setAccessButton, setIsLoading) => {
   setIsLoading(true);
@@ -24,14 +24,14 @@ export const signup = (body, clear, history, setIsLoading) => {
   axios
     .post(`${BASE_URL}/signup`, body)
     .then((res) => {
+      localStorage.setItem("token", res.data.token);
       alert("Usuário cadastrado com sucesso!");
-      console.log(res);
       clear();
       setIsLoading(false);
-      goToLogin(history);
+      goToPostsList(history);
     })
     .catch((err) => {
       setIsLoading(false);
-      alert(err.response.data.message);
+      alert("Algo deu errado, tente novamente.");
     });
 };

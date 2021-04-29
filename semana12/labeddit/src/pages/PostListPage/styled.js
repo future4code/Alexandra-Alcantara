@@ -19,9 +19,6 @@ export const TitleContainer = styled.div`
   justify-content: space-around;
 `;
 
-// export const AddPostButton = styled(Fab)`
-//   position: fixed !important;
-//   right: 20px;
-//   bottom: 20px;
-//   z-index: 3;
-// `;
+export const InputContainer = styled.div`
+  display: flex;
+`;

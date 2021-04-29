@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import useProtectedPage from "../../hooks/useProtectedPage";
-import PostCard from "../../components/PostCard/PostCard";
+// import PostCard from "../../components/PostCard/PostCard";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import { PostCardContainer, Text, TitleContainer } from "./styled";
 import { CardActionArea, Typography, Box, Button } from "@material-ui/core";
-import { goToAddPost, goToPostDetail } from "../../routes/coordinator";
+import { goToPostDetail } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 import { Add } from "@material-ui/icons";
 import Loading from "../../components/Loading/Loading";
+import AddPostsForm from "./AddPostsForm";
 
 const PostListPage = () => {
   useProtectedPage();
@@ -22,8 +23,14 @@ const PostListPage = () => {
     states.posts.length > 0 ? (
       states.posts.map((post) => {
         return (
-          <Box width={"60vw"} border={"1px solid gray"} m={1} borderRadius={10}>
-            <CardActionArea key={post.id} onClick={() => onClickCard(post.id)}>
+          <Box
+            width={"60vw"}
+            border={"1px solid gray"}
+            m={1}
+            borderRadius={10}
+            key={post.id}
+          >
+            <CardActionArea onClick={() => onClickCard(post.id)}>
               <Box m={2}>
                 <Typography color={"primary"} variant={"h6"}>
                   {post.title}
@@ -45,16 +52,14 @@ const PostListPage = () => {
     <div>
       <Box mt={2} ml={2}>
         <TitleContainer>
-          <Typography color={"primary"} variant={"h5"}>
-            Popular Posts
-          </Typography>
-          <Button
+          {/* <Button
             color={"primary"}
             variant={"contained"}
             onClick={() => goToAddPost(history)}
           >
             <Add />
-          </Button>
+          </Button> */}
+          <AddPostsForm />
         </TitleContainer>
       </Box>
       <PostCardContainer>{postCards}</PostCardContainer>
