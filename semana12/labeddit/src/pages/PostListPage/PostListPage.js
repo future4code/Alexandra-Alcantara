@@ -1,22 +1,62 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import useProtectedPage from "../../hooks/useProtectedPage";
-// import PostCard from "../../components/PostCard/PostCard";
 import GlobalStateContext from "../../global/GlobalStateContext";
-import { PostCardContainer, Text, TitleContainer } from "./styled";
+import {
+  PostCardContainer,
+  Text,
+  TitleContainer,
+  VoteButton,
+  VotesContainer,
+} from "./styled";
 import { CardActionArea, Typography, Box, Button } from "@material-ui/core";
 import { goToPostDetail } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
-import { Add } from "@material-ui/icons";
 import Loading from "../../components/Loading/Loading";
 import AddPostsForm from "./AddPostsForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLongArrowAltDown,
+  faLongArrowAltUp,
+} from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import BASE_URL from "../../constants/urls";
+import { useParams } from "react-router-dom";
 
 const PostListPage = () => {
   useProtectedPage();
   const history = useHistory();
   const { states } = useContext(GlobalStateContext);
+  const [count, setCount] = useState(0);
+  const params = useParams();
 
   const onClickCard = (id) => {
     goToPostDetail(history, id);
+  };
+
+  // const postVote = async (userVote, id) => {
+  //   const body = {
+  //     direction: userVote,
+  //   };
+  //   const response = await axios.put(`${BASE_URL}/posts/${id}/vote`, body);
+  // };
+
+  const postVote = (userVote, id) => {
+    const body = {
+      direction: userVote,
+    };
+    axios
+      .put(`${BASE_URL}/posts/${id}/vote`, body, {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        setCount(res.data);
+        console.log(count);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const postCards =
@@ -40,6 +80,15 @@ const PostListPage = () => {
                 <Text>{post.text}</Text>
               </Box>
             </CardActionArea>
+            <VotesContainer>
+              <VoteButton onClick={() => postVote(1, post.id)}>
+                <FontAwesomeIcon size={"2x"} icon={faLongArrowAltUp} />
+              </VoteButton>
+              <div>{post.votesCount}</div>
+              <VoteButton onClick={() => postVote(-1, post.id)}>
+                <FontAwesomeIcon size={"2x"} icon={faLongArrowAltDown} />
+              </VoteButton>
+            </VotesContainer>
           </Box>
           // <PostCard key={post.id} title={states.title} text={states.text} />
         );
