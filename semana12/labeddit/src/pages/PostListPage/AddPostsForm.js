@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { InputContainer } from "./styled";
-import { TextField, Button, Box, CircularProgress } from "@material-ui/core";
+import { InputContainer, FormTextContainer, PostButton } from "./styled";
+import { TextField, CircularProgress } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 import { createPost } from "../../services/post";
 
@@ -24,36 +24,33 @@ const AddPostsForm = () => {
           variant={"outlined"}
           margin={"dense"}
           type={"text"}
+          multiline={"true"}
+          rowsMax={"3"}
           required
           fullWidth
         />
-
-        <TextField
-          name={"text"}
-          value={form.text}
-          onChange={onChange}
-          label={"Texto"}
-          margin={"dense"}
-          variant={"outlined"}
-          type={"text"}
-          required
-          fullWidth
-        />
-        <Box mt={1}>
-          <Button
-            type={"submit"}
-            variant={"contained"}
-            color={"primary"}
-            margin={"normal"}
+        <FormTextContainer>
+          <TextField
+            name={"text"}
+            value={form.text}
+            onChange={onChange}
+            label={"Texto"}
+            margin={"dense"}
+            variant={"outlined"}
+            type={"text"}
+            required
+            rows={"5"}
+            multiline={"true"}
             fullWidth
-          >
-            {isLoading ? (
-              <CircularProgress color={"inherit"} size={24} />
-            ) : (
-              <>Criar Post</>
-            )}
-          </Button>
-        </Box>
+          />
+        </FormTextContainer>
+        <PostButton type={"submit"}>
+          {isLoading ? (
+            <CircularProgress color={"inherit"} size={24} />
+          ) : (
+            <>Postar!</>
+          )}
+        </PostButton>
       </InputContainer>
     </form>
   );

@@ -8,9 +8,10 @@ export const PostCardContainer = styled.div`
 
 export const Title = styled.p`
   margin: 7px;
-  margin-right: 8px;
-  font-size: 1.5em;
+  margin-right: 20px;
+  margin-top: 10px;
   color: #3d9690;
+  font-size: 20px;
 `;
 
 export const Text = styled.p`
@@ -26,7 +27,9 @@ export const TitleContainer = styled.div`
 `;
 
 export const InputContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 50% 10%;
+  justify-content: center;
 `;
 
 export const VotesContainer = styled.div`
@@ -43,6 +46,7 @@ export const VoteButtonUp = styled.button`
   background-color: transparent;
   cursor: pointer;
   color: gray;
+  font-size: 20px;
   :hover {
     background-color: #15b39f;
     border-radius: 50%;
@@ -57,6 +61,8 @@ export const VoteButtonDown = styled.button`
   background-color: transparent;
   cursor: pointer;
   color: gray;
+  font-size: 20px;
+
   :hover {
     background-color: #ff0000;
     border-radius: 50%;
@@ -71,10 +77,6 @@ export const MainContainer = styled.div`
   grid-template-columns: 3vw 1fr;
 `;
 
-export const Line = styled.hr`
-  margin: 0;
-`;
-
 export const Username = styled.p`
   font-size: 12px;
   background-color: #3d9690;
@@ -85,4 +87,46 @@ export const Username = styled.p`
 
 export const UsernameContainer = styled.div`
   color: #ffffff;
+`;
+
+export const PostButton = styled.button`
+  order: 2;
+  background-color: #3d9690;
+  color: #ffffff;
+  border-radius: 5px;
+  border: none;
+  margin-left: 10px;
+  grid-row: 1 / 3;
+  grid-column: 2 / 3;
+  font-size: 20px;
+  cursor: pointer;
+  :hover {
+    background-color: #43bab8;
+    color: #ffffff;
+    transition: all 0.5s ease 0s;
+  }
+`;
+
+export const FormTextContainer = styled.div`
+  order: 3;
+`;
+
+export const PostingButton = styled.button`
+  border: none;
+  background-color: #3d9690;
+  font-size: 20px;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 8px;
+  margin-right: 400px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  :hover {
+    background-color: #43bab8;
+    color: #ffffff;
+    transition: all 0.5s ease 0s;
+  }
+  margin-left: 270px;
+  width: 59.4vw;
 `;
