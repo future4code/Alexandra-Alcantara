@@ -14,8 +14,8 @@ const AddPostsForm = () => {
   };
 
   return (
-    <InputContainer>
-      <form onSubmit={onSubmitForm}>
+    <form onSubmit={onSubmitForm}>
+      <InputContainer>
         <TextField
           name={"title"}
           value={form.title}
@@ -54,8 +54,8 @@ const AddPostsForm = () => {
             )}
           </Button>
         </Box>
-      </form>
-    </InputContainer>
+      </InputContainer>
+    </form>
   );
 };
 
