@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# <h1 align='center'>Labeddit</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição do projeto
 
-## Available Scripts
+<p align="justify">Projeto de revisão realizado como prática de:</p>
+<ul>
+    <li>UseState / useEffect / useContext</li>
+    <li>Estado Global com Context</li>
+    <li>Custom Hooks</li>
+    <li>React Router</li>
+    <li>Autenticação e controle de acesso com o Local Storage</li>
+    <li>Forms</li>
+    <li>Consumo de API</li>
+</ul>
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+## 5 Páginas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [x] Login Page;
+- [x] Sign Up Page;
+- [x] Home Page;
+- [x] Details Page;
+- [x] Error Page.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Integração com os seguintes endpoints da API LabEddit
 
-### `yarn test`
+- [x] Sign Up;
+- [x] Login;
+- [x] Create Post;
+- [x] Create Comment;
+- [x] Vote;
+- [x] Vote Comment;
+- [x] Get Posts;
+- [x] Get Post Detail.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Extras
 
-### `yarn build`
+- [x] Logout implementado;
+- [x] Responsivo para mobile.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### O que não funciona
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Link Surge e login do admin
 
-### `yarn eject`
+https://exotic-person-labeddit.surge.sh
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🛠 Tecnologias
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<a href="https://pt-br.reactjs.org/">🔗 React</a>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Library para desenvolvimento de interfaces do usuário utilizando componentes reutilizáveis.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<a href="https://material-ui.com/">🔗 Material UI</a>
 
-## Learn More
+- Library de componentes do React utilizada para facilitar o desenvolvimento da UI.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Autora
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/alexa2me">
+    <img src="https://avatars.githubusercontent.com/u/63327969?s=460&v=4" width="100px" alt="Imagem do perfil da Alexandra"/>
+    <br />
+    <sub><b>Alexandra Alcantara</b></sub><br />:snowflake::snowman::snowflake:</td>
+</table>
