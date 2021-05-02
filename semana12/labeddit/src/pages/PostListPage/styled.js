@@ -7,11 +7,14 @@ export const PostCardContainer = styled.div`
 `;
 
 export const Title = styled.p`
-  margin: 7px;
   margin-right: 20px;
   margin-top: 10px;
   color: #3d9690;
   font-size: 20px;
+
+  @media only screen and (max-width: 380px) {
+    margin-left: 6vw;
+  }
 `;
 
 export const Text = styled.p`
@@ -19,6 +22,10 @@ export const Text = styled.p`
   margin-bottom: 15px;
   margin-right: 20px;
   text-align: justify;
+
+  @media only screen and (max-width: 380px) {
+    margin-left: 6vw;
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -28,8 +35,16 @@ export const TitleContainer = styled.div`
 
 export const InputContainer = styled.div`
   display: grid;
-  grid-template-columns: 50% 10%;
+  grid-template-columns: 1fr 15%;
   justify-content: center;
+  width: 60vw;
+
+  @media only screen and (max-width: 380px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 88vw;
+  }
 `;
 
 export const VotesContainer = styled.div`
@@ -39,6 +54,8 @@ export const VotesContainer = styled.div`
   align-items: center;
   margin: 0;
   background-color: rgba(0, 0, 0, 0.08);
+  width: 3.5vw;
+  min-width: 38px;
 `;
 
 export const VoteButtonUp = styled.button`
@@ -107,28 +124,35 @@ export const PostButton = styled.button`
     color: #ffffff;
     transition: all 0.5s ease 0s;
   }
+
+  @media only screen and (max-width: 380px) {
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 5px;
+
+    padding: 8px 5px;
+    width: 88vw;
+  }
 `;
 
 export const FormTextContainer = styled.div`
   order: 3;
+
+  @media only screen and (max-width: 380px) {
+    display: flex;
+    order: 2;
+  }
 `;
 
-export const PostingButton = styled.button`
-  border: none;
-  background-color: #3d9690;
-  font-size: 20px;
-  color: #ffffff;
-  border-radius: 5px;
-  padding: 8px;
-  margin-right: 400px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  cursor: pointer;
-  :hover {
-    background-color: #43bab8;
-    color: #ffffff;
-    transition: all 0.5s ease 0s;
-  }
-  margin-left: 270px;
-  width: 59.4vw;
+export const WelcomeText = styled.p`
+  justify-self: flex-start;
+  align-self: flex-start;
+  color: #3d9690;
+  font-size: 1.5em;
+  margin: 25px 0 20px 0;
+
+  /* @media only screen and (max-width: 380px) {
+    width: 100vw;
+    text-align: left;
+  } */
 `;

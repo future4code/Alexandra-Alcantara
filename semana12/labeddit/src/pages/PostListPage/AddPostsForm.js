@@ -20,11 +20,11 @@ const AddPostsForm = () => {
           name={"title"}
           value={form.title}
           onChange={onChange}
-          label={"Título"}
+          label={"Título do seu post"}
           variant={"outlined"}
           margin={"dense"}
           type={"text"}
-          multiline={"true"}
+          multiline={true}
           rowsMax={"3"}
           required
           fullWidth
@@ -34,13 +34,13 @@ const AddPostsForm = () => {
             name={"text"}
             value={form.text}
             onChange={onChange}
-            label={"Texto"}
+            label={"O que há para postar hoje?"}
             margin={"dense"}
             variant={"outlined"}
             type={"text"}
             required
-            rows={"5"}
-            multiline={"true"}
+            rows={"4"}
+            multiline={true}
             fullWidth
           />
         </FormTextContainer>
@@ -48,7 +48,7 @@ const AddPostsForm = () => {
           {isLoading ? (
             <CircularProgress color={"inherit"} size={24} />
           ) : (
-            <>Postar!</>
+            <>Postar</>
           )}
         </PostButton>
       </InputContainer>

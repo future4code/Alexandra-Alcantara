@@ -1,15 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import GlobalStateContext from "./GlobalStateContext";
 import axios from "axios";
 import BASE_URL from "../constants/urls";
-import { useParams } from "react-router-dom";
 
 const GlobalState = (props) => {
   const [posts, setPosts] = useState([]);
   const [count, setCount] = useState(0);
-
-  // const [comment, setComment] = useState([]);
-  // const params = useParams();
 
   const getPosts = () => {
     axios
@@ -48,6 +44,10 @@ const GlobalState = (props) => {
         console.log(err);
       });
   };
+
+  // useEffect(() => {
+  //   postVote();
+  // }, []);
 
   // const createComment = (body, clear, setIsLoading) => {
   //   setIsLoading(true);

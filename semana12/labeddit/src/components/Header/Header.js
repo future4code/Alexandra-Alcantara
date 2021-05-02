@@ -1,6 +1,6 @@
 import React from "react";
-import { AppBar, Typography, Button, Box } from "@material-ui/core";
-import { StyledToolbar, ImgLogo, StyledBox } from "./styled";
+import { AppBar, Typography, Button } from "@material-ui/core";
+import { StyledToolbar, StyledBox, ImgLogo } from "./styled";
 import { goToLogin, goToPostsList } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 import logo from "../../assets/images/logo.png";

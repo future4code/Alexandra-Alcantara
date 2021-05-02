@@ -6,9 +6,7 @@ import Loading from "../../components/Loading/Loading";
 import AddCommentForm from "./AddCommentForm";
 import {
   CommentContainer,
-  PostContainer,
   VotesContainer,
-  VoteButton,
   Username,
   UsernameContainer,
   VoteButtonDown,
@@ -30,9 +28,8 @@ const PostDetailPage = () => {
   useProtectedPage();
   const params = useParams();
   const [post, setPost] = useState({});
-  const [isCommenting, setIsCommenting] = useState(false);
   const [count, setCount] = useState(0);
-  const { states, setters, requests } = useContext(GlobalStateContext);
+  const { requests } = useContext(GlobalStateContext);
 
   useEffect(() => {
     getPost();

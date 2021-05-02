@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { InputContainer, CommentButton } from "./styled";
-import { TextField, Button, Box, CircularProgress } from "@material-ui/core";
+import { TextField, Box, CircularProgress } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import BASE_URL from "../../constants/urls";
-import isLoading from "../../components/Loading/Loading";
 
 const AddCommentForm = (props) => {
   const [form, onChange, clear] = useForm({ text: "" });
   const [isLoading, setIsLoading] = useState(false);
   const params = useParams();
-  const [comments, setComments] = useState({});
 
   const createComment = (body, clear, setIsLoading) => {
-    // setIsLoading(true);
+    setIsLoading(true);
     axios
       .post(`${BASE_URL}/posts/${params.id}/comment`, body, {
         headers: {
@@ -24,11 +22,10 @@ const AddCommentForm = (props) => {
       .then((res) => {
         clear();
         props.getPost();
-        // setComments(res);
         setIsLoading(false);
       })
       .catch((err) => {
-        // setIsLoading(false);
+        setIsLoading(false);
         alert(err);
       });
   };
@@ -48,7 +45,7 @@ const AddCommentForm = (props) => {
           label={"O que você deseja comentar?"}
           variant={"outlined"}
           type={"text"}
-          multiline={"true"}
+          multiline={true}
           rows={"3"}
           margin={"dense"}
           required

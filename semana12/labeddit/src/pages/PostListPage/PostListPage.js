@@ -11,7 +11,7 @@ import {
   Username,
   Title,
   UsernameContainer,
-  PostingButton,
+  WelcomeText,
 } from "./styled";
 import { CardActionArea, Box } from "@material-ui/core";
 import { goToPostDetail } from "../../routes/coordinator";
@@ -21,11 +21,10 @@ import AddPostsForm from "./AddPostsForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
-const PostListPage = (props) => {
+const PostListPage = () => {
   useProtectedPage();
   const history = useHistory();
-  const { states, setters, requests } = useContext(GlobalStateContext);
-  const [isPosting, setIsPosting] = useState(false);
+  const { states, requests } = useContext(GlobalStateContext);
 
   const onClickCard = (id) => {
     goToPostDetail(history, id);
@@ -37,7 +36,8 @@ const PostListPage = (props) => {
         return (
           <Box
             width={"60vw"}
-            m={1}
+            minWidth={"330px"}
+            m={0.8}
             borderRadius={6}
             boxShadow={3}
             key={post.id}
@@ -71,10 +71,18 @@ const PostListPage = (props) => {
 
   return (
     <div>
-      <PostingButton onClick={() => setIsPosting(true)}>
-        Quero postar!
-      </PostingButton>
-      {isPosting ? <AddPostsForm /> : null}
+      <Box
+        display={"flex"}
+        width={"60vw"}
+        minWidth={"320px"}
+        flexDirection={"column"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        margin={"0 auto"}
+      >
+        <WelcomeText>Olá, bem-vind@!</WelcomeText>
+        <AddPostsForm />
+      </Box>
       <PostCardContainer>{postCards}</PostCardContainer>
     </div>
   );
