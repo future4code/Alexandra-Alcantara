@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { InputContainer } from "./styled";
+import { InputContainer, CommentButton } from "./styled";
 import { TextField, Button, Box, CircularProgress } from "@material-ui/core";
 import useForm from "../../hooks/useForm";
 import { useParams } from "react-router-dom";
@@ -39,21 +39,23 @@ const AddCommentForm = (props) => {
   };
 
   return (
-    <InputContainer>
-      <form onSubmit={onSubmitForm}>
+    <form onSubmit={onSubmitForm}>
+      <InputContainer>
         <TextField
           name={"text"}
           value={form.text}
           onChange={onChange}
-          label={"Texto"}
-          margin={"dense"}
+          label={"O que você deseja comentar?"}
           variant={"outlined"}
           type={"text"}
+          multiline={"true"}
+          rows={"3"}
+          margin={"dense"}
           required
           fullWidth
         />
         <Box mt={1}>
-          <Button
+          <CommentButton
             type={"submit"}
             variant={"contained"}
             color={"primary"}
@@ -65,10 +67,10 @@ const AddCommentForm = (props) => {
             ) : (
               <>Enviar</>
             )}
-          </Button>
+          </CommentButton>
         </Box>
-      </form>
-    </InputContainer>
+      </InputContainer>
+    </form>
   );
 };
 

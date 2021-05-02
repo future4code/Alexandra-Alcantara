@@ -95,6 +95,8 @@ export const PostButton = styled.button`
   color: #ffffff;
   border-radius: 5px;
   border: none;
+  height: 92%;
+  align-self: center;
   margin-left: 10px;
   grid-row: 1 / 3;
   grid-column: 2 / 3;

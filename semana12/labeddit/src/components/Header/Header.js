@@ -1,10 +1,9 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import { StyledToolbar } from "./styled";
+import { AppBar, Typography, Button, Box } from "@material-ui/core";
+import { StyledToolbar, ImgLogo, StyledBox } from "./styled";
 import { goToLogin, goToPostsList } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
+import logo from "../../assets/images/logo.png";
 
 const Header = ({ accessButton, setAccessButton }) => {
   const token = localStorage.getItem("token");
@@ -27,12 +26,20 @@ const Header = ({ accessButton, setAccessButton }) => {
   return (
     <AppBar position="static">
       <StyledToolbar>
-        <Typography variant="h6" color="inherit">
-          LabEddit
-        </Typography>
-        <Button onClick={() => goToPostsList(history)} color="inherit">
-          Home
-        </Button>
+        <StyledBox
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <ImgLogo src={logo} alt="Logo" />
+          <Typography
+            onClick={() => goToPostsList(history)}
+            variant="h6"
+            color="inherit"
+          >
+            LabEddit
+          </Typography>
+        </StyledBox>
         <Button onClick={accessButtonAction} color="inherit">
           {accessButton}
         </Button>

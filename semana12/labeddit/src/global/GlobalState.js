@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 
 const GlobalState = (props) => {
   const [posts, setPosts] = useState([]);
+  const [count, setCount] = useState(0);
+
   // const [comment, setComment] = useState([]);
   // const params = useParams();
 
@@ -27,6 +29,25 @@ const GlobalState = (props) => {
   useEffect(() => {
     getPosts();
   }, [posts]);
+
+  const postVote = (userVote, id) => {
+    const body = {
+      direction: userVote,
+    };
+    axios
+      .put(`${BASE_URL}/posts/${id}/vote`, body, {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((res) => {
+        setCount(res.data);
+        console.log(count);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   // const createComment = (body, clear, setIsLoading) => {
   //   setIsLoading(true);
@@ -51,9 +72,9 @@ const GlobalState = (props) => {
   //   createComment();
   // }, [comment]);
 
-  const states = { posts };
-  const setters = { setPosts };
-  const requests = { getPosts };
+  const states = { posts, count };
+  const setters = { setPosts, setCount };
+  const requests = { getPosts, postVote };
 
   return (
     <GlobalStateContext.Provider value={{ states, setters, requests }}>
