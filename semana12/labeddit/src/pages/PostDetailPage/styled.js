@@ -48,14 +48,25 @@ export const VotesContainer = styled.div`
 
 export const UsernameContainer = styled.div`
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3d9690;
+  border-radius: 4px 4px 0 0;
+  height: 22px;
 `;
 
 export const Username = styled.p`
   font-size: 12px;
   background-color: #3d9690;
   margin: 0;
-  padding: 5px;
+  padding: 4px;
   border-radius: 4px 4px 0 0;
+`;
+
+export const CommentsCount = styled.p`
+  margin-right: 12px;
+  font-size: 12px;
 `;
 
 export const VoteButtonUp = styled.button`

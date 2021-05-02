@@ -97,13 +97,23 @@ export const MainContainer = styled.div`
 export const Username = styled.p`
   font-size: 12px;
   background-color: #3d9690;
-  margin: 0;
-  padding: 5px;
+  margin: 0 10px;
   border-radius: 4px 4px 0 0;
+`;
+
+export const CommentsCount = styled.p`
+  margin-right: 12px;
+  font-size: 12px;
 `;
 
 export const UsernameContainer = styled.div`
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3d9690;
+  border-radius: 4px 4px 0 0;
+  height: 22px;
 `;
 
 export const PostButton = styled.button`

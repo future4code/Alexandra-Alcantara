@@ -1,6 +1,6 @@
 import React from "react";
-import { AppBar, Typography, Button } from "@material-ui/core";
-import { StyledToolbar, StyledBox, ImgLogo } from "./styled";
+import { AppBar, Button } from "@material-ui/core";
+import { StyledToolbar, StyledTypography, StyledBox, ImgLogo } from "./styled";
 import { goToLogin, goToPostsList } from "../../routes/coordinator";
 import { useHistory } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
@@ -32,13 +32,13 @@ const Header = ({ accessButton, setAccessButton }) => {
           alignItems={"center"}
         >
           <ImgLogo src={logo} alt="Logo" />
-          <Typography
+          <StyledTypography
             onClick={() => goToPostsList(history)}
             variant="h6"
             color="inherit"
           >
             LabEddit
-          </Typography>
+          </StyledTypography>
         </StyledBox>
         <Button onClick={accessButtonAction} color="inherit">
           {accessButton}

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import {
@@ -12,6 +12,7 @@ import {
   Title,
   UsernameContainer,
   WelcomeText,
+  CommentsCount,
 } from "./styled";
 import { CardActionArea, Box } from "@material-ui/core";
 import { goToPostDetail } from "../../routes/coordinator";
@@ -19,7 +20,11 @@ import { useHistory } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import AddPostsForm from "./AddPostsForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleDown,
+  faAngleUp,
+  faComment,
+} from "@fortawesome/free-solid-svg-icons";
 
 const PostListPage = () => {
   useProtectedPage();
@@ -44,6 +49,11 @@ const PostListPage = () => {
           >
             <UsernameContainer>
               <Username>Postado por {post.username}</Username>
+              <CommentsCount>
+                {" "}
+                <FontAwesomeIcon icon={faComment} /> {post.commentsCount}{" "}
+                Comentários
+              </CommentsCount>
             </UsernameContainer>
             <MainContainer>
               <VotesContainer>

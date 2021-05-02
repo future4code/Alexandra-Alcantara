@@ -17,7 +17,10 @@ const Router = ({ accessButton, setAccessButton }) => {
       </Route>
 
       <Route exact path="/cadastro">
-        <SignUpPage />
+        <SignUpPage
+          accessButton={accessButton}
+          setAccessButton={setAccessButton}
+        />
       </Route>
 
       <Route exact path="/">

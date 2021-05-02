@@ -4,7 +4,7 @@ import logo from "../../assets/images/logo.png";
 import SignUpForm from "./SignUpForm";
 import useUnprotectedPage from "../../hooks/useUnprotectedPage";
 
-const SignUpPage = () => {
+const SignUpPage = ({ setAccessButton }) => {
   useUnprotectedPage();
 
   return (
@@ -13,7 +13,7 @@ const SignUpPage = () => {
         <LogoImage src={logo} />
         <Title>LABEDDIT</Title>
       </LogoContainer>
-      <SignUpForm />
+      <SignUpForm setAccessButton={setAccessButton} />
     </ScreenContainer>
   );
 };

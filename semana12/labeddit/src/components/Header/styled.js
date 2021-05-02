@@ -1,4 +1,4 @@
-import { Toolbar, Box } from "@material-ui/core";
+import { Toolbar, Box, Typography } from "@material-ui/core";
 import styled from "styled-components";
 
 export const StyledToolbar = styled(Toolbar)`
@@ -6,6 +6,11 @@ export const StyledToolbar = styled(Toolbar)`
   flex-direction: row;
   justify-content: space-between;
   margin: 0 10px 0 10px;
+`;
+
+export const StyledTypography = styled(Typography)`
+  font-family: "Allerta Stencil", sans-serif;
+  font-size: 25px;
 `;
 
 export const StyledBox = styled(Box)`

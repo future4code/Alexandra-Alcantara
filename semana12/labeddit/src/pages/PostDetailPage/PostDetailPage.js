@@ -17,10 +17,15 @@ import {
   ScreenContainer,
   Line,
   BackgroundCommentContainer,
+  CommentsCount,
 } from "./styled";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAngleDown,
+  faAngleUp,
+  faComment,
+} from "@fortawesome/free-solid-svg-icons";
 import { Box } from "@material-ui/core";
 import GlobalStateContext from "../../global/GlobalStateContext";
 
@@ -76,6 +81,11 @@ const PostDetailPage = () => {
         >
           <UsernameContainer>
             <Username>Postado por {post.post.username}</Username>
+            <CommentsCount>
+              {" "}
+              <FontAwesomeIcon icon={faComment} /> {post.post.commentsCount}{" "}
+              Comentários
+            </CommentsCount>
           </UsernameContainer>
 
           <MainContainer>

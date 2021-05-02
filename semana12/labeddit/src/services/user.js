@@ -19,7 +19,7 @@ export const login = (body, clear, history, setAccessButton, setIsLoading) => {
     });
 };
 
-export const signup = (body, clear, history, setIsLoading) => {
+export const signup = (body, clear, history, setAccessButton, setIsLoading) => {
   setIsLoading(true);
   axios
     .post(`${BASE_URL}/signup`, body)
@@ -29,9 +29,9 @@ export const signup = (body, clear, history, setIsLoading) => {
       clear();
       setIsLoading(false);
       goToPostsList(history);
+      setAccessButton("Logout");
     })
     .catch((err) => {
       setIsLoading(false);
-      alert("Algo deu errado, tente novamente.");
     });
 };
