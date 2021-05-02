@@ -12,7 +12,7 @@ export const Title = styled.p`
   color: #3d9690;
   font-size: 20px;
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     margin-left: 6vw;
   }
 `;
@@ -23,7 +23,7 @@ export const Text = styled.p`
   margin-right: 20px;
   text-align: justify;
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     margin-left: 6vw;
   }
 `;
@@ -39,7 +39,7 @@ export const InputContainer = styled.div`
   justify-content: center;
   width: 60vw;
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -135,7 +135,7 @@ export const PostButton = styled.button`
     transition: all 0.5s ease 0s;
   }
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     margin: 0 auto;
     margin-bottom: 15px;
     margin-top: 5px;
@@ -147,7 +147,7 @@ export const PostButton = styled.button`
 export const FormTextContainer = styled.div`
   order: 3;
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     display: flex;
     order: 2;
   }

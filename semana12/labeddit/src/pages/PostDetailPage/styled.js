@@ -15,7 +15,7 @@ export const InputContainer = styled.div`
   padding: 3px;
   margin-bottom: 10px;
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     display: flex;
     flex-direction: column;
     width: 86vw;
@@ -117,7 +117,7 @@ export const Title = styled.p`
   color: #3d9690;
   font-size: 20px;
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     margin-left: 9vw;
   }
 `;
@@ -129,7 +129,7 @@ export const Text = styled.p`
   margin-left: 15px;
   text-align: justify;
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     margin-left: 9vw;
   }
 `;
@@ -161,7 +161,7 @@ export const CommentButton = styled.button`
     color: #ffffff;
     transition: all 0.5s ease 0s;
   }
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     margin: 0 auto;
     margin-bottom: 15px;
     padding: 8px 5px;
@@ -174,7 +174,7 @@ export const Line = styled.hr`
   border-bottom: none;
   margin-bottom: 10px;
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     width: 82vw;
   }
 `;
@@ -184,7 +184,7 @@ export const BackgroundCommentContainer = styled.div`
   padding: 8px;
   border-radius: 5px;
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     width: 84vw;
   }
 `;
@@ -193,7 +193,7 @@ export const NoCommentsText = styled.p`
   text-align: center;
   width: 59vw;
 
-  @media only screen and (max-width: 380px) {
+  @media only screen and (max-width: 400px) {
     width: 80vw;
   }
 `;
