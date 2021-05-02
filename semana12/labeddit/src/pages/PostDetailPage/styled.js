@@ -13,6 +13,13 @@ export const InputContainer = styled.div`
   justify-content: center;
   width: 60vw;
   padding: 3px;
+  margin-bottom: 10px;
+
+  @media only screen and (max-width: 380px) {
+    display: flex;
+    flex-direction: column;
+    width: 86vw;
+  }
 `;
 
 export const CommentContainer = styled.div`
@@ -35,6 +42,8 @@ export const VotesContainer = styled.div`
   align-items: center;
   margin: 0;
   background-color: rgba(0, 0, 0, 0.08);
+  width: 3.5vw;
+  min-width: 38px;
 `;
 
 export const UsernameContainer = styled.div`
@@ -93,15 +102,25 @@ export const Title = styled.p`
   margin: 7px;
   margin-right: 20px;
   margin-top: 10px;
+  margin-left: 15px;
   color: #3d9690;
   font-size: 20px;
+
+  @media only screen and (max-width: 380px) {
+    margin-left: 9vw;
+  }
 `;
 
 export const Text = styled.p`
   margin: 7px;
   margin-bottom: 15px;
   margin-right: 20px;
+  margin-left: 15px;
   text-align: justify;
+
+  @media only screen and (max-width: 380px) {
+    margin-left: 9vw;
+  }
 `;
 
 export const ScreenContainer = styled.div`
@@ -118,11 +137,12 @@ export const CommentButton = styled.button`
   background-color: #3d9690;
   color: #ffffff;
   margin-left: 3px;
+  margin-top: 7px;
   border-radius: 5px;
   border: none;
   font-size: 15px;
   cursor: pointer;
-  height: 94%;
+  height: 88%;
   width: 100%;
 
   :hover {
@@ -130,16 +150,39 @@ export const CommentButton = styled.button`
     color: #ffffff;
     transition: all 0.5s ease 0s;
   }
+  @media only screen and (max-width: 380px) {
+    margin: 0 auto;
+    margin-bottom: 15px;
+    padding: 8px 5px;
+  }
 `;
 
 export const Line = styled.hr`
   width: 58vw;
   border: 1px solid gray;
   border-bottom: none;
+  margin-bottom: 10px;
+
+  @media only screen and (max-width: 380px) {
+    width: 82vw;
+  }
 `;
 
 export const BackgroundCommentContainer = styled.div`
   background-color: rgba(0, 0, 0, 0.08);
   padding: 8px;
   border-radius: 5px;
+
+  @media only screen and (max-width: 380px) {
+    width: 84vw;
+  }
+`;
+
+export const NoCommentsText = styled.p`
+  text-align: center;
+  width: 59vw;
+
+  @media only screen and (max-width: 380px) {
+    width: 80vw;
+  }
 `;

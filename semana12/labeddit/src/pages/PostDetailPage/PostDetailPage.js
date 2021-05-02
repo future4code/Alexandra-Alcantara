@@ -66,7 +66,14 @@ const PostDetailPage = () => {
   return (
     <ScreenContainer>
       {post && post.post ? (
-        <Box width={"60vw"} m={1} borderRadius={6} boxShadow={3} key={post.id}>
+        <Box
+          width={"60vw"}
+          minWidth={"320px"}
+          m={1}
+          borderRadius={6}
+          boxShadow={3}
+          key={post.id}
+        >
           <UsernameContainer>
             <Username>Postado por {post.post.username}</Username>
           </UsernameContainer>

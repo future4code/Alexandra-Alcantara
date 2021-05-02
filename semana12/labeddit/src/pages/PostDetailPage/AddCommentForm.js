@@ -51,14 +51,8 @@ const AddCommentForm = (props) => {
           required
           fullWidth
         />
-        <Box mt={1}>
-          <CommentButton
-            type={"submit"}
-            variant={"contained"}
-            color={"primary"}
-            margin={"normal"}
-            fullWidth
-          >
+        <Box>
+          <CommentButton type={"submit"}>
             {isLoading ? (
               <CircularProgress color={"inherit"} size={24} />
             ) : (

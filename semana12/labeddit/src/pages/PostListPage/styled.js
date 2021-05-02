@@ -129,7 +129,6 @@ export const PostButton = styled.button`
     margin: 0 auto;
     margin-bottom: 15px;
     margin-top: 5px;
-
     padding: 8px 5px;
     width: 88vw;
   }
@@ -150,9 +149,4 @@ export const WelcomeText = styled.p`
   color: #3d9690;
   font-size: 1.5em;
   margin: 25px 0 20px 0;
-
-  /* @media only screen and (max-width: 380px) {
-    width: 100vw;
-    text-align: left;
-  } */
 `;
