@@ -1,0 +1,11 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "Exercicio 1",
+  "main": "exercise1.js",
+  "scripts": {
+    "start": "node ./exercise1.js"
+  },
+  "author": "\"Alexandra Alcantara\"",
+  "license": "ISC"
+}
