@@ -1,0 +1,11 @@
+{
+  "name": "exercise3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exercise3.js",
+  "scripts": {
+    "start": "clear && tsc && node ../../build/Exercise3/exercise1.js"
+  },
+  "author": "Alexandra Alcantara",
+  "license": "ISC"
+}

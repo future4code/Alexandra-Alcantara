@@ -1,10 +1,10 @@
 {
-  "name": "intro-typescript",
+  "name": "exercise4",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "exercise4.js",
   "scripts": {
-    "start": "clear && tsc && node ./build/index.js"
+    "start": "clear && tsc && node ../../build/Exercise4/exercise1.js"
   },
   "author": "Alexandra Alcantara",
   "license": "ISC"
