@@ -1,0 +1,11 @@
+{
+  "name": "intro-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "clear && tsc && node ./build/index.js"
+  },
+  "author": "Alexandra Alcantara",
+  "license": "ISC"
+}
