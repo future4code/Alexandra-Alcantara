@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import { countries } from "./countries";
+import { countries, country } from "./countries";
 
 const app = express();
 
@@ -16,9 +16,17 @@ app.get("/countries/all", (req: Request, res: Response) => {
   res.status(200).send(result);
 });
 
-// app.get("/countries/:id", (req: Request, res: Response) => {
-//   res.send("");
-// });
+app.get("/countries/:id", (req: Request, res: Response) => {
+  const result: country | undefined = countries.find(
+    (country) => country.id === Number(req.params.id)
+  );
+
+  if (result) {
+    res.status(200).send(result);
+  } else {
+    res.status(404).send("Country not found :(");
+  }
+});
 
 // app.get("/countries/search", (req: Request, res: Response) => {
 //   res.send("");
