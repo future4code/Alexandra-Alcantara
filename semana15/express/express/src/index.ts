@@ -12,8 +12,41 @@ app.get("/countries/all", (req: Request, res: Response) => {
     id: country.id,
     name: country.name,
   }));
-
   res.status(200).send(result);
+});
+
+app.get("/countries/search", (req: Request, res: Response) => {
+  let result: country[] = countries;
+
+  if (req.query.name) {
+    const name = req.query.name as string;
+    result = result.filter((country) =>
+      country.name.toLowerCase().includes(name.toLowerCase())
+    );
+  }
+
+  if (req.query.capital) {
+    const capital = req.query.capital as string;
+    result = result.filter((country) =>
+      country.capital.toLowerCase().includes(capital.toLowerCase())
+    );
+  }
+
+  if (req.query.continent) {
+    const continent = req.query.continent as string;
+    result = result.filter((country) =>
+      country.continent.toLowerCase().includes(continent.toLowerCase())
+    );
+  }
+
+  if (
+    (req.query.name || req.query.capital || req.query.continent) &&
+    result.length > 0
+  ) {
+    res.status(200).send(result);
+  } else {
+    res.status(404).send("Not found :(");
+  }
 });
 
 app.get("/countries/:id", (req: Request, res: Response) => {
@@ -27,10 +60,6 @@ app.get("/countries/:id", (req: Request, res: Response) => {
     res.status(404).send("Country not found :(");
   }
 });
-
-// app.get("/countries/search", (req: Request, res: Response) => {
-//   res.send("");
-// });
 
 // app.get("/countries/edit/id:", (req: Request, res: Response) => {
 //   res.send("");
