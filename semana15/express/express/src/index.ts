@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Endpoint 1: Get All Countries
 app.get("/countries/all", (req: Request, res: Response) => {
   const result = countries.map((country) => ({
     id: country.id,
@@ -15,6 +16,7 @@ app.get("/countries/all", (req: Request, res: Response) => {
   res.status(200).send(result);
 });
 
+// Endpoint 2: Get Country By Name/Capital/Continent
 app.get("/countries/search", (req: Request, res: Response) => {
   let result: country[] = countries;
 
@@ -49,6 +51,7 @@ app.get("/countries/search", (req: Request, res: Response) => {
   }
 });
 
+// Endpoint 3: Get Country By Id
 app.get("/countries/:id", (req: Request, res: Response) => {
   const result: country | undefined = countries.find(
     (country) => country.id === Number(req.params.id)
@@ -61,9 +64,37 @@ app.get("/countries/:id", (req: Request, res: Response) => {
   }
 });
 
-// app.get("/countries/edit/id:", (req: Request, res: Response) => {
-//   res.send("");
-// });
+// Endpoint 4: Update country (name/capital)
+app.put("/countries/edit/:id", (req: Request, res: Response) => {
+  const { name, capital } = req.body;
+  let errorCode: number = 400;
+
+  try {
+    const countryIndex: number = countries.findIndex(
+      (country) => country.id === Number(req.params.id)
+    );
+
+    if (countryIndex === -1) {
+      errorCode = 404;
+      throw new Error("Id doesn't exist");
+    }
+
+    if (!name && !capital) {
+      throw new Error("Invalid Parameters");
+    }
+
+    if (name) {
+      countries[countryIndex].name = name;
+    }
+
+    if (capital) {
+      countries[countryIndex].capital = capital;
+    }
+    res.status(200).send("Country successfully updated");
+  } catch (error) {
+    res.status(errorCode).send(error.message);
+  }
+});
 
 app.listen(3003, () => {
   console.log("Server is running at http://localhost:3003");
