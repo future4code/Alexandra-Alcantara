@@ -25,7 +25,7 @@ app.get("/users", (req: Request, res: Response) => {
     b) Sim, criando um "enum" específico para os tipos de usuário, assim a 
        os types só podem usar o que foi definido no enum. */
 
-app.get("/users/search", (req: Request, res: Response) => {
+app.get("/users/searchByType", (req: Request, res: Response) => {
   let result: user[] = users;
 
   if (req.query.type) {
@@ -42,7 +42,27 @@ app.get("/users/search", (req: Request, res: Response) => {
   }
 });
 
-// Endpoint 3: Get
+/* Exercício 3
+    Endpoint: Get lista de usuários por nome
+    a) Envio de parâmetro por query.
+    b) Alterado com a mensagem de erro: "Users not found by this name." */
+
+app.get("/users/searchByName", (req: Request, res: Response) => {
+  let result: user[] = users;
+
+  if (req.query.name) {
+    const name = req.query.name as string;
+    result = result.filter((user) =>
+      user.name.toLowerCase().includes(name.toLowerCase())
+    );
+  }
+
+  if (req.query.name && result.length > 0) {
+    res.status(200).send(result);
+  } else {
+    res.status(404).send("Users not found by this name :(");
+  }
+});
 
 // Endpoint 4: Get
 
