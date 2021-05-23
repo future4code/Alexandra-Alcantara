@@ -1,4 +1,3 @@
-//npm run dev
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { users, user } from "./users";
@@ -64,8 +63,44 @@ app.get("/users/searchByName", (req: Request, res: Response) => {
   }
 });
 
-// Endpoint 4: Get
+/* Exercício 4
+    Endpoint: POST de novo usuário
+    a) Ao trocar o método de POST para PUT, o usuário que eu já
+       havia criado sumiu, mas consegui criar novos usuários com
+       PUT da mesma forma e mesmo com POST ou PUT, a cada requisição
+       um novo usuário era criado, mesmo com todos os dados repetidos.
+    b) Acredito que o método PUT seja mais adequado para casos de 
+       atualização de dados, imagino que por causa da idempotência
+       mas ainda preciso estudar mais sobre pra entender direitinho. */
+
+app.post("/users/createNewUser", (req: Request, res: Response) => {
+  try {
+    const { id, name, email, type, age } = req.body;
+
+    const newUser = {
+      id,
+      name,
+      email,
+      type,
+      age,
+    };
+
+    users.push(newUser);
+    res.status(200).send({
+      message: "ok",
+      user: newUser,
+    });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+app.get("/ping", (req: Request, res: Response) => {
+  res.status(200).send("pong!");
+});
 
 app.listen(3003, () => {
-  console.log("Server is running at http://localhost:3003");
+  console.log("Server is running at port http://localhost:3003");
 });
