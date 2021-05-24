@@ -5,7 +5,6 @@
 ### Contas:
 
 - `nome`
-- `CPF` (único)
 - `data` de nascimento (idade >= 18)
 - `saldo` (começa zerado)
 - `extrato` (array de transações)
@@ -52,5 +51,5 @@
  <li>Dentro da definição do usuário, crie um array que armazene as transações de um cliente.</li>
  <li>Crie um endpoint que utilize o método <font color="blue">POST</font> da entidade <font color="#b7aa6b">users</font> que será responsável por cadastrar um usuário em um array de usuários. Neste momento, não se preocupe com as validaçẽs descritas nas funcionalidades.</li>
  <li>Crie um método <font color="blue">GET</font> na entidade users, função que será responsável por pegar todos os usuários existentes no array de usuários.</li>
- <li>Adicione uma validação no item 1 (Criar conta): o usuário deve possuir mais do que 18 anos para conseguir se cadastrar. Caso não possua, exiba uma mensagem de erro.</li>
+ <li>Adicione uma validação no item 1 (Criar conta): o usuário deve possuir 18 anos ou mais para conseguir se cadastrar. Caso não possua, exiba uma mensagem de erro.</li>
 </ol>

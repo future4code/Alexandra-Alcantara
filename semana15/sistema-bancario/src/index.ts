@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { accounts } from "./accounts";
+import { Account } from "./types";
 import dayjs from "dayjs";
 
 const app = express();
