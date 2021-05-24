@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { accounts } from "./accounts";
+import dayjs from "dayjs";
 
 const app = express();
 
@@ -8,24 +9,24 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/users/create", (req: Request, res: Response) => {
-  try {
-    const { name, CPF, dateOfBirth } = req.body;
+  const { name, CPF, dateOfBirth } = req.body;
 
-    // const [day, month, year] = dateOfBirthAsString.split("/");
-    // const dateOfBirth: Date = new Date(`${year}-${month}-${day}`);
+  const newDateFormat = dayjs(dateOfBirth).format("DD/MM/YYYY");
+  const dateOfBirthFormated = dayjs(newDateFormat);
+  const currentDate = Date.now();
+  const idade = Math.abs(dateOfBirthFormated.diff(currentDate, "year"));
 
+  if (idade >= 18) {
     accounts.push({
       name,
       CPF,
-      dateOfBirth,
+      dateOfBirth: newDateFormat,
       balance: 0,
       statement: [],
     });
-
-    res.status(201).send("Conta criada com sucesso!");
-  } catch (error) {
-    console.log(error);
-    res.status(400).send(error.message);
+    res.status(201).send(`Conta criada com sucesso! Idade: ${idade}`);
+  } else {
+    res.status(400).send("Idade deve ser maior ou igual a 18.");
   }
 });
 
