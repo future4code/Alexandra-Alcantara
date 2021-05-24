@@ -1,6 +1,9 @@
 # Cinema System
 
 <img src="images/cinema.jpg" width="100%" height="250">
+<br>
+
+## Requisitos
 
 - Atrizes/Atores
   - Id;
@@ -19,6 +22,8 @@
   - Avaliação (0 - 10).
 
 - Ingressos
+
+## Exercícios
 
 ### Exercício 1
 
