@@ -1,5 +1,7 @@
 # Cinema System
 
+<img src="images/cinema.jpg" width="100%" height="250">
+
 - Atrizes/Atores
   - Id;
   - Nome;
@@ -208,16 +210,117 @@ a)
 | ------------ | ------------ | ----------- |
 | id           | VARCHAR(255) | PRIMARY KEY |
 | name         | VARCHAR(255) | NOT NULL    |
-| synopsis     | TEXT(500)    | NOT NULL    |
+| synopsis     | TEXT         | NOT NULL    |
 | release_date | DATE         | NOT NULL    |
-| rating       | INT(10)      | NOT NULL    |
+| rating       | INT(2)       | NOT NULL    |
+
+<br>
+
+Criei a tabela `Movies` com os campos requeridos e com os tipos `VARCHAR` para id e name, `TEXT` para a synopsis, `DATE` para a data de lançamento e `INT` para rating com 2 caracteres, pois a avaliação será de no máximo 10.
+O Id é a Primary Key e os outros itens são obrigatórios.
 
 b)
 
+`INSERT INTO` Movies (id, name, synopsis, release_date, rating)<br>
+`VALUES`(<br>
+"001",<br>
+"Se Eu Fosse Você",<br>
+"Cláudio e Helena são casados há muitos anos e enfrentam
+a rotina do casamento. Um dia eles são atingidos por um
+fenômeno inexplicável e trocam de corpos.",<br>
+"2006-01-06",<br>
+7<br>
+);
+
 c)
+
+`INSERT INTO` Movies (id, name, synopsis, release_date, rating)<br>
+`VALUES`(<br>
+"002",<br>
+"Doce de mãe",<br>
+"Dona Picucha, uma animada senhora de 85 anos, sempre
+causa grandes confusões. A vida dela e dos seus quatro
+filhos sofre uma reviravolta depois que Zaida, empregada
+e amiga de Dona Picucha, anuncia que vai se casar e não
+poderá mais morar com ela.",<br>
+"2012-12-27",<br>
+10<br>
+);
 
 d)
 
+`INSERT INTO` Movies (id, name, synopsis, release_date, rating)<br>
+`VALUES`(<br>
+"003",<br>
+"Dona Flor e Seus Dois Maridos",<br>
+"Dona Flor é uma sedutora professora de culinária casada
+com Vadinho, que só quer saber de farras e jogatina nas
+boates. A vida de abusos acaba por acarretar sua morte
+precoce.",<br>
+"2017-11-02",<br>
+8<br>
+);
+
+e)
+
+`INSERT INTO` Movies (id, name, synopsis, release_date, rating)<br>
+`VALUES`(<br>
+"004",<br>
+"Tropa de Elite",<br>
+"Nascimento, capitão da Tropa de Elite do Rio de Janeiro, é
+designado para chefiar uma das equipes que tem como missão
+apaziguar o Morro do Turano. Ele precisa cumprir as ordens
+enquanto procura por um substituto para ficar em seu lugar.
+Em meio a um tiroteio, Nascimento e sua equipe resgatam Neto e
+Matias, dois aspirantes a oficiais da PM. Ansiosos para entrar
+em ação e impressionados com a eficiência de seus salvadores,
+os dois se candidatam ao curso de formação da Tropa de Elite.",<br>
+"2007-10-05",<br>
+10<br>
+);
+
 ### Exercício 6
 
+a)
+
+`SELECT` id, name, rating `FROM` Movies<br>
+
+b)
+
+`SELECT * FROM` Movies<br>
+`WHERE` name = "Tropa de Elite";
+
+c)
+
+`SELECT` id, name, synopsis `FROM` Movies<br>
+`WHERE` rating >= 7;
+
 ### Exercício 7
+
+a)
+
+`SELECT * FROM` Movies<br>
+`WHERE` name `LIKE` "%vida%";
+
+b)
+
+`SELECT * FROM` Movies<br>
+`WHERE` name `LIKE` "%dia%"<br>
+`OR` synopsis `LIKE` "%dia%";
+
+c)
+
+`SELECT * FROM` Movies<br>
+`WHERE` release_date <= `CURDATE()`;
+
+d)
+
+`SELECT * FROM` Movies<br>
+`WHERE` (release_date <= `CURDATE()`<br>
+`AND` name `LIKE` "%tropa%"<br>
+`OR` synopsis `LIKE` "%tropa%")<br>
+`AND` rating > 7;
+
+---
+
+<img src="images/thats-all-folks.jpg" width="100%" height="250">
