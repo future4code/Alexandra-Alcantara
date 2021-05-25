@@ -1,4 +1,4 @@
-# Cinema DB
+# Cinema DB MySQL
 
 <img src="images/cinema.jpg" width="100%" height="250">
 <br>
