@@ -1,4 +1,4 @@
-# Cinema System
+# Cinema DB
 
 <img src="images/cinema.jpg" width="100%" height="250">
 <br>
