@@ -1,0 +1,34 @@
+// Say Hello World
+GET http://localhost:3003
+
+###
+
+// Add a New Actor
+POST http://localhost:3003/actors
+Content-Type: application/json
+// Precisa ter esse espaço para que a extensão entenda que
+// o que vem abaixo é um body.
+
+{
+    "id": "005",
+    "name": "Keanu Reeves",
+    "salary":1000,
+    "birthDate": "1990-02-27",
+    "gender":"male"
+}
+
+###
+
+// Get All Actors
+GET http://localhost:3003/actors
+
+###
+
+// Search Actor By Id
+GET http://localhost:3003/actor/003
+
+###
+
+// Search Actor By Name
+GET http://localhost:3003/actor/Ale
+

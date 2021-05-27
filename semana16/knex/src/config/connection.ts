@@ -1,3 +1,4 @@
+// Arquivo de configuração do Knex
 import knex from "knex";
 import { config } from "dotenv";
 
