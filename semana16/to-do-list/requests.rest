@@ -1,0 +1,12 @@
+// Criar usuário
+PUT http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Keanu Reeves",
+    "nickname": "neo",
+    "email":"keanu-cute@mail.com"
+}
+
+// Buscar usuário pelo id
+
