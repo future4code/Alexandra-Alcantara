@@ -24,4 +24,18 @@ Content-Type: application/json
     "nickname":"ravi modificada 2"
 }
 
+###
+
+// Criar tarefa
+PUT http://localhost:3003/task
+Content-Type: application/json
+
+
+{
+    "title": "dia 28",
+    "description": "mês 10",
+    "formatedDeadline": "28/10/2021",
+    "creatorUserId": "006"
+}
+
 

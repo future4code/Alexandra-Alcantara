@@ -1,6 +1,6 @@
 import { connection } from "../connection";
 
-// Função do endpoint 1
+// Função do endpoint BUSCAR USUÁRIO PELO ID
 export const getUserById = async (id: string): Promise<any> => {
   const result = await connection("ToDoListUser")
     .select("id", "nickname")
@@ -9,7 +9,7 @@ export const getUserById = async (id: string): Promise<any> => {
   return result[0];
 };
 
-// Função do endpoint 2
+// Função do endpoint CRIAR USUÁRIO
 export const createUser = async (
   name: string,
   nickname: string,
@@ -22,7 +22,7 @@ export const createUser = async (
   });
 };
 
-// Função do endpoint 3
+// Função do endpoint EDITAR USUÁRIO
 export const editUser = async (
   id: string,
   name: string,
@@ -37,5 +37,3 @@ export const editUser = async (
     })
     .where("id", id);
 };
-
-// Função do endpoint 4
