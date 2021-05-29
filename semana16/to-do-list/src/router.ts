@@ -7,6 +7,7 @@ const routes: Router = express.Router();
 routes.put("/user", async (req: Request, res: Response) => {
   try {
     const { name, nickname, email } = req.body;
+    console.log(name, nickname, email);
     await createUser(name, nickname, email);
     res.status(200).send(`User Created!`);
   } catch (err) {
