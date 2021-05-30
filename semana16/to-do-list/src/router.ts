@@ -1,6 +1,11 @@
 import express, { Router, Request, Response } from "express";
 import { createTask, getTaskById } from "./data/functions/tasks";
-import { createUser, editUser, getUserById } from "./data/functions/users";
+import {
+  createUser,
+  editUser,
+  getAllUsers,
+  getUserById,
+} from "./data/functions/users";
 
 const routes: Router = express.Router();
 
@@ -19,12 +24,12 @@ routes.put("/user", async (req: Request, res: Response) => {
   }
 });
 
-// Buscar usuário pelo id (endpoint 2)
-routes.get("/user/:id", async (req: Request, res: Response) => {
+// Buscar todos os usuários (endpoint 6)
+routes.get("/user/all", async (_, res: Response) => {
   try {
-    const id = req.params.id;
-    const user = await getUserById(id);
-    res.status(200).send(user);
+    const users = await getAllUsers();
+    console.log("Console.log do endpoint:", users);
+    res.status(200).send(users);
   } catch (err) {
     res.status(400).send({
       message: err.message,
@@ -46,7 +51,18 @@ routes.post("/user/edit/:id", async (req, res) => {
   }
 });
 
-export default routes;
+// Buscar usuário pelo id (endpoint 2)
+routes.get("/user/:id", async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    const user = await getUserById(id);
+    res.status(200).send(user);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
 
 // --------------- ENDPOINTS DAS TAREFAS --------------- //
 
@@ -68,7 +84,6 @@ routes.get("/task/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
     const task = await getTaskById(id);
-    console.log(task);
     res.status(200).send(task);
   } catch (err) {
     res.status(400).send({
@@ -76,3 +91,5 @@ routes.get("/task/:id", async (req: Request, res: Response) => {
     });
   }
 });
+
+export default routes;

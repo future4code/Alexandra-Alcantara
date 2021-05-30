@@ -30,7 +30,7 @@ export const getTaskById = async (id: string): Promise<any> => {
       task.description, 
       task.status, 
       task.creator_user_id, 
-      date_format(task.limit_date, '%d/%m/%Y') as deadline,
+      DATE_FORMAT(task.limit_date, '%d/%m/%Y') as deadline,
       nickname FROM ToDoListTask as task
     JOIN ToDoListUser as user
     ON creator_user_id = user.id

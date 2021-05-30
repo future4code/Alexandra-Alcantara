@@ -37,3 +37,9 @@ export const editUser = async (
     })
     .where("id", id);
 };
+
+// Função do endpoint 6 [BUSCAR TODOS OS USUÁRIOS]
+export const getAllUsers = async (): Promise<any> => {
+  const result = await connection("ToDoListUser").select("id", "nickname");
+  return result;
+};

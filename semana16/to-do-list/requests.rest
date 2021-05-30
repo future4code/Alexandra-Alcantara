@@ -42,6 +42,11 @@ Content-Type: application/json
 
 // Buscar tarefa pelo id
 
-GET http://localhost:3003/task/2
+GET http://localhost:3003/task/1
 
+###
+
+// Buscar todos os usuários
+
+GET http://localhost:3003/user/all
 
