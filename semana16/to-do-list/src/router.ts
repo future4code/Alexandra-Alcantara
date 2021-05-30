@@ -4,6 +4,7 @@ import {
   getTaskById,
   getTasksByUser,
   setResponsible,
+  getResponsibleByIdTask,
 } from "./data/functions/tasks";
 import {
   createUser,
@@ -116,6 +117,19 @@ routes.post("/task/responsible", async (req: Request, res: Response) => {
     const { taskId, responsibleUserId } = req.body;
     await setResponsible(taskId, responsibleUserId);
     res.status(200).send(`Responsible defined for this task!`);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+// Retornar usuários responsáveis por uma tarefa pelo id dela (endpoint 10)
+routes.get("/task/:id/responsible", async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    const responsibles = await getResponsibleByIdTask(id);
+    res.status(200).send(responsibles);
   } catch (err) {
     res.status(400).send({
       message: err.message,

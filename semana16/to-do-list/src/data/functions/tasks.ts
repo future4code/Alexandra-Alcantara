@@ -67,3 +67,16 @@ export const setResponsible = async (
     responsible_user_id: responsibleUserId,
   });
 };
+
+// Função do endpoint 10 [BUSCAR USUÁRIOS RESPONSÁVEIS POR UMA TAREFA]
+export const getResponsibleByIdTask = async (id: string): Promise<any> => {
+  const result = await connection.raw(`
+    SELECT
+      responsibles.task_id as taskId,
+      nickname FROM ToDoListTaskResponsibles as responsibles
+    JOIN ToDoListUser as user
+    ON responsible_user_id = user.id
+    WHERE responsibles.task_id = ${id}
+  `);
+  return result[0];
+};

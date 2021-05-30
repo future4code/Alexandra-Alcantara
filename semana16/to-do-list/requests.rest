@@ -70,6 +70,12 @@ POST http://localhost:3003/task/responsible
 Content-Type: application/json
 
 {
-    "taskId": "5",
-    "responsibleUserId": "2"
+    "taskId": "4",
+    "responsibleUserId": "5"
 }
+
+###
+
+// Retornar os usuários responsáveis por uma tarefa pelo id dela
+
+GET http://localhost:3003/task/1/responsible
