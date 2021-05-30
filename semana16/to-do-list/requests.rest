@@ -38,4 +38,10 @@ Content-Type: application/json
     "creatorUserId": "006"
 }
 
+###
+
+// Buscar tarefa pelo id
+
+GET http://localhost:3003/task/2
+
 

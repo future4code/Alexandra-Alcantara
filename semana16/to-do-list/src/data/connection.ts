@@ -12,5 +12,6 @@ export const connection = knex({
     database: process.env.DB_NAME,
     port: 3306,
     multipleStatements: true,
+    timezone: "UTC",
   },
 });
