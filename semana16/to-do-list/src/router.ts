@@ -9,6 +9,7 @@ import {
   editUser,
   getAllUsers,
   getUserById,
+  searchUserByName,
 } from "./data/functions/users";
 
 const routes: Router = express.Router();
@@ -28,11 +29,10 @@ routes.put("/user", async (req: Request, res: Response) => {
   }
 });
 
-// Buscar todos os usuários (endpoint 6)
+// Recuperar todos os usuários (endpoint 6)
 routes.get("/user/all", async (_, res: Response) => {
   try {
     const users = await getAllUsers();
-    console.log("Console.log do endpoint:", users);
     res.status(200).send(users);
   } catch (err) {
     res.status(400).send({
@@ -41,8 +41,21 @@ routes.get("/user/all", async (_, res: Response) => {
   }
 });
 
+// Pesquisar usuário pelo nome (endpoint 8)
+routes.get("/user", async (req: Request, res: Response) => {
+  try {
+    const name = req.query.query as string;
+    const searchResult = await searchUserByName(name);
+    res.status(200).send(searchResult);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
 // Editar usuário indicando o id (endpoint 3)
-routes.post("/user/edit/:id", async (req, res) => {
+routes.post("/user/edit/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
     const { name, nickname, email } = req.body;
@@ -88,7 +101,6 @@ routes.get("/task", async (req: Request, res: Response) => {
   try {
     const id = req.query.creatorUserId as string;
     const tasks = await getTasksByUser(id);
-    console.log("Console.log do endpoint:", tasks);
     res.status(200).send(tasks);
   } catch (err) {
     res.status(400).send({

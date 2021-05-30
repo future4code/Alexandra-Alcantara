@@ -38,8 +38,17 @@ export const editUser = async (
     .where("id", id);
 };
 
-// Função do endpoint 6 [BUSCAR TODOS OS USUÁRIOS]
+// Função do endpoint 6 [RECUPERAR TODOS OS USUÁRIOS]
 export const getAllUsers = async (): Promise<any> => {
   const result = await connection("ToDoListUser").select("id", "nickname");
+  return result;
+};
+
+// Função do endpoint 8 [PESQUISAR USUÁRIO PELO NOME]
+export const searchUserByName = async (name: string): Promise<any> => {
+  const result = await connection("ToDoListUser")
+    .select("id", "nickname")
+    .where("nickname", "like", `%${name}%`)
+    .orWhere("email", "like", `%${name}%`);
   return result;
 };

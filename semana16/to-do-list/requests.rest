@@ -4,9 +4,9 @@ Content-Type: application/json
 
 
 {
-    "name": "Mariah Carey",
-    "nickname": "mari",
-    "email":"mari@mail.com"
+    "name": "Meg",
+    "nickname": "Joaquina",
+    "email":"marshmellow@mail.com"
 }
 
 ###
@@ -55,3 +55,9 @@ GET http://localhost:3003/user/all
 // Buscar todos as tarefas de um usuário
 
 GET http://localhost:3003/task?creatorUserId=2
+
+###
+
+// Pesquisar usuário pelo nome
+
+GET http://localhost:3003/user?query=mars
