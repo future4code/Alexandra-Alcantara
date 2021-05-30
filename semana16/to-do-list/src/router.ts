@@ -1,5 +1,9 @@
 import express, { Router, Request, Response } from "express";
-import { createTask, getTaskById } from "./data/functions/tasks";
+import {
+  createTask,
+  getTaskById,
+  getTasksByUser,
+} from "./data/functions/tasks";
 import {
   createUser,
   editUser,
@@ -72,6 +76,20 @@ routes.put("/task", async (req: Request, res: Response) => {
     const { title, description, formatedDeadline, creatorUserId } = req.body;
     await createTask(title, description, formatedDeadline, creatorUserId);
     res.status(200).send("Task Created!");
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+// Buscar todas as tarefas por usuário (endpoint 7)
+routes.get("/task", async (req: Request, res: Response) => {
+  try {
+    const id = req.query.creatorUserId as string;
+    const tasks = await getTasksByUser(id);
+    console.log("Console.log do endpoint:", tasks);
+    res.status(200).send(tasks);
   } catch (err) {
     res.status(400).send({
       message: err.message,

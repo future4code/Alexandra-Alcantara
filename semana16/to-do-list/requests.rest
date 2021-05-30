@@ -50,3 +50,8 @@ GET http://localhost:3003/task/1
 
 GET http://localhost:3003/user/all
 
+###
+
+// Buscar todos as tarefas de um usuário
+
+GET http://localhost:3003/task?creatorUserId=2

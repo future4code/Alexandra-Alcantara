@@ -29,12 +29,30 @@ export const getTaskById = async (id: string): Promise<any> => {
       task.title, 
       task.description, 
       task.status, 
-      task.creator_user_id, 
       DATE_FORMAT(task.limit_date, '%d/%m/%Y') as deadline,
+      task.creator_user_id, 
       nickname FROM ToDoListTask as task
     JOIN ToDoListUser as user
     ON creator_user_id = user.id
     WHERE task.id = ${id}
   `);
   return result[0][0];
+};
+
+// Função do endpoint 7 [BUSCAR TAREFAS CRIADAS POR USUÁRIO]
+export const getTasksByUser = async (id: string): Promise<any> => {
+  const result = await connection.raw(`
+    SELECT
+      task.id,
+      task.title,
+      task.description,
+      DATE_FORMAT(task.limit_date, '%d/%m/%Y') as deadline,
+      task.creator_user_id,
+      task.status,
+      nickname FROM ToDoListTask as task
+    JOIN ToDoListUser as user
+    ON creator_user_id = user.id
+    WHERE task.creator_user_id = ${id}
+  `);
+  return result[0];
 };
