@@ -61,3 +61,15 @@ GET http://localhost:3003/task?creatorUserId=2
 // Pesquisar usuário pelo nome
 
 GET http://localhost:3003/user?query=mars
+
+###
+
+// Atribuir um usuário a uma tarefa
+
+POST http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{
+    "taskId": "5",
+    "responsibleUserId": "2"
+}

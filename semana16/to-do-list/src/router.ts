@@ -3,6 +3,7 @@ import {
   createTask,
   getTaskById,
   getTasksByUser,
+  setResponsible,
 } from "./data/functions/tasks";
 import {
   createUser,
@@ -102,6 +103,19 @@ routes.get("/task", async (req: Request, res: Response) => {
     const id = req.query.creatorUserId as string;
     const tasks = await getTasksByUser(id);
     res.status(200).send(tasks);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+// Atribuir um usuário responsável a uma tarefa (endpoint 9)
+routes.post("/task/responsible", async (req: Request, res: Response) => {
+  try {
+    const { taskId, responsibleUserId } = req.body;
+    await setResponsible(taskId, responsibleUserId);
+    res.status(200).send(`Responsible defined for this task!`);
   } catch (err) {
     res.status(400).send({
       message: err.message,

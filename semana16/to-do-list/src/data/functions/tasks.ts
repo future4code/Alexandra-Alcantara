@@ -56,3 +56,14 @@ export const getTasksByUser = async (id: string): Promise<any> => {
   `);
   return result[0];
 };
+
+// Função do endpoint 9 [ATRIBUIR UM USUÁRIO RESPONSÁVEL A UMA TAREFA]
+export const setResponsible = async (
+  taskId: string,
+  responsibleUserId: string
+): Promise<any> => {
+  await connection("ToDoListTaskResponsibles").insert({
+    task_id: taskId,
+    responsible_user_id: responsibleUserId,
+  });
+};
