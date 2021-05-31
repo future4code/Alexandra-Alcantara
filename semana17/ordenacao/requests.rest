@@ -1,0 +1,14 @@
+// Ping (teste)
+GET http://localhost:3003/ping
+
+###
+
+// Search user by name
+GET http://localhost:3003/users?query=darv
+
+###
+
+// Search user by type
+GET http://localhost:3003/users/tea
+
+
