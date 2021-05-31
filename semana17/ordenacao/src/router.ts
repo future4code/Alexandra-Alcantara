@@ -1,5 +1,6 @@
 import express, { Router, Request, Response } from "express";
 import {
+  searchUser,
   searchUserByName,
   searchUserByType,
   searchUserOrdered,
@@ -11,7 +12,7 @@ routes.get("/ping", (_, res) => {
   res.send({ message: "pong" });
 });
 
-// FILTRAGEM POR NOME
+// GET USER BY NAME
 routes.get("/users", async (req: Request, res: Response) => {
   try {
     const name = req.query.query as string;
@@ -24,7 +25,20 @@ routes.get("/users", async (req: Request, res: Response) => {
   }
 });
 
-// PESQUISAR USUÁRIO PELO TIPO OU NOME E TRAZER DE FORMA ORDENADA (DESC/ASC)
+// GET 5 USERS PER PAGE AND ALLOW THE USER TO GO TO THE NEXT PAGE
+routes.get("/users/all", async (req: Request, res: Response) => {
+  try {
+    const page = Number(req.query.page) || 1;
+    const users = await searchUser(page);
+    res.status(200).send({ users });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+// GET ORDERED USERS (DESC/ASC)
 routes.get("/users/search", async (req: Request, res: Response) => {
   try {
     const orderBy = (req.query.orderBy as string) || "email";
@@ -41,7 +55,7 @@ routes.get("/users/search", async (req: Request, res: Response) => {
 
 export default routes;
 
-// FILTRAGEM POR TIPO
+// GET USER BY TYPE
 routes.get("/users/:type", async (req: Request, res: Response) => {
   try {
     const type = req.params.type;

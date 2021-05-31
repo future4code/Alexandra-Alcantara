@@ -1,6 +1,6 @@
 import { connection } from "../connection";
 
-// PESQUISAR USUÁRIO PELO NOME
+// GET USER BY NAME
 export const searchUserByName = async (name: string): Promise<any> => {
   const result = await connection("aula48_exercicio")
     .select("*")
@@ -8,7 +8,7 @@ export const searchUserByName = async (name: string): Promise<any> => {
   return result;
 };
 
-// PESQUISAR USUÁRIO PELO TIPO
+// GET USER BY TYPE
 export const searchUserByType = async (type: string): Promise<any> => {
   const result = await connection("aula48_exercicio")
     .select("*")
@@ -16,7 +16,7 @@ export const searchUserByType = async (type: string): Promise<any> => {
   return result;
 };
 
-// PESQUISAR USUÁRIO PELO TIPO OU NOME E TRAZER DE FORMA ORDENADA (DESC/ASC)
+// GET ORDERED USERS (DESC/ASC)
 export const searchUserOrdered = async (
   orderBy: string,
   orderType: string
@@ -24,5 +24,15 @@ export const searchUserOrdered = async (
   const result = await connection("aula48_exercicio")
     .select("*")
     .orderBy(`${orderBy}`, `${orderType.toUpperCase()}`);
+  return result;
+};
+
+// GET 5 USERS PER PAGE AND ALLOW THE USER TO GO TO THE NEXT PAGE
+export const searchUser = async (page: number): Promise<any> => {
+  const result = await connection("aula48_exercicio")
+    .select("*")
+    .limit(5)
+    .offset(5 * (page - 1));
+
   return result;
 };

@@ -3,17 +3,21 @@ GET http://localhost:3003/ping
 
 ###
 
-// Search user by name
+// Get user by name
 GET http://localhost:3003/users?query=darv
 
 ###
 
-// Search user by type
+// Get user by type
 GET http://localhost:3003/users/tea
 
 ###
 
-// Search user by email, name, type and ordered
+// Get users ordered (desc/asc)
 GET http://localhost:3003/users/search?orderBy=name&orderType=desc
 
+###
+
+// Get all users
+GET http://localhost:3003/users/all?page=5
 
