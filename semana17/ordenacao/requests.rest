@@ -11,4 +11,9 @@ GET http://localhost:3003/users?query=darv
 // Search user by type
 GET http://localhost:3003/users/tea
 
+###
+
+// Search user by email, name, type and ordered
+GET http://localhost:3003/users/search?orderBy=name&orderType=desc
+
 
