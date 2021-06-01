@@ -36,3 +36,22 @@ export const searchUser = async (page: number): Promise<any> => {
 
   return result;
 };
+
+// GET USER BY NAME, TYPE, ORDERED, 5 PER PAGE AND ALLOWING USER TO GO TO THE NEXT PAGE
+export const generalSearch = async (
+  name: string,
+  type: string,
+  page: number,
+  orderBy: string,
+  orderType: string
+): Promise<any> => {
+  const result = await connection("aula48_exercicio")
+    .select("*")
+    .where("name", "like", `%${name}%`)
+    .orWhere("type", "like", `%${type}%`)
+    .orderBy(`${orderBy}`, `${orderType.toUpperCase()}`)
+    .limit(5)
+    .offset(5 * (page - 1));
+
+  return result;
+};

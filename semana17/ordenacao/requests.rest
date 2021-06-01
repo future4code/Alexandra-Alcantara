@@ -21,3 +21,8 @@ GET http://localhost:3003/users/search?orderBy=name&orderType=desc
 // Get all users
 GET http://localhost:3003/users/all?page=5
 
+###
+
+// Get all users by name, type, ordered, 5 per page and allowing user to go to the next page
+GET http://localhost:3003/users/generalSearch
+
