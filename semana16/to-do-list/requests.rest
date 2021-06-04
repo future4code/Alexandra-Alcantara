@@ -1,0 +1,81 @@
+// Criar usuário
+PUT http://localhost:3003/user
+Content-Type: application/json
+
+
+{
+    "name": "Meg",
+    "nickname": "Joaquina",
+    "email":"marshmellow@mail.com"
+}
+
+###
+
+// Buscar usuário pelo id
+GET http://localhost:3003/user/001
+
+###
+
+// Editar usuário
+POST http://localhost:3003/user/edit/003
+Content-Type: application/json
+
+{
+    "nickname":"ravi modificada 2"
+}
+
+###
+
+// Criar tarefa
+PUT http://localhost:3003/task
+Content-Type: application/json
+
+
+{
+    "title": "dia 28",
+    "description": "mês 10",
+    "formatedDeadline": "28/10/2021",
+    "creatorUserId": "006"
+}
+
+###
+
+// Buscar tarefa pelo id
+
+GET http://localhost:3003/task/1
+
+###
+
+// Buscar todos os usuários
+
+GET http://localhost:3003/user/all
+
+###
+
+// Buscar todos as tarefas de um usuário
+
+GET http://localhost:3003/task?creatorUserId=2
+
+###
+
+// Pesquisar usuário pelo nome
+
+GET http://localhost:3003/user?query=mars
+
+###
+
+// Atribuir um usuário a uma tarefa
+
+POST http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{
+    "taskId": "4",
+    "responsibleUserId": "5"
+}
+
+###
+
+// Retornar os usuários responsáveis por uma tarefa pelo id dela
+
+GET http://localhost:3003/task/1/responsible
