@@ -1,0 +1,12 @@
+// Criar usuário  
+GET http://localhost:3003/ping
+
+###
+
+// Editar usuário 
+POST http://localhost:3003/user/edit/003 
+Content-Type: application/json
+
+{
+"nickname":""
+}
