@@ -3,13 +3,22 @@ GET http://localhost:3003/ta-acordado?
 
 ###
 
-//Criar usuário
-PUT http://localhost:3003/user
+// Fazer cadastro
+POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "name": "Outro nome", 
-    "nickname": "outro nick", 
-    "email": "meguinha@mail.com",
+    "email": "cap-america@mail.com",
     "password": "123456"
+}
+
+###
+
+// Fazer login
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "meguinha@mail.com",
+    "password": "1234"
 }
