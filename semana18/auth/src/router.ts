@@ -1,5 +1,5 @@
 import express, { Router, Request, Response } from "express";
-import { createUser } from "./functions/users";
+import { createUser, searchByEmail } from "./functions/users";
 import { connection } from "./services/connection";
 import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
@@ -9,7 +9,7 @@ const routes: Router = express.Router();
 // Teste do gerador de id
 console.log("Generate id: ", generateId());
 
-// Teste do gerador de id
+// Teste do gerador de id com chave
 console.log(
   "Generate token: ",
   generateToken({
@@ -73,7 +73,7 @@ routes.post("/user/signup", async (req: Request, res: Response) => {
   }
 });
 
-//Endpoint para login
+//Endpoint de login
 routes.post("/login", async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
@@ -102,6 +102,18 @@ routes.post("/login", async (req: Request, res: Response) => {
     });
 
     res.status(200).send({ token });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+routes.get("/user", async (req: Request, res: Response) => {
+  try {
+    const email = req.query.email as string;
+    const user = await searchByEmail(email);
+    res.status(200).send(user);
   } catch (err) {
     res.status(400).send({
       message: err.message,

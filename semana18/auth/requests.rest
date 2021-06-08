@@ -22,3 +22,10 @@ Content-Type: application/json
     "email": "meguinha@mail.com",
     "password": "1234"
 }
+
+###
+
+// Pesquisar usuário pelo email
+GET http://localhost:3003/user?email=rav
+
+

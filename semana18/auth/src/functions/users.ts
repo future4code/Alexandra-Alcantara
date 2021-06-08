@@ -24,3 +24,12 @@ export const login = async (email: string, password: string): Promise<any> => {
     password,
   });
 };
+
+// Função para buscar usuário pelo email
+export const searchByEmail = async (email: string): Promise<any> => {
+  const result = await connection("users_auth")
+    .select("*")
+    .where("email", "like", `%${email}%`);
+
+  return result[0];
+};
