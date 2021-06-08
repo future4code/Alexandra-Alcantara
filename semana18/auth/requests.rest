@@ -1,12 +1,15 @@
-// Criar usuário  
-GET http://localhost:3003/ping
+// Teste de server
+GET http://localhost:3003/ta-acordado?
 
 ###
 
-// Editar usuário 
-POST http://localhost:3003/user/edit/003 
+//Criar usuário
+PUT http://localhost:3003/user
 Content-Type: application/json
 
 {
-"nickname":""
+    "name": "Meg", 
+    "nickname": "skywalker", 
+    "email": "meguinha@mail.com",
+    "password": "123456"
 }

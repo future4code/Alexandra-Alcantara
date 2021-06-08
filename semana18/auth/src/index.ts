@@ -1,11 +1,13 @@
-import { connection } from "./services/connection";
-import app from "./app";
-import { Request, Response } from "express";
-import { generateId } from "./services/idGenerator";
+import express from "express";
+import cors from "cors";
+import routes from "./router";
 
-// Testar a conexão com o server
-app.get("/ping", (_, res) => {
-  res.send({ message: "pong" });
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+app.use(routes);
+
+app.listen(3003, () => {
+  console.log("Server is running at http://localhost:3003");
 });
-
-console.log(generateId());
