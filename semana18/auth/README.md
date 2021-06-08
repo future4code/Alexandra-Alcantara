@@ -29,3 +29,9 @@ email `VARCHAR(50)` `UNIQUE` `NOT NULL`
 a)
 
 `as string` diz para o código que o virá de `process.env.JWT_KEY` será sempre uma string.
+
+### 7
+
+a)
+
+É necessário usar o `as any` ou um type com o formato desejado para dizer ao código como a informação vai ser retornada.

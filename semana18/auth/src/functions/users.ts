@@ -1,3 +1,4 @@
+import { getTokenData } from "../services/authenticator";
 import { connection } from "../services/connection";
 
 // Função para criar o usuário

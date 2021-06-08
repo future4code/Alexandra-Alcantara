@@ -113,10 +113,34 @@ routes.post("/user/login", async (req: Request, res: Response) => {
   }
 });
 
+//Endpoint de busca pelo email
 routes.get("/user", async (req: Request, res: Response) => {
   try {
     const email = req.query.email as string;
-    const user = await searchByEmail(email);
+    const result = await searchByEmail(email);
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+//Endpoint de busca pelo id
+routes.get("/user/profile", async (req: Request, res: Response) => {
+  try {
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+
+    const user = await connection("users_auth")
+      .select("id", "email")
+      .where("id", verifiedToken.id);
+
     res.status(200).send(user);
   } catch (err) {
     res.status(400).send({
