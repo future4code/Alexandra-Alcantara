@@ -8,8 +8,8 @@ PUT http://localhost:3003/user
 Content-Type: application/json
 
 {
-    "name": "Meg", 
-    "nickname": "skywalker", 
+    "name": "Outro nome", 
+    "nickname": "outro nick", 
     "email": "meguinha@mail.com",
     "password": "123456"
 }

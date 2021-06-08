@@ -1,4 +1,4 @@
-import { connection } from "../service/connection";
+import { connection } from "../services/connection";
 
 // Função para criar o usuário
 export const createUser = async (

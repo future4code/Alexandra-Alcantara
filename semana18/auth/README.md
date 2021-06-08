@@ -24,4 +24,8 @@ email `VARCHAR(50)` `UNIQUE` `NOT NULL`
 `ALTER TABLE` users_auth
 `ADD` password `VARCHAR(255)`
 
-c)
+### 3
+
+a)
+
+`as string` diz para o código que o virá de `process.env.JWT_KEY` será sempre uma string.
