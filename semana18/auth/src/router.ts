@@ -74,7 +74,7 @@ routes.post("/user/signup", async (req: Request, res: Response) => {
 });
 
 //Endpoint de login
-routes.post("/login", async (req: Request, res: Response) => {
+routes.post("/user/login", async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
 
@@ -83,7 +83,11 @@ routes.post("/login", async (req: Request, res: Response) => {
       throw new Error("Preencha todos os campos: 'email' e 'password'.");
     }
 
-    const queryResult = await connection("users_auth_email_pwd")
+    if (!email.includes("@")) {
+      throw new Error("Invalid email :/");
+    }
+
+    const queryResult = await connection("users_auth")
       .select("*")
       .where("email", `${email}`);
 

@@ -19,7 +19,7 @@ export const createUser = async (
 
 // Função para login
 export const login = async (email: string, password: string): Promise<any> => {
-  await connection("users_auth_email_pwd").insert({
+  await connection("users_auth").insert({
     email,
     password,
   });
