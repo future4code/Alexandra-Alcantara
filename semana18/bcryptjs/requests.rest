@@ -20,7 +20,7 @@ POST http://localhost:3003/user/login
 Content-Type: application/json
 
 {
-    "email": "teste5@mail.com",
+    "email": "teste6@mail.com",
     "password": "145535754"
 }
 
@@ -34,4 +34,4 @@ GET http://localhost:3003/user?email=me
 // Retorna as informações do usuário logado
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQzZjhjMjllLWRjYmUtNGFlOS04YWViLTM4NDY1OWI3YjU4NCIsImlhdCI6MTYyMzE4OTIyMCwiZXhwIjoxNjU0NzQ2ODIwfQ.TWwns6UrvOZz8GPEIz66S3KkV68xUHWn5cUkVxIS9Jg
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE4MTJhMDc2LTlhOTktNDYzMy04ZTY3LTI2NjA1OTdhMTg3NCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzIwMjg4OCwiZXhwIjoxNjU0NzYwNDg4fQ.vCww1HfDE-5VszSDZu03dSdKmXXtR6awzXPE_ueF3ko

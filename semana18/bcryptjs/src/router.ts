@@ -158,13 +158,19 @@ routes.get("/user/profile", async (req: Request, res: Response) => {
     const token = req.headers.authorization as string;
     const verifiedToken = getTokenData(token);
 
+    if (verifiedToken.role !== "NORMAL") {
+      throw new Error(
+        "Access denied to your role, only normal users are allowed :/"
+      );
+    }
+
     if (!verifiedToken) {
       res.statusCode = 401;
       throw new Error("Unauthorized");
     }
 
-    const user = await connection("users_auth")
-      .select("id", "email")
+    const user = await connection("users_auth_email_pwd")
+      .select("id", "email", "role")
       .where("id", verifiedToken.id);
 
     res.status(200).send(user);
