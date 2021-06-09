@@ -4,6 +4,7 @@ import { connection } from "./services/connection";
 import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
 import { compareHash, generateHash } from "./services/hashManager";
+import { user } from "./types/user";
 
 const routes: Router = express.Router();
 
@@ -69,15 +70,21 @@ routes.post("/user/signup", async (req: Request, res: Response) => {
     // const id: string = Date.now().toString();
     const id: string = generateId();
 
-    await createUser(id, /*name, nickname,*/ email, password);
+    const newUser: user = {
+      id,
+      /*name,
+      nickname,*/
+      email,
+      password: generateHash(password),
+    };
 
-    const newUser = { id, /*name, nickname,*/ email, password };
+    await createUser(newUser);
 
     const token: string = generateToken({
       id: newUser.id,
     });
 
-    res.status(200).send({ /*newUser,*/ token });
+    res.status(200).send({ newUser, token });
   } catch (err) {
     res.status(400).send({
       message: err.message,
@@ -99,7 +106,7 @@ routes.post("/user/login", async (req: Request, res: Response) => {
       throw new Error("Invalid email :/");
     }
 
-    const queryResult = await connection("users_auth")
+    const queryResult = await connection("users_auth_email_pwd")
       .select("*")
       .where("email", `${email}`);
 
@@ -109,7 +116,9 @@ routes.post("/user/login", async (req: Request, res: Response) => {
       throw new Error("User not found :/");
     }
 
-    if (user.password !== password) {
+    const passwordIsCorrect: boolean = compareHash(password, user.password);
+
+    if (!passwordIsCorrect /*user.password !== password*/) {
       throw new Error("Invalid credentials :/");
     }
 

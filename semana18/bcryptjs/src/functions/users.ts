@@ -1,21 +1,10 @@
 import { getTokenData } from "../services/authenticator";
 import { connection } from "../services/connection";
+import { user } from "../types/user";
 
 // Função para criar o usuário
-export const createUser = async (
-  id: string,
-  /*name: string,
-  nickname: string,*/
-  email: string,
-  password: string
-): Promise<any> => {
-  await connection("users_auth_email_pwd").insert({
-    id,
-    /*name,
-    nickname,*/
-    email,
-    password,
-  });
+export const createUser = async (userData: user): Promise<any> => {
+  await connection("users_auth_email_pwd").insert(userData);
 };
 
 // Função para login
