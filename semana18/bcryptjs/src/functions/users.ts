@@ -23,3 +23,8 @@ export const searchByEmail = async (email: string): Promise<any> => {
 
   return result[0];
 };
+
+// Função para deletar usuários
+export const deleteUser = async (id: string): Promise<any> => {
+  await connection("users_auth_email_pwd").delete().where("id", `${id}`);
+};

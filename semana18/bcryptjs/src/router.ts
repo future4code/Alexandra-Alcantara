@@ -1,5 +1,5 @@
 import express, { Router, Request, Response } from "express";
-import { createUser, searchByEmail } from "./functions/users";
+import { createUser, deleteUser, searchByEmail } from "./functions/users";
 import { connection } from "./services/connection";
 import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
@@ -181,4 +181,24 @@ routes.get("/user/profile", async (req: Request, res: Response) => {
   }
 });
 
+routes.delete("/user/:id", async (req: Request, res: Response) => {
+  try {
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (verifiedToken.role !== "ADMIN") {
+      throw new Error("Only admin is allowed to delete users.");
+    }
+
+    const id = req.params.id;
+
+    await deleteUser(id);
+
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
 export default routes;
