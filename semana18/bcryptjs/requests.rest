@@ -8,8 +8,9 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "email": "teste5@mail.com",
-    "password": "145535754"
+    "email": "teste6@mail.com",
+    "password": "145535754",
+    "role": "ADMIN"
 }
 
 ###

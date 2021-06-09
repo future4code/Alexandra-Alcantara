@@ -10,46 +10,48 @@ const routes: Router = express.Router();
 
 /* 08/06/21 */
 
-const hash1 = generateHash("senha");
+/* const hash1 = generateHash("senha");
 const hash2 = generateHash("senha");
 const compare1 = compareHash("senha", hash1);
 const compare2 = compareHash("senha", hash2);
 
-console.log({ hash1, hash2, compare1, compare2 });
+console.log({ hash1, hash2, compare1, compare2 }); */
 
 /* 07/06/21 */
 
 // Teste do gerador de id
-console.log("Generate id: ", generateId());
+/* console.log("Generate id: ", generateId()); */
 
 // Teste do gerador de id com chave
-console.log(
+/* console.log(
   "Generate token: ",
   generateToken({
     id: "ale",
   })
-);
+); */
 
 // Teste do getTokenData
-console.log(
+/* console.log(
   getTokenData(
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFsZSIsImlhdCI6MTYyMzE3NjY5OCwiZXhwIjoxNjU0NzM0Mjk4fQ.ujyjiWMZuUfHxQkyfoyjPOybSLO-agAZv5Et59GFYFM"
   )
-);
+); */
 
 // Teste do server
-routes.get("/ta-acordado?", async (_, res: Response) => {
+/* routes.get("/ta-acordado?", async (_, res: Response) => {
   res.status(200).send("eu to e tu?");
-});
+}); */
 
 //Endpoint de cadastro
 routes.post("/user/signup", async (req: Request, res: Response) => {
   try {
-    const { /*name, nickname,*/ email, password } = req.body;
+    const { /*name, nickname,*/ email, password, role } = req.body;
 
-    if (/*!name || !nickname ||*/ !email || !password) {
+    if (/*!name || !nickname ||*/ !email || !password || !role) {
       res.statusCode = 422;
-      throw new Error("Preencha todos os campos: 'email' e 'password'.");
+      throw new Error(
+        "Preencha todos os campos: 'email', 'password' e 'role'."
+      );
     }
 
     if (!email.includes("@")) {
@@ -76,12 +78,14 @@ routes.post("/user/signup", async (req: Request, res: Response) => {
       nickname,*/
       email,
       password: generateHash(password),
+      role,
     };
 
     await createUser(newUser);
 
     const token: string = generateToken({
       id: newUser.id,
+      role: newUser.role,
     });
 
     res.status(200).send({ newUser, token });
@@ -124,6 +128,7 @@ routes.post("/user/login", async (req: Request, res: Response) => {
 
     const token: string = generateToken({
       id: user.id,
+      role: user.role,
     });
 
     res.status(200).send({ token });
