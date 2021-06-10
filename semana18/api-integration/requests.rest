@@ -8,8 +8,11 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-    "email": "cap-america@mail.com",
-    "password": "123456"
+    "email": "zulinhus3@mail.com",
+    "password": "obixaodoback",
+    "cep": "60830265",
+    "number": "11",
+    "complement": ""
 }
 
 ###

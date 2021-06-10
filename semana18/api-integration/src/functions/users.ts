@@ -1,28 +1,30 @@
-import { getTokenData } from "../services/authenticator";
 import { connection } from "../services/connection";
+import { user, userAddressDb } from "../types";
 
 // Função para criar o usuário
 export const createUser = async (
-  id: string,
-  /*name: string,
-  nickname: string,*/
-  email: string,
-  password: string
+  user: user,
+  address: userAddressDb
 ): Promise<any> => {
-  await connection("users_auth_email_pwd").insert({
-    id,
-    /*name,
-    nickname,*/
-    email,
-    password,
-  });
+  await connection("users_auth_email_pwd").insert(user);
+
+  await connection("users_address").insert(address);
 };
 
 // Função para login
-export const login = async (email: string, password: string): Promise<any> => {
+export const login = async (
+  email: string,
+  password: string,
+  cep: string,
+  numero: string,
+  complemento: string
+): Promise<any> => {
   await connection("users_auth").insert({
     email,
     password,
+    cep,
+    numero,
+    complemento,
   });
 };
 

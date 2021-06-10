@@ -1,12 +1,12 @@
 import axios from "axios";
-import { userAddress } from "../types";
+import { userAddressRequest } from "../types";
 
 export const getAddressInfo = async (
   cep: string
-): Promise<userAddress | null> => {
+): Promise<userAddressRequest> => {
   try {
     const response = await axios.get(`https://viacep.com.br/ws/${cep}/json`);
-    const address: userAddress = {
+    const address: userAddressRequest = {
       city: response.data.localidade,
       neighborhood: response.data.bairro,
       state: response.data.uf,
@@ -14,6 +14,6 @@ export const getAddressInfo = async (
     };
     return address;
   } catch (err) {
-    return null;
+    throw new Error(err.message);
   }
 };

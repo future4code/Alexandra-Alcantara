@@ -5,6 +5,7 @@ import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
 import { compareHash, generateHash } from "./services/hashManager";
 import { getAddressInfo } from "./services/getAddressInfo";
+import { user, userAddressRequest, userAddressDb } from "./types";
 
 const routes: Router = express.Router();
 
@@ -45,11 +46,13 @@ routes.get("/ta-acordado?", async (_, res: Response) => {
 //Endpoint de cadastro
 routes.post("/user/signup", async (req: Request, res: Response) => {
   try {
-    const { /*name, nickname,*/ email, password } = req.body;
+    const { email, password, cep, number, complement } = req.body;
 
-    if (/*!name || !nickname ||*/ !email || !password) {
+    if (!email || !password || !number || !cep) {
       res.statusCode = 422;
-      throw new Error("Preencha todos os campos: 'email' e 'password'.");
+      throw new Error(
+        "Preencha todos os campos obrigatórios: 'email', 'password', 'cep' e 'numero'."
+      );
     }
 
     if (!email.includes("@")) {
@@ -67,18 +70,30 @@ routes.post("/user/signup", async (req: Request, res: Response) => {
       throw new Error("Email já está cadastrado!");
     }
 
-    // const id: string = Date.now().toString();
-    const id: string = generateId();
+    const cepUser: userAddressRequest = await getAddressInfo(`${cep}`);
 
-    await createUser(id, /*name, nickname,*/ email, password);
+    const newUser: user = {
+      id: generateId(),
+      email,
+      password: generateHash(password),
+    };
 
-    const newUser = { id, /*name, nickname,*/ email, password };
+    const address: userAddressDb = {
+      id: generateId(),
+      cep,
+      complement,
+      number,
+      user_id: newUser.id,
+      ...cepUser,
+    };
+
+    await createUser(newUser, address);
 
     const token: string = generateToken({
       id: newUser.id,
     });
 
-    res.status(200).send({ /*newUser,*/ token });
+    res.status(200).send({ token });
   } catch (err) {
     res.status(400).send({
       message: err.message,
