@@ -1,6 +1,5 @@
-import { getTokenData } from "../services/authenticator";
 import { connection } from "../services/connection";
-import { recipe, user } from "../types";
+import { user } from "../types";
 
 // Função para criar o usuário
 export const createUser = async (user: user): Promise<any> => {

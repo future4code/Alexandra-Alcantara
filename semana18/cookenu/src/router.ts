@@ -184,6 +184,7 @@ routes.post("/recipe", async (req: Request, res: Response) => {
   }
 });
 
+//Endpoint de pesquisar a receita pelo id
 routes.get("/recipe/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
@@ -198,7 +199,19 @@ routes.get("/recipe/:id", async (req: Request, res: Response) => {
 
     const recipe = await searchRecipeById(id);
 
-    res.status(200).send(recipe);
+    const formattedDate =
+      recipe.created_at.getDate() +
+      "/" +
+      (recipe.created_at.getMonth() + 1) +
+      "/" +
+      recipe.created_at.getFullYear();
+
+    res.status(200).send({
+      id: recipe.id,
+      title: recipe.id,
+      description: recipe.description,
+      createdAt: formattedDate,
+    });
   } catch (err) {
     res.status(400).send({
       message: err.message,

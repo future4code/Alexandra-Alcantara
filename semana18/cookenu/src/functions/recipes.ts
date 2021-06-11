@@ -1,6 +1,5 @@
-import { getTokenData } from "../services/authenticator";
 import { connection } from "../services/connection";
-import { recipe, user } from "../types";
+import { recipe } from "../types";
 
 // Função para criar receita
 export const createRecipe = async (recipe: recipe): Promise<any> => {
