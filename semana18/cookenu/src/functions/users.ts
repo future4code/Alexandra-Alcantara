@@ -1,5 +1,5 @@
 import { connection } from "../services/connection";
-import { user } from "../types";
+import { user, follow } from "../types";
 
 // Função para criar o usuário
 export const createUser = async (user: user): Promise<any> => {
@@ -13,4 +13,9 @@ export const searchUserById = async (id: string): Promise<any> => {
     .where("id", `${id}`);
 
   return result[0];
+};
+
+// Função para seguir usuário
+export const followUser = async (follow: follow): Promise<any> => {
+  await connection("followers").insert(follow);
 };

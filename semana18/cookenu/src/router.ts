@@ -1,11 +1,11 @@
 import express, { Router, Request, Response } from "express";
-import { createUser, searchUserById } from "./functions/users";
+import { createUser, followUser, searchUserById } from "./functions/users";
 import { createRecipe, searchRecipeById } from "./functions/recipes";
 import { connection } from "./services/connection";
 import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
 import { compareHash, generateHash } from "./services/hashManager";
-import { recipe, user } from "./types";
+import { follow, recipe, user } from "./types";
 
 const routes: Router = express.Router();
 
@@ -212,6 +212,39 @@ routes.get("/recipe/:id", async (req: Request, res: Response) => {
       description: recipe.description,
       createdAt: formattedDate,
     });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+//Endpoint de seguir usuário
+routes.post("/user/follow", async (req: Request, res: Response) => {
+  try {
+    const { followed_id } = req.body;
+
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+
+    if (!followed_id) {
+      res.statusCode = 422;
+      throw new Error("Informe o id, por favor.");
+    }
+
+    const newFollowed: follow = {
+      followed_id,
+      follower_id: verifiedToken.id,
+    };
+
+    await followUser(newFollowed);
+
+    res.status(200).send({ message: "Followed successfully" });
   } catch (err) {
     res.status(400).send({
       message: err.message,
