@@ -1,5 +1,6 @@
 import express, { Router, Request, Response } from "express";
-import { createRecipe, createUser, searchUserById } from "./functions/users";
+import { createUser, searchUserById } from "./functions/users";
+import { createRecipe, searchRecipeById } from "./functions/recipes";
 import { connection } from "./services/connection";
 import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
@@ -133,13 +134,6 @@ routes.get("/user/:id", async (req: Request, res: Response) => {
     const token = req.headers.authorization as string;
     const verifiedToken = getTokenData(token);
 
-    const [user_id] = await connection("users").where({ id });
-
-    if (!user_id) {
-      res.statusCode = 409;
-      throw new Error("User not found :/");
-    }
-
     if (!verifiedToken) {
       res.statusCode = 401;
       throw new Error("Unauthorized");
@@ -183,6 +177,28 @@ routes.post("/recipe", async (req: Request, res: Response) => {
     await createRecipe(newRecipe);
 
     res.status(200).send("Recipe added successfully!");
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+routes.get("/recipe/:id", async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+
+    const recipe = await searchRecipeById(id);
+
+    res.status(200).send(recipe);
   } catch (err) {
     res.status(400).send({
       message: err.message,

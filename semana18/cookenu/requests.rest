@@ -48,3 +48,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEt
     "title": "Salada de frutas",
     "description": "Pega um monte de frutas e corta tudo na base do ódio, joga na tapaué, adiciona 2L de leite condensado e come (perto do banheiro)."
 }
+
+###
+
+// Pesquisa receita pelo id
+GET http://localhost:3003/recipe/1b6a47d7-f2cb-4e08-bd8d-08ecfdc7eb59
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzQxNjg1OCwiZXhwIjoxNjU0OTc0NDU4fQ.7UkFw_yZoUIaiDOHB9s0lJN4saqr7dIfjzxi__ltcag

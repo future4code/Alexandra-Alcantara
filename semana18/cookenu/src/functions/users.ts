@@ -15,8 +15,3 @@ export const searchUserById = async (id: string): Promise<any> => {
 
   return result[0];
 };
-
-// Função para criar receita
-export const createRecipe = async (recipe: recipe): Promise<any> => {
-  await connection("recipes").insert(recipe);
-};
