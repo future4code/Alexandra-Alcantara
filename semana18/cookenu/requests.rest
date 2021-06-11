@@ -8,8 +8,8 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "Nino Quincampoix",
-    "email": "nino@mail.com",
+    "name": "John Wick",
+    "email": "babaiaga@mail.com",
     "password": "123456"
 }
 
@@ -20,18 +20,20 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "may@mail.com",
+    "email": "babaiaga@mail.com",
     "password": "123456"
 }
-
-###
-
-// Pesquisar usuário pelo email
-GET http://localhost:3003/user?email=me
 
 ###
 
 // Retorna as informações do usuário logado
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQzZjhjMjllLWRjYmUtNGFlOS04YWViLTM4NDY1OWI3YjU4NCIsImlhdCI6MTYyMzE4OTIyMCwiZXhwIjoxNjU0NzQ2ODIwfQ.TWwns6UrvOZz8GPEIz66S3KkV68xUHWn5cUkVxIS9Jg
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzM3NTc4NiwiZXhwIjoxNjU0OTMzMzg2fQ.6wB8ynWfKzabykpwKNF_vxEuOD_yg7KAzryFYH8jhsw
+
+###
+
+// Pesquisa usuário pelo id
+GET http://localhost:3003/user/5c84b166-6aad-452e-bee3-52c1e18b7e2b
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzM3NzA2NCwiZXhwIjoxNjU0OTM0NjY0fQ.BnEGM4X3qtD_QE13iD1_-DkpL3cSFp9ca3SMRhLMPKE

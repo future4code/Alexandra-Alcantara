@@ -7,19 +7,11 @@ export const createUser = async (user: user): Promise<any> => {
   await connection("users").insert(user);
 };
 
-// Função para login
-export const login = async (email: string, password: string): Promise<any> => {
-  await connection("users_auth").insert({
-    email,
-    password,
-  });
-};
-
 // Função para buscar usuário pelo email
-export const searchByEmail = async (email: string): Promise<any> => {
-  const result = await connection("users_auth")
-    .select("*")
-    .where("email", "like", `%${email}%`);
+export const searchUserById = async (id: string): Promise<any> => {
+  const result = await connection("users")
+    .select("id", "name", "email")
+    .where("id", `${id}`);
 
   return result[0];
 };

@@ -1,5 +1,5 @@
 import express, { Router, Request, Response } from "express";
-import { createUser, searchByEmail } from "./functions/users";
+import { createUser, searchUserById } from "./functions/users";
 import { connection } from "./services/connection";
 import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
@@ -84,7 +84,9 @@ routes.post("/login", async (req: Request, res: Response) => {
       throw new Error("User not found :/");
     }
 
-    if (user.password !== password) {
+    const passwordIsCorrect: boolean = compareHash(password, user.password);
+
+    if (!passwordIsCorrect) {
       throw new Error("Invalid credentials :/");
     }
 
@@ -93,6 +95,59 @@ routes.post("/login", async (req: Request, res: Response) => {
     });
 
     res.status(200).send({ access_token: token });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+//Endpoint de retornar dados do perfil
+routes.get("/user/profile", async (req: Request, res: Response) => {
+  try {
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+
+    const user = await connection("users")
+      .select("id", "name", "email")
+      .where("id", verifiedToken.id);
+
+    res.status(200).send(user);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+//Endpoint de busca pelo id
+routes.get("/user/:id", async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    const [user_id] = await connection("users").where({ id });
+
+    if (!user_id) {
+      res.statusCode = 409;
+      throw new Error("User not found :/");
+    }
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+
+    const user = await searchUserById(id);
+
+    res.status(200).send(user);
   } catch (err) {
     res.status(400).send({
       message: err.message,
