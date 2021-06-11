@@ -1,10 +1,10 @@
 import express, { Router, Request, Response } from "express";
-import { createUser, searchUserById } from "./functions/users";
+import { createRecipe, createUser, searchUserById } from "./functions/users";
 import { connection } from "./services/connection";
 import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
 import { compareHash, generateHash } from "./services/hashManager";
-import { user } from "./types";
+import { recipe, user } from "./types";
 
 const routes: Router = express.Router();
 
@@ -148,6 +148,41 @@ routes.get("/user/:id", async (req: Request, res: Response) => {
     const user = await searchUserById(id);
 
     res.status(200).send(user);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+//Endpoint de adicionar receita
+routes.post("/recipe", async (req: Request, res: Response) => {
+  try {
+    const { title, description } = req.body;
+
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+
+    if (!title || !description) {
+      res.statusCode = 422;
+      throw new Error("Preencha todos os campos: 'title' e 'description'.");
+    }
+
+    const newRecipe: recipe = {
+      id: generateId(),
+      title,
+      description,
+      user_id: verifiedToken.id,
+    };
+
+    await createRecipe(newRecipe);
+
+    res.status(200).send("Recipe added successfully!");
   } catch (err) {
     res.status(400).send({
       message: err.message,

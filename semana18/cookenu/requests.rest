@@ -29,11 +29,22 @@ Content-Type: application/json
 // Retorna as informações do usuário logado
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzM3NTc4NiwiZXhwIjoxNjU0OTMzMzg2fQ.6wB8ynWfKzabykpwKNF_vxEuOD_yg7KAzryFYH8jhsw
-
+Authorization: 
 ###
 
 // Pesquisa usuário pelo id
 GET http://localhost:3003/user/5c84b166-6aad-452e-bee3-52c1e18b7e2b
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzM3NzA2NCwiZXhwIjoxNjU0OTM0NjY0fQ.BnEGM4X3qtD_QE13iD1_-DkpL3cSFp9ca3SMRhLMPKE
+Authorization: 
+
+###
+
+// Adicionar receitas
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzQxNjg1OCwiZXhwIjoxNjU0OTc0NDU4fQ.7UkFw_yZoUIaiDOHB9s0lJN4saqr7dIfjzxi__ltcag
+
+{
+    "title": "Salada de frutas",
+    "description": "Pega um monte de frutas e corta tudo na base do ódio, joga na tapaué, adiciona 2L de leite condensado e come (perto do banheiro)."
+}
