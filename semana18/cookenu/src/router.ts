@@ -2,6 +2,7 @@ import express, { Router, Request, Response } from "express";
 import {
   createUser,
   followUser,
+  login,
   searchUserById,
   unfollowUser,
 } from "./functions/users";
@@ -10,7 +11,7 @@ import { connection } from "./services/connection";
 import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
 import { compareHash, generateHash } from "./services/hashManager";
-import { feedData, follow, recipe, user } from "./types";
+import { feedData, follow, recipe, user, USER_ROLES } from "./types";
 import { formatData } from "./utils/formatData";
 
 const routes: Router = express.Router();
@@ -22,13 +23,17 @@ routes.get("/ta-acordado?", async (_, res: Response) => {
 //Endpoint de cadastro
 routes.post("/signup", async (req: Request, res: Response) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, role } = req.body;
 
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !role) {
       res.statusCode = 422;
       throw new Error(
-        "Preencha todos os campos: 'name', 'email' e 'password'."
+        "Preencha todos os campos: 'name', 'email', 'password' and 'role'."
       );
+    }
+
+    if (!(role in USER_ROLES)) {
+      throw new Error("Role must be NORMAL or ADMIN.");
     }
 
     if (!email.includes("@")) {
@@ -51,10 +56,12 @@ routes.post("/signup", async (req: Request, res: Response) => {
       name,
       email,
       password: generateHash(password),
+      role,
     };
 
     const token: string = generateToken({
       id: newUser.id,
+      role: newUser.role,
     });
 
     await createUser(newUser);
@@ -74,18 +81,14 @@ routes.post("/login", async (req: Request, res: Response) => {
 
     if (!email || !password) {
       res.statusCode = 422;
-      throw new Error("Preencha todos os campos: 'email' e 'password'.");
+      throw new Error("Please, fill all fields: email and password.");
     }
 
     if (!email.includes("@")) {
       throw new Error("Invalid email :/");
     }
 
-    const queryResult = await connection("users")
-      .select("*")
-      .where("email", `${email}`);
-
-    const user = queryResult[0];
+    const user = await login(email, password);
 
     if (!user) {
       throw new Error("User not found :/");
@@ -99,6 +102,7 @@ routes.post("/login", async (req: Request, res: Response) => {
 
     const token: string = generateToken({
       id: user.id,
+      role: user.role,
     });
 
     res.status(200).send({ access_token: token });
