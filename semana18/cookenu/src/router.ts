@@ -1,6 +1,7 @@
 import express, { Router, Request, Response } from "express";
 import {
   createUser,
+  deleteUser,
   followUser,
   login,
   searchUserById,
@@ -395,6 +396,38 @@ routes.delete("/recipe/delete/:id", async (req: Request, res: Response) => {
     await deleteRecipe(id);
 
     res.status(200).send({ message: "Recipe deleted successfully" });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+// Deletar usuário
+routes.delete("/admin/delete/user/:id", async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+
+    const [user] = await connection("users")
+      .select("name", "role")
+      .where("id", verifiedToken.id);
+
+    if (user.role !== "ADMIN") {
+      throw new Error(
+        "Access denied, only ADMIN role is allowed to delete users."
+      );
+    }
+    await deleteUser(id);
+
+    res.status(200).send({ message: "User deleted successfully" });
   } catch (err) {
     res.status(400).send({
       message: err.message,

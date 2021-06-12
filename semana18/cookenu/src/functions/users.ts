@@ -35,3 +35,8 @@ export const unfollowUser = async (followed_id: string): Promise<any> => {
     .delete(followed_id)
     .where("followed_id", `${followed_id}`);
 };
+
+// Função para deletar usuários
+export const deleteUser = async (id: string): Promise<any> => {
+  await connection("users").delete(id).where("id", id);
+};

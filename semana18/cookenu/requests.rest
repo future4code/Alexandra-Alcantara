@@ -21,7 +21,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "tulip@mail.com",
+    "email": "maria@mail.com",
     "password": "123456"
 }
 
@@ -30,8 +30,7 @@ Content-Type: application/json
 // Retorna as informações do usuário logado
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDctNDYzYy05MTNiLTMyYzQ3MTUzMGEwNiIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTMyNDE5LCJleHAiOjE2NTUwOTAwMTl9.b84OOLX4Wzf02Fy8RHRLzIlYZd5IUPzpCvC2CTkfNHU
-
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzUzNjI2NCwiZXhwIjoxNjU1MDkzODY0fQ.gbEd1d2sVhCgnnJm9PU9eq4aYmr7TO_5tF_nFuOSyyI
 ###
 
 // Pesquisa usuário pelo id
@@ -106,3 +105,9 @@ DELETE http://localhost:3003/recipe/delete/d19b5d1a-8638-47d0-acbf-658ac03b3241
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzUzNjI2NCwiZXhwIjoxNjU1MDkzODY0fQ.gbEd1d2sVhCgnnJm9PU9eq4aYmr7TO_5tF_nFuOSyyI
 
+###
+
+// Deletar usuário
+DELETE http://localhost:3003/admin/delete/user/610633fd-f4a5-4bf0-bbc3-0e4bcdca1405
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMmM5N2Q5LWY1ZmUtNGVjNi04OWRjLWNjNGNlZGFhMjEzMyIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTM3MzY0LCJleHAiOjE2NTUwOTQ5NjR9._vVW27FQwkvoUo69-TsnNhzDzUoKaX3mpDlX7Ww4h20
