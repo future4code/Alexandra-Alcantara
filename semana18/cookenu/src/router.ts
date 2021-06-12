@@ -8,6 +8,7 @@ import {
 } from "./functions/users";
 import {
   createRecipe,
+  deleteRecipe,
   editRecipe,
   getFeed,
   searchRecipeById,
@@ -18,6 +19,7 @@ import { generateToken, getTokenData } from "./services/authenticator";
 import { compareHash, generateHash } from "./services/hashManager";
 import { feedData, follow, recipe, user, USER_ROLES } from "./types";
 import { formatData } from "./utils/formatData";
+import { useSpring } from "framer-motion";
 
 const routes: Router = express.Router();
 
@@ -355,6 +357,44 @@ routes.post("/recipe/edit/:id", async (req: Request, res: Response) => {
     await editRecipe(recipe_id, verifiedToken.id, title, description);
 
     res.status(200).send({ message: "Recipe edited successfully" });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+// Deletar receita
+routes.delete("/recipe/delete/:id", async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+
+    const recipe = await searchRecipeById(id);
+
+    const [user] = await connection("users")
+      .select("name", "role")
+      .where("id", verifiedToken.id);
+
+    if (user.role !== "ADMIN") {
+      if (recipe.user_id !== verifiedToken.id) {
+        res.statusCode = 401;
+        throw new Error(
+          "This recipe doesn't belong to you, so you're not allowed to delete it."
+        );
+      }
+    }
+
+    await deleteRecipe(id);
+
+    res.status(200).send({ message: "Recipe deleted successfully" });
   } catch (err) {
     res.status(400).send({
       message: err.message,

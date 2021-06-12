@@ -1,4 +1,3 @@
-import { useSpring } from "framer-motion";
 import { connection } from "../services/connection";
 import { recipe } from "../types";
 
@@ -49,4 +48,9 @@ export const editRecipe = async (
     })
     .where("id", recipe_id)
     .andWhere("user_id", `${user_id}`);
+};
+
+// Função para deletar receita
+export const deleteRecipe = async (id: string): Promise<any> => {
+  await connection("recipes").delete(id).where("id", id);
 };

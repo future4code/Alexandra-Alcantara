@@ -21,7 +21,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "babaiaga@mail.com",
+    "email": "tulip@mail.com",
     "password": "123456"
 }
 
@@ -30,7 +30,7 @@ Content-Type: application/json
 // Retorna as informações do usuário logado
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTA3MjUyLCJleHAiOjE2NTUwNjQ4NTJ9.pUdA03OtqEedHW3z5Odd675YmH3pbU-P4zrOs-JSIJw
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDctNDYzYy05MTNiLTMyYzQ3MTUzMGEwNiIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTMyNDE5LCJleHAiOjE2NTUwOTAwMTl9.b84OOLX4Wzf02Fy8RHRLzIlYZd5IUPzpCvC2CTkfNHU
 
 ###
 
@@ -44,11 +44,11 @@ Authorization:
 // Adicionar receitas
 POST http://localhost:3003/recipe
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMmM5N2Q5LWY1ZmUtNGVjNi04OWRjLWNjNGNlZGFhMjEzMyIsImlhdCI6MTYyMzQ0NDUzNywiZXhwIjoxNjU1MDAyMTM3fQ.JoUhuQ9nMKFzT8hUOfR5zZXZhg8SJwbY5MWpPq7Mgp0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDctNDYzYy05MTNiLTMyYzQ3MTUzMGEwNiIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTMyNDE5LCJleHAiOjE2NTUwOTAwMTl9.b84OOLX4Wzf02Fy8RHRLzIlYZd5IUPzpCvC2CTkfNHU
 
 {
-    "title": "Teste 3",
-    "description": "Teste 3"
+    "title": "Receita 3 Jorgim",
+    "description": "3"
 }
 
 ###
@@ -89,6 +89,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDct
 
 ###
 
+// Editar receita
 POST http://localhost:3003/recipe/edit/11dc0f66-1f1f-4586-a3b2-95586b47d7ed
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTA3MjUyLCJleHAiOjE2NTUwNjQ4NTJ9.pUdA03OtqEedHW3z5Odd675YmH3pbU-P4zrOs-JSIJw
@@ -98,4 +99,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEt
     "description": "EDITANDO ALGO AUTORIZADO"
 }
 
+###
+
+// Deletar receita
+DELETE http://localhost:3003/recipe/delete/d19b5d1a-8638-47d0-acbf-658ac03b3241
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzUzNjI2NCwiZXhwIjoxNjU1MDkzODY0fQ.gbEd1d2sVhCgnnJm9PU9eq4aYmr7TO_5tF_nFuOSyyI
 
