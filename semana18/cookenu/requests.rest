@@ -21,7 +21,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "tulip@mail.com",
+    "email": "babaiaga@mail.com",
     "password": "123456"
 }
 
@@ -30,7 +30,8 @@ Content-Type: application/json
 // Retorna as informações do usuário logado
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODRiMTY2LTZhYWQtNDUyZS1iZWUzLTUyYzFlMThiN2UyYiIsImlhdCI6MTYyMzQ0NDE0MSwiZXhwIjoxNjU1MDAxNzQxfQ.Az7pVEZbTd1CsLb08e9lVbfoqoShsvBugiZLESp-pmk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTA3MjUyLCJleHAiOjE2NTUwNjQ4NTJ9.pUdA03OtqEedHW3z5Odd675YmH3pbU-P4zrOs-JSIJw
+
 ###
 
 // Pesquisa usuário pelo id
@@ -85,3 +86,16 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEt
 GET http://localhost:3003/user/feed
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDctNDYzYy05MTNiLTMyYzQ3MTUzMGEwNiIsImlhdCI6MTYyMzQ0NzcyNSwiZXhwIjoxNjU1MDA1MzI1fQ.BRjnATWj4f0YvP2RldWgVk6dau2VDAVfvwgu8yyAp4M
+
+###
+
+POST http://localhost:3003/recipe/edit/11dc0f66-1f1f-4586-a3b2-95586b47d7ed
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTA3MjUyLCJleHAiOjE2NTUwNjQ4NTJ9.pUdA03OtqEedHW3z5Odd675YmH3pbU-P4zrOs-JSIJw
+
+{
+    "title": "SALADA DE FRUTAS EDITADA!",
+    "description": "EDITANDO ALGO AUTORIZADO"
+}
+
+

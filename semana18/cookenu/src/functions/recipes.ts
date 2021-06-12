@@ -10,7 +10,7 @@ export const createRecipe = async (recipe: recipe): Promise<any> => {
 // Função para buscar receita pelo id
 export const searchRecipeById = async (id: string): Promise<any> => {
   const result = await connection("recipes")
-    .select("id", "title", "description", "created_at")
+    .select("id", "title", "description", "created_at", "user_id")
     .where("id", `${id}`);
 
   return result[0];
@@ -33,4 +33,20 @@ export const getFeed = async (id: string): Promise<any> => {
     .orderBy("created_at");
 
   return result;
+};
+
+// Função para editar receita
+export const editRecipe = async (
+  recipe_id: string,
+  user_id: string,
+  title: string,
+  description: string
+): Promise<any> => {
+  await connection("recipes")
+    .update({
+      title,
+      description,
+    })
+    .where("id", recipe_id)
+    .andWhere("user_id", `${user_id}`);
 };

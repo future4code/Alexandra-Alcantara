@@ -6,7 +6,12 @@ import {
   searchUserById,
   unfollowUser,
 } from "./functions/users";
-import { createRecipe, getFeed, searchRecipeById } from "./functions/recipes";
+import {
+  createRecipe,
+  editRecipe,
+  getFeed,
+  searchRecipeById,
+} from "./functions/recipes";
 import { connection } from "./services/connection";
 import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
@@ -124,7 +129,7 @@ routes.get("/user/profile", async (req: Request, res: Response) => {
       throw new Error("Unauthorized");
     }
 
-    const user = await connection("users")
+    const [user] = await connection("users")
       .select("id", "name", "email")
       .where("id", verifiedToken.id);
 
@@ -268,7 +273,7 @@ routes.post("/user/follow", async (req: Request, res: Response) => {
 
     if (!followed_id) {
       res.statusCode = 422;
-      throw new Error("Informe o id, por favor.");
+      throw new Error("Please, inform your id.");
     }
 
     const newFollowed: follow = {
@@ -307,6 +312,49 @@ routes.post("/user/unfollow", async (req: Request, res: Response) => {
     await unfollowUser(followed_id);
 
     res.status(200).send({ message: "Unfollowed successfully" });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+// Endpoint para editar receita
+routes.post("/recipe/edit/:id", async (req: Request, res: Response) => {
+  try {
+    const recipe_id = req.params.id;
+    const { title, description } = req.body;
+
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+
+    if (verifiedToken.role !== USER_ROLES.NORMAL) {
+      res.statusCode = 403;
+      throw new Error("Only NORMAL users are allowed to edit recipes.");
+    }
+
+    if (!title || !description) {
+      res.statusCode = 422;
+      throw new Error("Please, fill all fields: 'title' and 'description'.");
+    }
+
+    const recipe = await searchRecipeById(recipe_id);
+
+    if (recipe.user_id !== verifiedToken.id) {
+      res.statusCode = 401;
+      throw new Error(
+        "This recipe doesn't belong to you, so you're not allowed to edit it."
+      );
+    }
+
+    await editRecipe(recipe_id, verifiedToken.id, title, description);
+
+    res.status(200).send({ message: "Recipe edited successfully" });
   } catch (err) {
     res.status(400).send({
       message: err.message,
