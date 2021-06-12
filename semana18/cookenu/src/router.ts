@@ -1,11 +1,17 @@
 import express, { Router, Request, Response } from "express";
-import { createUser, followUser, searchUserById } from "./functions/users";
-import { createRecipe, searchRecipeById } from "./functions/recipes";
+import {
+  createUser,
+  followUser,
+  searchUserById,
+  unfollowUser,
+} from "./functions/users";
+import { createRecipe, getFeed, searchRecipeById } from "./functions/recipes";
 import { connection } from "./services/connection";
 import { generateId } from "./services/idGenerator";
 import { generateToken, getTokenData } from "./services/authenticator";
 import { compareHash, generateHash } from "./services/hashManager";
-import { follow, recipe, user } from "./types";
+import { feedData, follow, recipe, user } from "./types";
+import { formatData } from "./utils/formatData";
 
 const routes: Router = express.Router();
 
@@ -126,6 +132,37 @@ routes.get("/user/profile", async (req: Request, res: Response) => {
   }
 });
 
+//Endpoint para trazer o feed
+routes.get("/user/feed", async (req: Request, res: Response) => {
+  try {
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+    const feed = await getFeed(verifiedToken.id);
+
+    const feedMap = feed.map((item: feedData) => {
+      return {
+        id: item.id,
+        title: item.title,
+        description: item.description,
+        user_id: item.user_id,
+        name: item.name,
+        created_at: formatData(item.created_at),
+      };
+    });
+
+    res.status(200).send(feedMap);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
 //Endpoint de busca pelo id
 routes.get("/user/:id", async (req: Request, res: Response) => {
   try {
@@ -199,18 +236,11 @@ routes.get("/recipe/:id", async (req: Request, res: Response) => {
 
     const recipe = await searchRecipeById(id);
 
-    const formattedDate =
-      recipe.created_at.getDate() +
-      "/" +
-      (recipe.created_at.getMonth() + 1) +
-      "/" +
-      recipe.created_at.getFullYear();
-
     res.status(200).send({
       id: recipe.id,
-      title: recipe.id,
+      title: recipe.title,
       description: recipe.description,
-      createdAt: formattedDate,
+      createdAt: formatData(recipe.created_at),
     });
   } catch (err) {
     res.status(400).send({
@@ -245,6 +275,34 @@ routes.post("/user/follow", async (req: Request, res: Response) => {
     await followUser(newFollowed);
 
     res.status(200).send({ message: "Followed successfully" });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+//Endpoint de deixar de seguir usuário
+routes.post("/user/unfollow", async (req: Request, res: Response) => {
+  try {
+    const { followed_id } = req.body;
+
+    const token = req.headers.authorization as string;
+    const verifiedToken = getTokenData(token);
+
+    if (!verifiedToken) {
+      res.statusCode = 401;
+      throw new Error("Unauthorized");
+    }
+
+    if (!followed_id) {
+      res.statusCode = 422;
+      throw new Error("Informe o id, por favor.");
+    }
+
+    await unfollowUser(followed_id);
+
+    res.status(200).send({ message: "Unfollowed successfully" });
   } catch (err) {
     res.status(400).send({
       message: err.message,

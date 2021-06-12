@@ -19,3 +19,10 @@ export const searchUserById = async (id: string): Promise<any> => {
 export const followUser = async (follow: follow): Promise<any> => {
   await connection("followers").insert(follow);
 };
+
+// Função para deixar de seguir usuário
+export const unfollowUser = async (followed_id: string): Promise<any> => {
+  await connection("followers")
+    .delete(followed_id)
+    .where("followed_id", `${followed_id}`);
+};

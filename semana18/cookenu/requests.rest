@@ -8,8 +8,8 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "John Wick",
-    "email": "babaiaga@mail.com",
+    "name": "Cacilda",
+    "email": "cacis@mail.com",
     "password": "123456"
 }
 
@@ -20,7 +20,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "babaiaga@mail.com",
+    "email": "jorgim@mail.com",
     "password": "123456"
 }
 
@@ -29,7 +29,7 @@ Content-Type: application/json
 // Retorna as informações do usuário logado
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzQxNjg1OCwiZXhwIjoxNjU0OTc0NDU4fQ.7UkFw_yZoUIaiDOHB9s0lJN4saqr7dIfjzxi__ltcag
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODRiMTY2LTZhYWQtNDUyZS1iZWUzLTUyYzFlMThiN2UyYiIsImlhdCI6MTYyMzQ0NDE0MSwiZXhwIjoxNjU1MDAxNzQxfQ.Az7pVEZbTd1CsLb08e9lVbfoqoShsvBugiZLESp-pmk
 ###
 
 // Pesquisa usuário pelo id
@@ -42,11 +42,11 @@ Authorization:
 // Adicionar receitas
 POST http://localhost:3003/recipe
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzQxNjg1OCwiZXhwIjoxNjU0OTc0NDU4fQ.7UkFw_yZoUIaiDOHB9s0lJN4saqr7dIfjzxi__ltcag
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMmM5N2Q5LWY1ZmUtNGVjNi04OWRjLWNjNGNlZGFhMjEzMyIsImlhdCI6MTYyMzQ0NDUzNywiZXhwIjoxNjU1MDAyMTM3fQ.JoUhuQ9nMKFzT8hUOfR5zZXZhg8SJwbY5MWpPq7Mgp0
 
 {
-    "title": "Salada de frutas",
-    "description": "Pega um monte de frutas e corta tudo na base do ódio, joga na tapaué, adiciona 2L de leite condensado e come (perto do banheiro)."
+    "title": "Teste 3",
+    "description": "Teste 3"
 }
 
 ###
@@ -61,8 +61,26 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEt
 // Seguir usuário
 POST http://localhost:3003/user/follow
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDctNDYzYy05MTNiLTMyYzQ3MTUzMGEwNiIsImlhdCI6MTYyMzQ0NDYzNywiZXhwIjoxNjU1MDAyMjM3fQ.SqdJaCs-U8tKDSIEEuoPFF_vnTPSgK27tK375-IQPHg
+
+{
+    "followed_id": "cf2c97d9-f5fe-4ec6-89dc-cc4cedaa2133"
+}
+
+###
+
+// Deixar de seguir usuário
+POST http://localhost:3003/user/unfollow
+Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzQxNjg1OCwiZXhwIjoxNjU0OTc0NDU4fQ.7UkFw_yZoUIaiDOHB9s0lJN4saqr7dIfjzxi__ltcag
 
 {
     "followed_id": "5c84b166-6aad-452e-bee3-52c1e18b7e2b"
 }
+
+###
+
+// Trazer feed de receitas
+GET http://localhost:3003/user/feed
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDctNDYzYy05MTNiLTMyYzQ3MTUzMGEwNiIsImlhdCI6MTYyMzQ0NzcyNSwiZXhwIjoxNjU1MDA1MzI1fQ.BRjnATWj4f0YvP2RldWgVk6dau2VDAVfvwgu8yyAp4M
