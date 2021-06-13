@@ -1,5 +1,4 @@
 import { Response, Request } from "express";
-import connection from "../data/connection";
 import { getUserData } from "../data/userDataQueries";
 import { getTokenData } from "../services/authenticator";
 

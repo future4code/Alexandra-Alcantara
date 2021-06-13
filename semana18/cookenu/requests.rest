@@ -19,7 +19,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "maria@mail.com",
+    "email": "juju@gmail.com",
     "password": "123456"
 }
 
@@ -28,7 +28,7 @@ Content-Type: application/json
 ### RETRIEVE LOGGED USER DATA
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMmM5N2Q5LWY1ZmUtNGVjNi04OWRjLWNjNGNlZGFhMjEzMyIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNjEzNzYwLCJleHAiOjE2NTUxNzEzNjB9.UCLXHfrRGmcrumF76RJQv4MO26E6kpqVm0lKR-5JT4s
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzU0MDM1MSwiZXhwIjoxNjU1MDk3OTUxfQ.DckGI8maBR0P5VL5FsfbP43byWooH9O-SuIiVuFPFTc 
 
 ###
 
@@ -39,91 +39,93 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMt
 
 ###
 
-// Adicionar receitas
+### ADD RECIPE
 POST http://localhost:3003/recipe
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDctNDYzYy05MTNiLTMyYzQ3MTUzMGEwNiIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTk1NzUyLCJleHAiOjE2NTUxNTMzNTJ9.p2jIoikRoQYQPN79JS4bRXtkEeyoULsAy7V4e_uYZRo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTYzMjYsImV4cCI6MTY1NTE3MzkyNn0.uwU6Z7KYCgfUcos3vbdE8wLOBXNRhQAJHxLVJ3H10gs
 
 {
-    "title": "Receita 2 Jorgim",
-    "description": "2"
+    "title": "Receita 3 Julia",
+    "description": "3"
 }
 
 ###
 
-// Pesquisa receita pelo id
-GET http://localhost:3003/recipe/1b6a47d7-f2cb-4e08-bd8d-08ecfdc7eb59
+### SEARCH RECIPE BY ID
+GET http://localhost:3003/recipe/00e75814-3ea8-42c2-8e7b-3e579f65060e
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzQxNjg1OCwiZXhwIjoxNjU0OTc0NDU4fQ.7UkFw_yZoUIaiDOHB9s0lJN4saqr7dIfjzxi__ltcag
 
 ###
 
-// Seguir usuário
+### FOLLOW USER
 POST http://localhost:3003/user/follow
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTk2NDI2LCJleHAiOjE2NTUxNTQwMjZ9.WoNHM6fKykYIIkphfCA_C6V9OSKnLPzy1xBSlcae16g
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTc0MTIsImV4cCI6MTY1NTE3NTAxMn0.hDgFhlw_8N5VNQahEoYB-5H7CyNSnrY1N6DLJnGy0v8
 
 {
-    "followed_id": "80e11b06-e271-4c53-9c0a-86a7a1683779"
+    "followed_id": "5c84b166-6aad-452e-bee3-52c1e18b7e2b"
 }
 
 ###
 
-// Deixar de seguir usuário
+### UNFOLLOW USER
 POST http://localhost:3003/user/unfollow
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTk2NjE2LCJleHAiOjE2NTUxNTQyMTZ9.anv_uhwv3zOOtUj-3k18X8xXPlv3AXBl5f0Jo83QIew
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTc1MzEsImV4cCI6MTY1NTE3NTEzMX0.P33eIGN5reYTyN7pFlpnJYKVyOvHJFMMmbRIThd9VKw
 
 {
-    "followed_id": "cf2c97d9-f5fe-4ec6-89dc-cc4cedaa2133"
+    "followed_id": "5c84b166-6aad-452e-bee3-52c1e18b7e2b"
 }
 
 ###
 
-// Trazer feed de receitas
-GET http://localhost:3003/user/feed
+### GET FEED
+GET http://localhost:3003/feed
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDctNDYzYy05MTNiLTMyYzQ3MTUzMGEwNiIsImlhdCI6MTYyMzQ0NzcyNSwiZXhwIjoxNjU1MDA1MzI1fQ.BRjnATWj4f0YvP2RldWgVk6dau2VDAVfvwgu8yyAp4M
 
 ###
 
-// Editar receita
-POST http://localhost:3003/recipe/edit/11dc0f66-1f1f-4586-a3b2-95586b47d7ed
+### EDIT RECIPE
+POST http://localhost:3003/recipe/edit/00e75814-3ea8-42c2-8e7b-3e579f65060e
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTA3MjUyLCJleHAiOjE2NTUwNjQ4NTJ9.pUdA03OtqEedHW3z5Odd675YmH3pbU-P4zrOs-JSIJw
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTgyMDksImV4cCI6MTY1NTE3NTgwOX0.rzjpE-xEUaZG7OConeRoEBD58DGVKZRdzv2ueytwr-8
 
 {
-    "title": "SALADA DE FRUTAS EDITADA!",
-    "description": "EDITANDO ALGO AUTORIZADO"
+    "title": "RECEITA 1 JULIA EDITADA",
+    "description": "EDITADA"
 }
 
 ###
 
-// Deletar receita (NORMAL/ADMIN)
-DELETE http://localhost:3003/recipe/delete/d19b5d1a-8638-47d0-acbf-658ac03b3241
+### DELETE RECIPE
+DELETE http://localhost:3003/recipe/delete/711aa7dd-93c2-430a-972e-ee04c4cc2366
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzUzNjI2NCwiZXhwIjoxNjU1MDkzODY0fQ.gbEd1d2sVhCgnnJm9PU9eq4aYmr7TO_5tF_nFuOSyyI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTkwODcsImV4cCI6MTY1NTE3NjY4N30.s-JBaQY99Y4rF53p1RsgFcDqhCT9n1kSaUDZA85wU84
 
 ###
 
-// Deletar todas as receitas de um usuário pelo id dele
-DELETE http://localhost:3003/recipes/delete/all/user/eec1c778-f747-463c-913b-32c471530a06
+### DELETE ALL RECIPES BY USER ID
+DELETE http://localhost:3003/recipes/delete/all/user/4ee3e233-611c-4d60-a295-a587d0667765
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDctNDYzYy05MTNiLTMyYzQ3MTUzMGEwNiIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNTk0MjAzLCJleHAiOjE2NTUxNTE4MDN9.OGjtI5dNz3hEKQ76a1jhcVeGcNyG7bqnWUdPyWqLgmk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MjA5MjQsImV4cCI6MTY1NTE3ODUyNH0.T6wBesvBk7kUAOT9P8_5WvRFcyOJrdKlKsB-QiuIQW4
 
 ###
 
-// Deletar usuário (ADMIN)
-DELETE http://localhost:3003/admin/delete/user/80e11b06-e271-4c53-9c0a-86a7a1683779
+### DELETE USER (ADMIN)
+DELETE http://localhost:3003/admin/delete/user/cf2c97d9-f5fe-4ec6-89dc-cc4cedaa2133
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzU0MDM1MSwiZXhwIjoxNjU1MDk3OTUxfQ.DckGI8maBR0P5VL5FsfbP43byWooH9O-SuIiVuFPFTc
 
 ###
 
-// Reset password
+### RESET PASSWORD
 POST http://localhost:3003/user/password/reset
 Content-Type: application/json
 
 {
     "email": "lele.dev.test@gmail.com" 
 }
+
+###

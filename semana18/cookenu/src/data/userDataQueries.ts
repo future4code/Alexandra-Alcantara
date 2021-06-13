@@ -1,6 +1,6 @@
 import connection from "./connection";
 
-// Retrieve user data
+// RETRIEVE USER DATA
 export const getUserData = async (id: string): Promise<any> => {
   const result = await connection("users")
     .select("id", "name", "email")

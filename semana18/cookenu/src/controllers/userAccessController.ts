@@ -1,9 +1,10 @@
 import { Response, Request } from "express";
 import connection from "../data/connection";
-import { createUser, login } from "../data/userAccessQueries";
+import { createUser, login, resetPassword } from "../data/userAccessQueries";
 import { generateToken } from "../services/authenticator";
 import { compareHash, generateHash } from "../services/hashManager";
 import { generateId } from "../services/idGenerator";
+import mailTransporter from "../services/mailTransporter";
 import { user, USER_ROLES } from "../types/user";
 
 export default class UserAccessController {
@@ -91,6 +92,49 @@ export default class UserAccessController {
       });
 
       res.status(200).send({ access_token: token });
+    } catch (err) {
+      res.status(400).send({
+        message: err.message,
+      });
+    }
+  };
+
+  controlResetPassword = async (req: Request, res: Response) => {
+    try {
+      const email = req.body.email as string;
+
+      const [user] = await connection("users").where({ email });
+      if (!user) {
+        res.statusCode = 400;
+        throw new Error("Please, check if your email is correct.");
+      }
+
+      const characters = "abcdefABCDEF12345!@#$%&*";
+      let newPassword = "";
+      for (let i = 0; i < 10; i++) {
+        const index = Math.floor(Math.random() * (characters.length - 1));
+        newPassword += characters[index];
+      }
+
+      const newHash = generateHash(newPassword);
+      await resetPassword(newHash, email);
+
+      const info = await mailTransporter.sendMail({
+        from: `<${process.env.NODEMAILER_USER}>`,
+        to: email,
+        subject: "Teste 1 de nodemailer",
+        text: `Sua nova senha é ${newPassword}`,
+        html: `<p>Sua nova senha é <strong>${newPassword}</strong></p>`,
+      });
+
+      console.log({
+        newPassword,
+        oldHash: user.password,
+        newHash: newHash,
+        info,
+      });
+
+      res.send(200);
     } catch (err) {
       res.status(400).send({
         message: err.message,
