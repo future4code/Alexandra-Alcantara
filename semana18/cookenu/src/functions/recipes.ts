@@ -1,5 +1,5 @@
-import { connection } from "../services/connection";
-import { recipe } from "../types";
+import connection from "../data/connection";
+import { recipe } from "../types/recipe";
 
 // Função para criar receita
 export const createRecipe = async (recipe: recipe): Promise<any> => {

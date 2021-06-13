@@ -1,12 +1,9 @@
 import express, { Router, Request, Response } from "express";
 import {
-  createUser,
   deleteUser,
   followUser,
-  login,
   removeAllFollowedUserReferences,
   removeAllFollowerUserReferences,
-  searchUserById,
   unfollowUser,
 } from "./functions/users";
 import {
@@ -17,138 +14,34 @@ import {
   getFeed,
   searchRecipeById,
 } from "./functions/recipes";
-import { connection } from "./services/connection";
+import connection from "./data/connection";
 import { generateId } from "./services/idGenerator";
-import { generateToken, getTokenData } from "./services/authenticator";
-import { compareHash, generateHash } from "./services/hashManager";
-import { feedData, follow, recipe, user, USER_ROLES } from "./types";
+import { getTokenData } from "./services/authenticator";
+import { generateHash } from "./services/hashManager";
+import { recipe } from "./types/recipe";
+import { feedData } from "./types/feed";
+import { follow } from "./types/follow";
+import { USER_ROLES } from "./types/user";
 import { formatData } from "./utils/formatData";
 import mailTransporter from "./services/mailTransporter";
 import { config } from "dotenv";
+import UserDataController from "./controllers/userDataController";
+import UserAccessController from "./controllers/userAccessController";
 
 config();
 
 const routes: Router = express.Router();
+const userDataController = new UserDataController();
+const userAccessController = new UserAccessController();
 
-routes.get("/ta-acordado?", async (_, res: Response) => {
-  res.status(200).send("eu to e tu?");
-});
+// routes.get("/ta-acordado?", async (_, res: Response) => {
+//   res.status(200).send("eu to e tu?");
+// });
 
-//Endpoint de cadastro
-routes.post("/signup", async (req: Request, res: Response) => {
-  try {
-    const { name, email, password, role } = req.body;
-
-    if (!name || !email || !password || !role) {
-      res.statusCode = 422;
-      throw new Error(
-        "Preencha todos os campos: 'name', 'email', 'password' and 'role'."
-      );
-    }
-
-    if (!(role in USER_ROLES)) {
-      throw new Error("Role must be NORMAL or ADMIN.");
-    }
-
-    if (!email.includes("@")) {
-      throw new Error("Invalid email :/");
-    }
-
-    if (password.length < 6) {
-      throw new Error("Password must have at least 6 characters");
-    }
-
-    const [user] = await connection("users").where({ email });
-
-    if (user) {
-      res.statusCode = 409;
-      throw new Error("Email já está cadastrado!");
-    }
-
-    const newUser: user = {
-      id: generateId(),
-      name,
-      email,
-      password: generateHash(password),
-      role,
-    };
-
-    const token: string = generateToken({
-      id: newUser.id,
-      role: newUser.role,
-    });
-
-    await createUser(newUser);
-
-    res.status(200).send({ access_token: token });
-  } catch (err) {
-    res.status(400).send({
-      message: err.message,
-    });
-  }
-});
-
-//Endpoint de login
-routes.post("/login", async (req: Request, res: Response) => {
-  try {
-    const { email, password } = req.body;
-
-    if (!email || !password) {
-      res.statusCode = 422;
-      throw new Error("Please, fill all fields: email and password.");
-    }
-
-    if (!email.includes("@")) {
-      throw new Error("Invalid email :/");
-    }
-
-    const user = await login(email, password);
-
-    if (!user) {
-      throw new Error("User not found :/");
-    }
-
-    const passwordIsCorrect: boolean = compareHash(password, user.password);
-
-    if (!passwordIsCorrect) {
-      throw new Error("Invalid credentials :/");
-    }
-
-    const token: string = generateToken({
-      id: user.id,
-      role: user.role,
-    });
-
-    res.status(200).send({ access_token: token });
-  } catch (err) {
-    res.status(400).send({
-      message: err.message,
-    });
-  }
-});
-
-//Endpoint de retornar dados do perfil
-routes.get("/user/profile", async (req: Request, res: Response) => {
-  try {
-    const token = req.headers.authorization as string;
-    const verifiedToken = getTokenData(token);
-
-    if (!verifiedToken) {
-      res.statusCode = 401;
-      throw new Error("Unauthorized");
-    }
-
-    const [user] = await connection("users")
-      .select("id", "name", "email")
-      .where("id", verifiedToken.id);
-
-    res.status(200).send(user);
-  } catch (err) {
-    res.status(400).send({
-      message: err.message,
-    });
-  }
-});
+routes.post("/signup", userAccessController.controlCreateUser);
+routes.post("/login", userAccessController.controlLogin);
+routes.get("/user/profile", userDataController.controlGetLoggedUserData);
+routes.get("/user/:id", userDataController.controlGetUserById);
 
 //Endpoint para trazer o feed
 routes.get("/user/feed", async (req: Request, res: Response) => {
@@ -174,29 +67,6 @@ routes.get("/user/feed", async (req: Request, res: Response) => {
     });
 
     res.status(200).send(feedMap);
-  } catch (err) {
-    res.status(400).send({
-      message: err.message,
-    });
-  }
-});
-
-//Endpoint de busca pelo id
-routes.get("/user/:id", async (req: Request, res: Response) => {
-  try {
-    const id = req.params.id;
-
-    const token = req.headers.authorization as string;
-    const verifiedToken = getTokenData(token);
-
-    if (!verifiedToken) {
-      res.statusCode = 401;
-      throw new Error("Unauthorized");
-    }
-
-    const user = await searchUserById(id);
-
-    res.status(200).send(user);
   } catch (err) {
     res.status(400).send({
       message: err.message,

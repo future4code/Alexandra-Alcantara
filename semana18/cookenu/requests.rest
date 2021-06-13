@@ -1,43 +1,41 @@
-// Teste de server
+### SERVER TEST
 GET http://localhost:3003/ta-acordado?
 
-###
-
-// Fazer cadastro
+### REGISTER
 POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "Alê Fênix",
-    "email": "lele.dev.test@gmail.com",
+    "name": "Julia Roberts",
+    "email": "juju@gmail.com",
     "password": "123456",
-    "role": "ADMIN"
+    "role": "NORMAL"
 }
 
 ###
 
-// Fazer login
+### LOGIN
 POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "mary@mail.com",
-    "password": "$d2e2fE412"
+    "email": "maria@mail.com",
+    "password": "123456"
 }
 
 ###
 
-// Retorna as informações do usuário logado
+### RETRIEVE LOGGED USER DATA
 GET http://localhost:3003/user/profile
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzU0MDM1MSwiZXhwIjoxNjU1MDk3OTUxfQ.DckGI8maBR0P5VL5FsfbP43byWooH9O-SuIiVuFPFTc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNmMmM5N2Q5LWY1ZmUtNGVjNi04OWRjLWNjNGNlZGFhMjEzMyIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNjEzNzYwLCJleHAiOjE2NTUxNzEzNjB9.UCLXHfrRGmcrumF76RJQv4MO26E6kpqVm0lKR-5JT4s
 
 ###
 
-// Pesquisa usuário pelo id
-GET http://localhost:3003/user/5c84b166-6aad-452e-bee3-52c1e18b7e2b
+### SEARCH USER BY ID
+GET http://localhost:3003/user/610633fd-f4a5-4bf0-bbc3-0e4bcdca1405
 Content-Type: application/json
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTI3NzUsImV4cCI6MTY1NTE3MDM3NX0.1q9D_OZRabuBeQN2XYqJvxCXRTlsk5euSGkCygBpkpc
 
 ###
 

@@ -1,5 +1,5 @@
 import * as jwt from "jsonwebtoken";
-import { authenticationData } from "../types";
+import { authenticationData } from "../types/authentication";
 
 export function generateToken(payload: authenticationData): string {
   return jwt.sign(payload, process.env.JWT_KEY as string, {
