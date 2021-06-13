@@ -4,11 +4,14 @@ import {
   deleteUser,
   followUser,
   login,
+  removeAllFollowedUserReferences,
+  removeAllFollowerUserReferences,
   searchUserById,
   unfollowUser,
 } from "./functions/users";
 import {
   createRecipe,
+  deleteAllUserRecipes,
   deleteRecipe,
   editRecipe,
   getFeed,
@@ -20,7 +23,6 @@ import { generateToken, getTokenData } from "./services/authenticator";
 import { compareHash, generateHash } from "./services/hashManager";
 import { feedData, follow, recipe, user, USER_ROLES } from "./types";
 import { formatData } from "./utils/formatData";
-import { useSpring } from "framer-motion";
 
 const routes: Router = express.Router();
 
@@ -233,7 +235,7 @@ routes.post("/recipe", async (req: Request, res: Response) => {
   }
 });
 
-//Endpoint de pesquisar a receita pelo id
+//Endpoint de pesquisar a receita pelo id dela
 routes.get("/recipe/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
@@ -309,10 +311,10 @@ routes.post("/user/unfollow", async (req: Request, res: Response) => {
 
     if (!followed_id) {
       res.statusCode = 422;
-      throw new Error("Informe o id, por favor.");
+      throw new Error("Please, inform an id to unfollow.");
     }
 
-    await unfollowUser(followed_id);
+    await unfollowUser(followed_id, verifiedToken.id);
 
     res.status(200).send({ message: "Unfollowed successfully" });
   } catch (err) {
@@ -365,7 +367,7 @@ routes.post("/recipe/edit/:id", async (req: Request, res: Response) => {
   }
 });
 
-// Deletar receita
+// Deletar receita pelo id dela
 routes.delete("/recipe/delete/:id", async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
@@ -425,6 +427,13 @@ routes.delete("/admin/delete/user/:id", async (req: Request, res: Response) => {
         "Access denied, only ADMIN role is allowed to delete users."
       );
     }
+
+    await removeAllFollowerUserReferences(id);
+
+    await removeAllFollowedUserReferences(id);
+
+    await deleteAllUserRecipes(id);
+
     await deleteUser(id);
 
     res.status(200).send({ message: "User deleted successfully" });
@@ -434,5 +443,31 @@ routes.delete("/admin/delete/user/:id", async (req: Request, res: Response) => {
     });
   }
 });
+
+// Deletar todas as receitas de um usuário pelo id dele
+routes.delete(
+  "/recipes/delete/all/user/:id",
+  async (req: Request, res: Response) => {
+    try {
+      const id = req.params.id;
+
+      const token = req.headers.authorization as string;
+      const verifiedToken = getTokenData(token);
+
+      if (!verifiedToken) {
+        res.statusCode = 401;
+        throw new Error("Unauthorized");
+      }
+
+      await deleteAllUserRecipes(id);
+
+      res.status(200).send({ message: "All recipes deleted successfully" });
+    } catch (err) {
+      res.status(400).send({
+        message: err.message,
+      });
+    }
+  }
+);
 
 export default routes;

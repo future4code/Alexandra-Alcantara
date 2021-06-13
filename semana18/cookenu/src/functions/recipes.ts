@@ -50,7 +50,12 @@ export const editRecipe = async (
     .andWhere("user_id", `${user_id}`);
 };
 
-// Função para deletar receita
+// Função para deletar receita pelo id dela
 export const deleteRecipe = async (id: string): Promise<any> => {
   await connection("recipes").delete(id).where("id", id);
+};
+
+// Função para deletar todas as receitas de um usuário pelo id dele
+export const deleteAllUserRecipes = async (id: string): Promise<any> => {
+  await connection("recipes").delete(id).where("user_id", id);
 };
