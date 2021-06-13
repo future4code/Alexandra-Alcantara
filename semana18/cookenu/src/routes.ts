@@ -23,6 +23,10 @@ import { generateToken, getTokenData } from "./services/authenticator";
 import { compareHash, generateHash } from "./services/hashManager";
 import { feedData, follow, recipe, user, USER_ROLES } from "./types";
 import { formatData } from "./utils/formatData";
+import mailTransporter from "./services/mailTransporter";
+import { config } from "dotenv";
+
+config();
 
 const routes: Router = express.Router();
 
@@ -469,5 +473,50 @@ routes.delete(
     }
   }
 );
+
+// Endpoint para resetar e enviar uma nova senha para o usuário
+routes.post("/user/password/reset", async (req: Request, res: Response) => {
+  try {
+    const email = req.body.email as string;
+
+    const [user] = await connection("users").where({ email });
+    if (!user) {
+      res.statusCode = 400;
+      throw new Error("Please, check if your email is correct.");
+    }
+
+    const characters = "abcdefABCDEF12345!@#$%&*";
+    let newPassword = "";
+    for (let i = 0; i < 10; i++) {
+      const index = Math.floor(Math.random() * (characters.length - 1));
+      newPassword += characters[index];
+    }
+
+    const newHash = generateHash(newPassword);
+    await connection("users").update({ password: newHash }).where({ email });
+
+    // mailTransporter
+    const info = await mailTransporter.sendMail({
+      from: `<${process.env.NODEMAILER_USER}>`,
+      to: email,
+      subject: "Teste 1 de nodemailer",
+      text: `Sua nova senha é ${newPassword}`,
+      html: `<p>Sua nova senha é <strong>${newPassword}</strong></p>`,
+    });
+
+    console.log({
+      newPassword,
+      oldHash: user.password,
+      newHash: newHash,
+      info,
+    });
+
+    res.send(200);
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
 
 export default routes;

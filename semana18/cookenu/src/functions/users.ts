@@ -58,3 +58,6 @@ export const removeAllFollowedUserReferences = async (
 export const deleteUser = async (id: string): Promise<any> => {
   await connection("users").delete(id).where("id", id);
 };
+
+// Função para resetar senha do usuário
+export const resetPassword = async (): Promise<void> => {};

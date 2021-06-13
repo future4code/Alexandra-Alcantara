@@ -8,8 +8,8 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "Tulip Stone",
-    "email": "tulip@mail.com",
+    "name": "Alê Fênix",
+    "email": "lele.dev.test@gmail.com",
     "password": "123456",
     "role": "ADMIN"
 }
@@ -21,8 +21,8 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "babaiaga@mail.com",
-    "password": "123456"
+    "email": "mary@mail.com",
+    "password": "$d2e2fE412"
 }
 
 ###
@@ -101,7 +101,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEt
 
 ###
 
-// Deletar receita
+// Deletar receita (NORMAL/ADMIN)
 DELETE http://localhost:3003/recipe/delete/d19b5d1a-8638-47d0-acbf-658ac03b3241
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzUzNjI2NCwiZXhwIjoxNjU1MDkzODY0fQ.gbEd1d2sVhCgnnJm9PU9eq4aYmr7TO_5tF_nFuOSyyI
@@ -115,10 +115,17 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDct
 
 ###
 
-// Deletar usuário
+// Deletar usuário (ADMIN)
 DELETE http://localhost:3003/admin/delete/user/80e11b06-e271-4c53-9c0a-86a7a1683779
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzU0MDM1MSwiZXhwIjoxNjU1MDk3OTUxfQ.DckGI8maBR0P5VL5FsfbP43byWooH9O-SuIiVuFPFTc
 
 ###
 
+// Reset password
+POST http://localhost:3003/user/password/reset
+Content-Type: application/json
+
+{
+    "email": "lele.dev.test@gmail.com" 
+}
