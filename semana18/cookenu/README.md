@@ -1,25 +1,25 @@
 <h1 align="center">Cookenu</h1>
 
 <p align="center">
-  
+
   <img src="https://img.shields.io/badge/Node.js-43853D?style=&logo=node-dot-js&logoColor=white" />
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=&logo=typescript&logoColor=white"/>
   <img src="https://img.shields.io/badge/Express.js-000000?style=&logo=express&logoColor=white" />
   <img src="https://img.shields.io/badge/MySQL-00000F?style=&logo=mysql&logoColor=white" />
   <img src="http://img.shields.io/static/v1?label=License&message=MIT&color=blue&style="/>
-  <img src="http://img.shields.io/static/v1?label=Status&message=finished&color=green&style="/>
+  <img src="http://img.shields.io/static/v1?label=Status&message=in-progress&color=yellow&style="/>
 
-Project status: finished :heavy_check_mark:
+Project status: in progress 🚧:
 
 ### Table of Contents
 
-:small_blue_diamond: [What is this project about?](#what-is-this-project-about)
+:small_blue_diamond: [What is this project about?](#page_with_curl-what-is-this-project-about)
 
-:small_blue_diamond: [Requirements](#requirements)
+:small_blue_diamond: [Requirements](#hammer_and_wrench-requirements)
 
-:small_blue_diamond: [How to run the application](#how-to-run-the-application-arrow_forward)
+:small_blue_diamond: [How to run the application](#arrow_forward-how-to-run-the-application)
 
-:small_blue_diamond: [Endpoints](#endpoints)<br>
+:small_blue_diamond: [Endpoints](#triangular_flag_on_post-endpoints)
 
 - Sign up
 - Login
@@ -46,24 +46,24 @@ Project status: finished :heavy_check_mark:
 
 ## :hammer_and_wrench: Requirements
 
-### Runtime environment
+#### Runtime environment
 
 <a href="https://nodejs.org/en/">:small_blue_diamond: NodeJS</a>
 
-### Language
+#### Language
 
 <a href="https://www.typescriptlang.org/
 ">:small_blue_diamond: Typescript</a>
 
-### Database Service (you can use another one)
+#### Database Service (you can use another one)
 
 <a href="https://www.mysql.com/">:small_blue_diamond: MySQL</a>
 
-### Framework
+#### Framework
 
 <a href="https://expressjs.com/pt-br/">:small_blue_diamond: Express.js</a>
 
-### Libraries
+#### Libraries
 
 <a href="http://knexjs.org/">:small_blue_diamond: Knex.js</a>
 <a href="https://www.npmjs.com/package/bcryptjs">:small_blue_diamond: bcryptjs</a>
@@ -73,7 +73,7 @@ Project status: finished :heavy_check_mark:
 <a href="https://www.npmjs.com/package/nodemailer">:small_blue_diamond: nodemailer</a>
 <a href="https://www.npmjs.com/package/uuid">:small_blue_diamond: uuid</a>
 
-## How to run the application
+## :arrow_forward: How to run the application
 
 1.  Clone this repository in your machine.
 
@@ -129,7 +129,7 @@ Project status: finished :heavy_check_mark:
 
 6.  Run `npm run start` in your command line and go to your client REST to see the magic happening!
 
-## Endpoints
+## :triangular_flag_on_post: Endpoints
 
 ### :metal: Users
 
@@ -537,8 +537,8 @@ Body
     <img src="https://avatars.githubusercontent.com/u/63327969?s=460&v=4" width="100px" alt="Imagem do perfil da Alexandra"/>
     <br />
     <sub><b>Alexandra Alcantara</b></sub><br />:snowflake::snowman::snowflake:</td>
-  
- 
+
+
 </table>
 
 ## License
