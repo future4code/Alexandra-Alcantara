@@ -50,5 +50,6 @@ export const signUpBusiness = async (userData: userData): Promise<any> => {
     id: newUser.id,
     role: userData.role,
   });
+
   return token;
 };
