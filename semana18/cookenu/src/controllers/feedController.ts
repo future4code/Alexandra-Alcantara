@@ -21,13 +21,13 @@ export default class FeedController {
           id: item.id,
           title: item.title,
           description: item.description,
-          user_id: item.user_id,
-          name: item.name,
-          created_at: formatData(item.created_at),
+          createdAt: formatData(item.created_at),
+          userId: item.user_id,
+          userName: item.name,
         };
       });
 
-      res.status(200).send(feedMap);
+      res.status(200).send({ recipes: feedMap });
     } catch (err) {
       res.status(400).send({
         message: err.message,

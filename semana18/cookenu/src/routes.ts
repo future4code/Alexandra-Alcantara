@@ -23,6 +23,7 @@ routes.get("/ta-acordado?", async (_, res: Response) => {
 
 routes.post("/signup", userAccessController.controlCreateUser);
 routes.post("/login", userAccessController.controlLogin);
+routes.post("/user/password/reset", userAccessController.controlResetPassword);
 routes.get("/user/profile", userDataController.controlGetLoggedUserData);
 routes.get("/user/:id", userDataController.controlGetUserById);
 routes.post("/user/follow", followController.controlFollow);
@@ -32,11 +33,10 @@ routes.post("/recipe", recipeController.controlAddRecipe);
 routes.get("/recipe/:id", recipeController.controlSearchRecipeById);
 routes.post("/recipe/edit/:id", recipeController.controlEditRecipe);
 routes.delete("/recipe/delete/:id", recipeController.controlDeleteRecipe);
-routes.delete("/admin/delete/user/:id", adminController.controlDeleteuser);
 routes.delete(
   "/recipes/delete/all/user/:id",
   recipeController.controlDeleteAllUserRecipes
 );
-routes.post("/user/password/reset", userAccessController.controlResetPassword);
+routes.delete("/admin/delete/user/:id", adminController.controlDeleteuser);
 
 export default routes;

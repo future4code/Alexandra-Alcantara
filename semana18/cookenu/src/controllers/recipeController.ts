@@ -40,7 +40,7 @@ export default class RecipeController {
 
       await addRecipe(newRecipe);
 
-      res.status(200).send("Recipe added successfully!");
+      res.status(200).send({ message: "Recipe added successfully!" });
     } catch (err) {
       res.status(400).send({
         message: err.message,
@@ -146,7 +146,7 @@ export default class RecipeController {
 
       await deleteRecipe(id);
 
-      res.status(200).send({ message: "Recipe deleted successfully" });
+      res.status(200).send({ message: "Recipe deleted successfully!" });
     } catch (err) {
       res.status(400).send({
         message: err.message,
@@ -181,7 +181,7 @@ export default class RecipeController {
 
       await deleteAllUserRecipes(id);
 
-      res.status(200).send({ message: "All recipes deleted successfully" });
+      res.status(200).send({ message: "All recipes deleted successfully!" });
     } catch (err) {
       res.status(400).send({
         message: err.message,

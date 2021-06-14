@@ -1,13 +1,13 @@
 ### SERVER TEST
 GET http://localhost:3003/ta-acordado?
 
-### REGISTER
+### SIGN UP
 POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-    "name": "Julia Roberts",
-    "email": "juju@gmail.com",
+    "name": "Hulk",
+    "email": "hulk-smash@avengers.com",
     "password": "123456",
     "role": "NORMAL"
 }
@@ -19,7 +19,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "juju@gmail.com",
+    "email": "nino@mail.com",
     "password": "123456"
 }
 
@@ -42,11 +42,11 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMt
 ### ADD RECIPE
 POST http://localhost:3003/recipe
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTYzMjYsImV4cCI6MTY1NTE3MzkyNn0.uwU6Z7KYCgfUcos3vbdE8wLOBXNRhQAJHxLVJ3H10gs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM1NmY1YmEwLWE3NTctNDViNS05NDc1LTc2M2ZlNTUwYzU3ZSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MzcyMzIsImV4cCI6MTY1NTE5NDgzMn0._lR9CxuRc6P3kks3AOoE3nAI-_1xDuUIWFgk0qkEyJw
 
 {
-    "title": "Receita 3 Julia",
-    "description": "3"
+    "title": "Soup By Hulk",
+    "description": "Smaaaash"
 }
 
 ###
@@ -61,10 +61,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEt
 ### FOLLOW USER
 POST http://localhost:3003/user/follow
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTc0MTIsImV4cCI6MTY1NTE3NTAxMn0.hDgFhlw_8N5VNQahEoYB-5H7CyNSnrY1N6DLJnGy0v8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODRiMTY2LTZhYWQtNDUyZS1iZWUzLTUyYzFlMThiN2UyYiIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNjM3NTU1LCJleHAiOjE2NTUxOTUxNTV9.AOOfo4NEDWXXWONeQW90x9G4Im4oxbBK98cgkNPPFAA
 
 {
-    "followed_id": "5c84b166-6aad-452e-bee3-52c1e18b7e2b"
+    "followed_id": "356f5ba0-a757-45b5-9475-763fe550c57e"
 }
 
 ###
@@ -83,9 +83,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMt
 ### GET FEED
 GET http://localhost:3003/feed
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVlYzFjNzc4LWY3NDctNDYzYy05MTNiLTMyYzQ3MTUzMGEwNiIsImlhdCI6MTYyMzQ0NzcyNSwiZXhwIjoxNjU1MDA1MzI1fQ.BRjnATWj4f0YvP2RldWgVk6dau2VDAVfvwgu8yyAp4M
-
-###
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODRiMTY2LTZhYWQtNDUyZS1iZWUzLTUyYzFlMThiN2UyYiIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNjM3NTU1LCJleHAiOjE2NTUxOTUxNTV9.AOOfo4NEDWXXWONeQW90x9G4Im4oxbBK98cgkNPPFAA
 
 ### EDIT RECIPE
 POST http://localhost:3003/recipe/edit/00e75814-3ea8-42c2-8e7b-3e579f65060e
@@ -114,9 +112,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMt
 ###
 
 ### DELETE USER (ADMIN)
-DELETE http://localhost:3003/admin/delete/user/cf2c97d9-f5fe-4ec6-89dc-cc4cedaa2133
+DELETE http://localhost:3003/admin/delete/user/:id
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzU0MDM1MSwiZXhwIjoxNjU1MDk3OTUxfQ.DckGI8maBR0P5VL5FsfbP43byWooH9O-SuIiVuFPFTc
+Authorization: 
 
 ###
 
@@ -125,7 +123,7 @@ POST http://localhost:3003/user/password/reset
 Content-Type: application/json
 
 {
-    "email": "lele.dev.test@gmail.com" 
+    "email": "" 
 }
 
 ###
