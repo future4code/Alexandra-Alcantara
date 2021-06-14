@@ -1,0 +1,38 @@
+// Teste de server
+GET http://localhost:3003/ta-acordado?
+
+###
+
+// Fazer cadastro
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email": "cap-america@mail.com",
+    "password": "123456"
+}
+
+###
+
+// Fazer login
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "meguinha@mail.com",
+    "password": "123456"
+}
+
+###
+
+// Pesquisar usuário pelo email
+GET http://localhost:3003/user?email=me
+
+###
+
+// Retorna as informações do usuário logado
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQzZjhjMjllLWRjYmUtNGFlOS04YWViLTM4NDY1OWI3YjU4NCIsImlhdCI6MTYyMzE4OTIyMCwiZXhwIjoxNjU0NzQ2ODIwfQ.TWwns6UrvOZz8GPEIz66S3KkV68xUHWn5cUkVxIS9Jg
+
+
