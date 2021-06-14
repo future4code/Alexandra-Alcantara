@@ -1,0 +1,44 @@
+// Teste de server
+GET http://localhost:3003/ta-acordado?
+
+###
+
+// Fazer cadastro
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+    "email": "teste6@mail.com",
+    "password": "145535754",
+    "role": "ADMIN"
+}
+
+###
+
+// Fazer login
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+    "email": "teste6@mail.com",
+    "password": "145535754"
+}
+
+###
+
+// Pesquisar usuário pelo email
+GET http://localhost:3003/user?email=me
+
+###
+
+// Retorna as informações do usuário logado
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE4MTJhMDc2LTlhOTktNDYzMy04ZTY3LTI2NjA1OTdhMTg3NCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzIwMzYwNCwiZXhwIjoxNjU0NzYxMjA0fQ.oeOVluGDpZuvz6jhYoY6kAdnJbYYPI-mGnrjg8bp1Mw
+
+###
+
+// Deleta usuário
+DELETE http://localhost:3003/user/c2dcc831-7715-4c8c-941b-84fb1ee24cc4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE4MTJhMDc2LTlhOTktNDYzMy04ZTY3LTI2NjA1OTdhMTg3NCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzIwMzc0MCwiZXhwIjoxNjU0NzYxMzQwfQ.a4PF0M7915zJQlltLktsi_2WP55eTW4YbWkNB3rDTb8
