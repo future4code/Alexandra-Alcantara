@@ -1,8 +1,13 @@
 <h1 align="center">Cookenu</h1>
 
 <p align="center">
-  <img src="http://img.shields.io/static/v1?label=License&message=MIT&color=blue&style=plastic"/>
-   <img src="http://img.shields.io/static/v1?label=status&message=finished&color=green&style=plastic"/>
+  
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=&logo=node-dot-js&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=&logo=typescript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Express.js-000000?style=&logo=express&logoColor=white" />
+  <img src="https://img.shields.io/badge/MySQL-00000F?style=&logo=mysql&logoColor=white" />
+  <img src="http://img.shields.io/static/v1?label=License&message=MIT&color=blue&style="/>
+  <img src="http://img.shields.io/static/v1?label=status&message=finished&color=green&style="/>
 
 Project status: finished :heavy_check_mark:
 
@@ -10,11 +15,26 @@ Project status: finished :heavy_check_mark:
 
 :small_blue_diamond: [What is this project about?](#what-is-this-project-about)
 
-:small_blue_diamond: [Implementations](#implementations)
-
 :small_blue_diamond: [Requirements](#requirements)
 
 :small_blue_diamond: [How to run the application](#how-to-run-the-application-arrow_forward)
+
+:small_blue_diamond: [Endpoints](#endpoints)<br>
+
+- Sign up
+- Login
+- Reset password
+- Get informations about the own profile
+- Get informations about another user profile by id
+- Follow users
+- Unfollow users
+- Get feed
+- Add recipe
+- Edit recipe
+- Delete recipe
+- Delete all recipes by user id
+- Search recipe by id
+- Delete user (only admin allowed)
 
 :small_blue_diamond: [License](#license)
 
@@ -45,12 +65,12 @@ Project status: finished :heavy_check_mark:
 
 ### Libraries
 
-<a href="http://knexjs.org/">:small_blue_diamond: Knex.js</a><br>
-<a href="https://www.npmjs.com/package/bcryptjs">:small_blue_diamond: bcryptjs</a><br>
-<a href="https://www.npmjs.com/package/cors">:small_blue_diamond: cors</a><br>
-<a href="https://www.npmjs.com/package/dotenv">:small_blue_diamond: dotenv</a><br>
-<a href="https://www.npmjs.com/package/jsonwebtoken">:small_blue_diamond: jsonwebtoken</a><br>
-<a href="https://www.npmjs.com/package/nodemailer">:small_blue_diamond: nodemailer</a><br>
+<a href="http://knexjs.org/">:small_blue_diamond: Knex.js</a>
+<a href="https://www.npmjs.com/package/bcryptjs">:small_blue_diamond: bcryptjs</a>
+<a href="https://www.npmjs.com/package/cors">:small_blue_diamond: cors</a>
+<a href="https://www.npmjs.com/package/dotenv">:small_blue_diamond: dotenv</a>
+<a href="https://www.npmjs.com/package/jsonwebtoken">:small_blue_diamond: jsonwebtoken</a>
+<a href="https://www.npmjs.com/package/nodemailer">:small_blue_diamond: nodemailer</a>
 <a href="https://www.npmjs.com/package/uuid">:small_blue_diamond: uuid</a>
 
 ## How to run the application
@@ -483,7 +503,7 @@ Body
 
 ### :closed_lock_with_key: Admin
 
-:ballot_box_with_check: Delete user (admin)
+:ballot_box_with_check: Delete user (only admin allowed)<br>
 **Method:** DELETE<br>
 **Path:** `/admin/delete/user/:id`
 
