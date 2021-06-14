@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/Express.js-000000?style=&logo=express&logoColor=white" />
   <img src="https://img.shields.io/badge/MySQL-00000F?style=&logo=mysql&logoColor=white" />
   <img src="http://img.shields.io/static/v1?label=License&message=MIT&color=blue&style="/>
-  <img src="http://img.shields.io/static/v1?label=status&message=finished&color=green&style="/>
+  <img src="http://img.shields.io/static/v1?label=Status&message=finished&color=green&style="/>
 
 Project status: finished :heavy_check_mark:
 
