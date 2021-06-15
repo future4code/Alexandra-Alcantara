@@ -1,0 +1,129 @@
+### SERVER TEST
+GET http://localhost:3003/ta-acordado?
+
+### SIGN UP
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "name": "Hulk",
+    "email": "hulk-smash@avengers.com",
+    "password": "123456",
+    "role": "NORMAL"
+}
+
+###
+
+### LOGIN
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "nino@mail.com",
+    "password": "123456"
+}
+
+###
+
+### RETRIEVE LOGGED USER DATA
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzU0MDM1MSwiZXhwIjoxNjU1MDk3OTUxfQ.DckGI8maBR0P5VL5FsfbP43byWooH9O-SuIiVuFPFTc 
+
+###
+
+### SEARCH USER BY ID
+GET http://localhost:3003/user/610633fd-f4a5-4bf0-bbc3-0e4bcdca1405
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTI3NzUsImV4cCI6MTY1NTE3MDM3NX0.1q9D_OZRabuBeQN2XYqJvxCXRTlsk5euSGkCygBpkpc
+
+###
+
+### ADD RECIPE
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjM1NmY1YmEwLWE3NTctNDViNS05NDc1LTc2M2ZlNTUwYzU3ZSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MzcyMzIsImV4cCI6MTY1NTE5NDgzMn0._lR9CxuRc6P3kks3AOoE3nAI-_1xDuUIWFgk0qkEyJw
+
+{
+    "title": "Soup By Hulk",
+    "description": "Smaaaash"
+}
+
+###
+
+### SEARCH RECIPE BY ID
+GET http://localhost:3003/recipe/00e75814-3ea8-42c2-8e7b-3e579f65060e
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgwZTExYjA2LWUyNzEtNGM1My05YzBhLTg2YTdhMTY4Mzc3OSIsImlhdCI6MTYyMzQxNjg1OCwiZXhwIjoxNjU0OTc0NDU4fQ.7UkFw_yZoUIaiDOHB9s0lJN4saqr7dIfjzxi__ltcag
+
+###
+
+### FOLLOW USER
+POST http://localhost:3003/user/follow
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODRiMTY2LTZhYWQtNDUyZS1iZWUzLTUyYzFlMThiN2UyYiIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNjM3NTU1LCJleHAiOjE2NTUxOTUxNTV9.AOOfo4NEDWXXWONeQW90x9G4Im4oxbBK98cgkNPPFAA
+
+{
+    "followed_id": "356f5ba0-a757-45b5-9475-763fe550c57e"
+}
+
+###
+
+### UNFOLLOW USER
+POST http://localhost:3003/user/unfollow
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTc1MzEsImV4cCI6MTY1NTE3NTEzMX0.P33eIGN5reYTyN7pFlpnJYKVyOvHJFMMmbRIThd9VKw
+
+{
+    "followed_id": "5c84b166-6aad-452e-bee3-52c1e18b7e2b"
+}
+
+###
+
+### GET FEED
+GET http://localhost:3003/feed
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjODRiMTY2LTZhYWQtNDUyZS1iZWUzLTUyYzFlMThiN2UyYiIsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNjIzNjM3NTU1LCJleHAiOjE2NTUxOTUxNTV9.AOOfo4NEDWXXWONeQW90x9G4Im4oxbBK98cgkNPPFAA
+
+### EDIT RECIPE
+POST http://localhost:3003/recipe/edit/00e75814-3ea8-42c2-8e7b-3e579f65060e
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTgyMDksImV4cCI6MTY1NTE3NTgwOX0.rzjpE-xEUaZG7OConeRoEBD58DGVKZRdzv2ueytwr-8
+
+{
+    "title": "RECEITA 1 JULIA EDITADA",
+    "description": "EDITADA"
+}
+
+###
+
+### DELETE RECIPE
+DELETE http://localhost:3003/recipe/delete/711aa7dd-93c2-430a-972e-ee04c4cc2366
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MTkwODcsImV4cCI6MTY1NTE3NjY4N30.s-JBaQY99Y4rF53p1RsgFcDqhCT9n1kSaUDZA85wU84
+
+###
+
+### DELETE ALL RECIPES BY USER ID
+DELETE http://localhost:3003/recipes/delete/all/user/4ee3e233-611c-4d60-a295-a587d0667765
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlZTNlMjMzLTYxMWMtNGQ2MC1hMjk1LWE1ODdkMDY2Nzc2NSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjM2MjA5MjQsImV4cCI6MTY1NTE3ODUyNH0.T6wBesvBk7kUAOT9P8_5WvRFcyOJrdKlKsB-QiuIQW4
+
+###
+
+### DELETE USER (ADMIN)
+DELETE http://localhost:3003/admin/delete/user/:id
+Content-Type: application/json
+Authorization: 
+
+###
+
+### RESET PASSWORD
+POST http://localhost:3003/user/password/reset
+Content-Type: application/json
+
+{
+    "email": "" 
+}
+
+###
