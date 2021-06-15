@@ -16,12 +16,22 @@ export type userData = {
   role: USER_ROLES;
 };
 
-export type user = userData & { id: string };
+export type user = signUpInputDTO & { id: string };
 
 export type signUpInputDTO = {
-  name: string;
-  nickname: string;
+  name: any;
+  nickname: any;
+  email: any;
+  password: any;
+  role: USER_ROLES;
+};
+
+export type loginInputAccessDTO = {
+  email: any;
+  password: any;
+};
+
+export type loginData = {
   email: string;
   password: string;
-  role: USER_ROLES;
 };
