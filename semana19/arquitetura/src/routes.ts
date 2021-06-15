@@ -16,6 +16,6 @@ const deleteUserController = new DeleteUserController();
 routes.post("/signup", signUpController.signUpControl);
 routes.post("/login", loginController.loginControl);
 routes.get("/all", getAllUsersController.getAllUsersControl);
-routes.delete("/admin/delete/user/:id", deleteUserController.controlDeleteuser);
+routes.delete("/:id", deleteUserController.deleteUserControl);
 
 export default routes;

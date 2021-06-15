@@ -1,7 +1,7 @@
 import { getAllUsers } from "../data/getAllUsersQuery";
 import { getTokenData } from "../services/authenticator";
 
-export const getAllUsersBusiness = async (token: any): Promise<any> => {
+export const getAllUsersBusiness = async (token: string): Promise<any> => {
   const verifiedToken = getTokenData(token);
 
   if (!verifiedToken) {
