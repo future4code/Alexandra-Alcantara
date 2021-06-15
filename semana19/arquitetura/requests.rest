@@ -3,8 +3,8 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {   
-    "name": "Tony Stark",
-    "email": "stark-millionaire@avengers.com",
+    "name": "Tony",
+    "email": "stark@avengers.com",
     "password": "123456",
     "role": "NORMAL"
 }
@@ -16,8 +16,13 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-    "email": "stark-millionaire@avengers.com",
+    "email": "tulip@mail.com",
     "password": "123456"
 }
 
 ###
+
+### GET ALL USERS
+GET http://localhost:3003/all
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzcxOTk1NywiZXhwIjoxNjU1Mjc3NTU3fQ.7KfSAOorM-hNgW-b2WUUY1FAfnv6n4Oj4Dc4yZZY780

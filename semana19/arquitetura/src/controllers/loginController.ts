@@ -2,7 +2,7 @@ import { Response, Request } from "express";
 import { loginBusiness } from "../business/loginBusiness";
 
 export default class LoginController {
-  controlLogin = async (req: Request, res: Response) => {
+  loginControl = async (req: Request, res: Response) => {
     try {
       const { email, password } = req.body;
 

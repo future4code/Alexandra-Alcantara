@@ -2,7 +2,7 @@ import { Response, Request } from "express";
 import { signUpBusiness } from "../business/signUpBusiness";
 
 export default class SignUpController {
-  controlSignUp = async (req: Request, res: Response) => {
+  signUpControl = async (req: Request, res: Response) => {
     try {
       const { name, email, password, role } = req.body;
 
