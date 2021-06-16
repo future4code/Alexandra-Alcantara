@@ -1,0 +1,6 @@
+node_modules
+build
+
+# Dotenv environment variables file
+.env
+
