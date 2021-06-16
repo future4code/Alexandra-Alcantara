@@ -1,0 +1,37 @@
+### SIGN UP
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{   
+    "name": "Tony",
+    "email": "stark@avengers.com",
+    "password": "123456",
+    "role": "NORMAL"
+}
+
+###
+
+### LOGIN
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "tulip@mail.com",
+    "password": "123456"
+}
+
+###
+
+### GET ALL USERS
+GET http://localhost:3003/all
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzcxOTk1NywiZXhwIjoxNjU1Mjc3NTU3fQ.7KfSAOorM-hNgW-b2WUUY1FAfnv6n4Oj4Dc4yZZY780
+
+###
+
+### DELETE USER
+DELETE http://localhost:3003/4ee3e233-611c-4d60-a295-a587d0667765
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyZDAzMWMwLTYwODMtNDFjYS1hYWNlLThiZmU4MzdjNzQ1OCIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzcyNDY1NiwiZXhwIjoxNjU1MjgyMjU2fQ.PsTvuc5fzXRPj8agLVa8lcbpeh96WaU98IcrbvttfrA
+
+###
