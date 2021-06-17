@@ -1,0 +1,12 @@
+### SIGN UP 
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "Celminha", 
+    "email": "celminha@avengers.com", 
+    "password": "123456"
+}
+
+###
+
