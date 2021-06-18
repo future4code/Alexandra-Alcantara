@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import SignUpBusiness from "../../business/user/SignUp";
+import SignUpBusiness from "../../business/user/SignUpBusiness";
 
 export default class SignUpController {
   createUser = async (req: Request, res: Response) => {

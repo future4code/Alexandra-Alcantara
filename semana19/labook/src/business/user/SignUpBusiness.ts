@@ -9,7 +9,7 @@ export default class SignUpBusiness extends SignUpValidation {
   private userDb: UserDatabase = new UserDatabase();
 
   private checkEmail = async (email: string) => {
-    const user = await this.userDb.getByEmail(email);
+    const user = await this.userDb.getUserByEmail(email);
 
     if (user) {
       throw new Error("Email já está cadastrado!");
@@ -17,7 +17,7 @@ export default class SignUpBusiness extends SignUpValidation {
   };
 
   createUserBusiness = async (data: UserDTO) => {
-    const { name, email, password } = this.inputValidation(data);
+    const { name, email, password } = this.signUpInputValidation(data);
     this.checkEmail(email);
 
     const newUser: User = {

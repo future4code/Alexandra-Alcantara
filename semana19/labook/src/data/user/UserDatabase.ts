@@ -8,9 +8,17 @@ export class UserDatabase extends BaseDatabase {
     await this.connection(this.tableName).insert(user);
   };
 
-  getByEmail = async (email: string) => {
+  getUserByEmail = async (email: string) => {
     const [result] = await this.connection(this.tableName).where({ email });
 
     return result;
+  };
+
+  login = async (email: string) => {
+    const result = await this.connection(this.tableName)
+      .select("*")
+      .where("email", `${email}`);
+
+    return result[0];
   };
 }

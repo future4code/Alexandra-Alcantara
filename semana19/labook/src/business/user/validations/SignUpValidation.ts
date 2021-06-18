@@ -1,14 +1,14 @@
 import { UserData, UserDTO } from "../../../model/user";
 
 export default class SignUpValidation {
-  protected inputValidation = ({
+  protected signUpInputValidation = ({
     name,
     email,
     password,
   }: UserDTO): UserData => {
     if (!name || !email || !password) {
       throw new Error(
-        "Preencha todos os campos: 'name', 'email' and 'password'."
+        "Please, fill all fields: 'name', 'email' and 'password'."
       );
     }
 
