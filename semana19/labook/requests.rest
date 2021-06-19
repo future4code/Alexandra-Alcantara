@@ -40,3 +40,14 @@ Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NDZkMWY3LWM3MDUtNGM4MS04YzYwLWIxYWM3NTcxZjgwNiIsImlhdCI6MTYyNDExNDczNCwiZXhwIjoxNjU1NjcyMzM0fQ.A89lQh5x1XeI-EG2VOjXKzRQ3VHfgHCCxAfq_CX-1_s
 
 ###
+
+### MAKE FRIENDSHIP
+POST http://localhost:3003/friendship/make
+Content-Type: application/json
+Authorization: 
+
+{
+"recipient_request_id": "3d10c9ad-3235-400b-a7dc-5ae73cf4f058"
+}
+
+###

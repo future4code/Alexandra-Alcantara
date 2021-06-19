@@ -5,7 +5,7 @@ import { getTokenData } from "../../services/authenticator";
 import CreatePostValidations from "./validations/CreatePostValidations";
 
 export default class CreatePostBusiness extends CreatePostValidations {
-  private userDb: PostDatabase = new PostDatabase();
+  private postDb: PostDatabase = new PostDatabase();
 
   createPostBusiness = async (data: PostDataDTO, token: string) => {
     const { photo, description, type } = this.postInputValidation(data);
@@ -24,7 +24,7 @@ export default class CreatePostBusiness extends CreatePostValidations {
       author_id: verifiedToken.id,
     };
 
-    await this.userDb.createPost(newPost);
+    await this.postDb.createPost(newPost);
 
     return newPost;
   };
