@@ -22,7 +22,7 @@ export default class LoginBusiness extends LoginValidation {
     }
   };
 
-  // Connect with database to do login
+  // Connect with database to login
   loginBusiness = async (data: LoginDTO) => {
     const { email, password } = this.loginInputValidation(data);
     this.checkAccess(email, password);

@@ -3,7 +3,7 @@ import { User, UserDTO } from "../../model/user";
 import { generateToken } from "../../services/authenticator";
 import { generateHash } from "../../services/hashManager";
 import { generateId } from "../../services/idGenerator";
-import SignUpValidation from "./validations/SignUpValidation";
+import SignUpValidation from "./validations/SignUpValidations";
 
 export default class SignUpBusiness extends SignUpValidation {
   private userDb: UserDatabase = new UserDatabase();

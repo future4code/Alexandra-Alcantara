@@ -7,4 +7,12 @@ export class PostDatabase extends BaseDatabase {
   createPost = async (post: PostData) => {
     await this.connection(this.tableName).insert(post);
   };
+
+  getPostById = async (id: string) => {
+    const [queryResult] = await this.connection(this.tableName)
+      .select("*")
+      .where({ id });
+
+    return queryResult;
+  };
 }

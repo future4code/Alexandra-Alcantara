@@ -1,6 +1,6 @@
 import { PostDataDTO, PostData } from "../../../model/post";
 
-export default class PostValidation {
+export default class CreatePostValidation {
   protected postInputValidation = ({
     photo,
     description,

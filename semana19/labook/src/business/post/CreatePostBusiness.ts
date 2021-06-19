@@ -1,10 +1,10 @@
 import { Post, PostDataDTO } from "../../model/post";
 import { generateId } from "../../services/idGenerator";
 import { PostDatabase } from "../../data/post/PostDatabase";
-import { generateToken, getTokenData } from "../../services/authenticator";
-import PostValidations from "./validations/PostValidations";
+import { getTokenData } from "../../services/authenticator";
+import CreatePostValidations from "./validations/CreatePostValidations";
 
-export default class CreatePostBusiness extends PostValidations {
+export default class CreatePostBusiness extends CreatePostValidations {
   private userDb: PostDatabase = new PostDatabase();
 
   createPostBusiness = async (data: PostDataDTO, token: string) => {
