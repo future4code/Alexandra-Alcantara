@@ -21,3 +21,15 @@ Content-Type: application/json
 
 ###
 
+### CREATE POST
+POST http://localhost:3003/posts/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NDZkMWY3LWM3MDUtNGM4MS04YzYwLWIxYWM3NTcxZjgwNiIsImlhdCI6MTYyNDA1OTE5OCwiZXhwIjoxNjU1NjE2Nzk4fQ.PggeJkqeIw6ZEvrXFSUxe2b15RUvQtrnyW95TapY2EU
+
+{
+    "photo": "https://image.cachorrogato.com.br/textimages/gato-preto.jpg", 
+    "description": "Black kitten",
+    "type": "normal"
+}
+
+###

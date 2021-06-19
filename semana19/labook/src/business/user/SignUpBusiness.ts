@@ -12,7 +12,7 @@ export default class SignUpBusiness extends SignUpValidation {
     const user = await this.userDb.getUserByEmail(email);
 
     if (user) {
-      throw new Error("Email já está cadastrado!");
+      throw new Error("Something got wrong, try again or try another email.");
     }
   };
 
