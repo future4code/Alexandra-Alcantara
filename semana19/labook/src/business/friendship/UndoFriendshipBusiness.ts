@@ -1,11 +1,12 @@
 import { FriendshipDatabase } from "../../data/friendship/FriendshipDatabase";
+import { UserDatabase } from "../../data/user/UserDatabase";
 import { Friendship } from "../../model/friendship";
 import { getTokenData } from "../../services/authenticator";
 
-export default class MakeFriendshipBusiness {
+export default class undoFriendshipBusiness {
   private friendshipDb: FriendshipDatabase = new FriendshipDatabase();
 
-  private checkIfAlreadyFriends = async (
+  private checkIfFriendshipExists = async (
     recipient_request_id: string,
     user_request_id: string
   ) => {
@@ -13,30 +14,30 @@ export default class MakeFriendshipBusiness {
       recipient_request_id,
       user_request_id
     );
-    if (friendship) {
-      throw new Error("Already friends");
+    if (!friendship) {
+      throw new Error("Friendship not found");
     }
   };
 
-  makeFriendshipBusiness = async (
+  undoFriendshipBusiness = async (
     recipient_request_id: string,
     token: string
   ) => {
     const verifiedToken = getTokenData(token);
 
-    await this.checkIfAlreadyFriends(recipient_request_id, verifiedToken.id);
+    await this.checkIfFriendshipExists(recipient_request_id, verifiedToken.id);
 
     if (!verifiedToken) {
       throw new Error("Unauthorized");
     }
 
-    const newFriendship: Friendship = {
-      sender_request_id: verifiedToken.id,
-      recipient_request_id: recipient_request_id,
-    };
+    const sender_request_id = verifiedToken.id;
 
-    await this.friendshipDb.makeFriendship(newFriendship);
+    const result = await this.friendshipDb.undoFriendship(
+      sender_request_id,
+      recipient_request_id
+    );
 
-    return newFriendship;
+    return result;
   };
 }

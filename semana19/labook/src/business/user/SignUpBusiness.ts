@@ -1,3 +1,4 @@
+import { resourceLimits } from "node:worker_threads";
 import { UserDatabase } from "../../data/user/UserDatabase";
 import { User, UserDTO } from "../../model/user";
 import { generateToken } from "../../services/authenticator";
@@ -9,8 +10,7 @@ export default class SignUpBusiness extends SignUpValidation {
   private userDb: UserDatabase = new UserDatabase();
 
   private checkEmail = async (email: string) => {
-    const user = await this.userDb.getUserByEmail(email);
-
+    const [user] = await this.userDb.getUserByEmail(email);
     if (user) {
       throw new Error("Something got wrong, try again or try another email.");
     }
@@ -18,7 +18,8 @@ export default class SignUpBusiness extends SignUpValidation {
 
   createUserBusiness = async (data: UserDTO) => {
     const { name, email, password } = this.signUpInputValidation(data);
-    this.checkEmail(email);
+
+    await this.checkEmail(email);
 
     const newUser: User = {
       id: generateId(),

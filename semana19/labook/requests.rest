@@ -3,8 +3,8 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-    "name": "Celminha", 
-    "email": "celminha@avengers.com", 
+    "name": "Carol Danvers", 
+    "email": "cap-marvel@avengers.com", 
     "password": "123456"
 }
 
@@ -15,7 +15,7 @@ POST http://localhost:3003/users/login
 Content-Type: application/json
 
 {
-    "email": "hulk-smash@avengers.com", 
+    "email": "cap-marvel@avengers.com", 
     "password": "123456"
 }
 
@@ -44,10 +44,21 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NDZkMWY3LWM3MDUt
 ### MAKE FRIENDSHIP
 POST http://localhost:3003/friendship/make
 Content-Type: application/json
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMzU4ODg5LTI4ODQtNGJhNS1hNDAzLTBiNjUzYzhhMjYyYiIsImlhdCI6MTYyNDIwNjcxMSwiZXhwIjoxNjU1NzY0MzExfQ.i86tt-RQzolPqGi6HzMumlLItBHQCFTogIEOGtg25Zo
 
 {
-"recipient_request_id": "3d10c9ad-3235-400b-a7dc-5ae73cf4f058"
+"recipient_request_id": "1646d1f7-c705-4c81-8c60-b1ac7571f806"
+}
+
+###
+
+### UNDO FRIENDSHIP
+DELETE http://localhost:3003/friendship/undo
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwMmJiOTY1LWJjNDEtNDBkYi04MmFiLWJjNGE4MjA5ZDYzZSIsImlhdCI6MTYyNDIwNjgyOSwiZXhwIjoxNjU1NzY0NDI5fQ.b5nL48Vzo3LRYH4O4V9R2WbC628LD8mEpAsgJBKHbxI
+
+{
+"recipient_request_id": "2b358889-2884-4ba5-a403-0b653c8a262b"
 }
 
 ###
