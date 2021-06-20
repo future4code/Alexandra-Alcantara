@@ -1,7 +1,7 @@
-import { User } from "../../model/user";
-import { BaseDatabase } from "../BaseDatabase";
+import { User } from "../model/user";
+import BaseDatabase from "./BaseDatabase";
 
-export class UserDatabase extends BaseDatabase {
+export default class UserDatabase extends BaseDatabase {
   private tableName: string = "users_labook";
 
   // Create user

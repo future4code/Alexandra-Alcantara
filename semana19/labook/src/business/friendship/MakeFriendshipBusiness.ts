@@ -1,4 +1,4 @@
-import { FriendshipDatabase } from "../../data/friendship/FriendshipDatabase";
+import FriendshipDatabase from "../../data/FriendshipDatabase";
 import { Friendship } from "../../model/friendship";
 import { getTokenData } from "../../services/authenticator";
 
@@ -15,6 +15,12 @@ export default class MakeFriendshipBusiness {
     );
     if (friendship) {
       throw new Error("Already friends");
+    }
+
+    if (recipient_request_id === user_request_id) {
+      throw new Error(
+        "We know you're your best friend, but we can't add it in our database, sorry"
+      );
     }
   };
 

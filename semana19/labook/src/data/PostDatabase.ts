@@ -1,7 +1,7 @@
-import { PostData } from "../../model/post";
-import { BaseDatabase } from "../BaseDatabase";
+import { PostData } from "../model/post";
+import BaseDatabase from "./BaseDatabase";
 
-export class PostDatabase extends BaseDatabase {
+export default class PostDatabase extends BaseDatabase {
   private tableName: string = "posts_labook";
 
   createPost = async (post: PostData) => {

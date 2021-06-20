@@ -1,5 +1,4 @@
-import { resourceLimits } from "node:worker_threads";
-import { UserDatabase } from "../../data/user/UserDatabase";
+import UserDatabase from "../../data/UserDatabase";
 import { User, UserDTO } from "../../model/user";
 import { generateToken } from "../../services/authenticator";
 import { generateHash } from "../../services/hashManager";

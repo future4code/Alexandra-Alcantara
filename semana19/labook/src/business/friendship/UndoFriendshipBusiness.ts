@@ -1,6 +1,4 @@
-import { FriendshipDatabase } from "../../data/friendship/FriendshipDatabase";
-import { UserDatabase } from "../../data/user/UserDatabase";
-import { Friendship } from "../../model/friendship";
+import FriendshipDatabase from "../../data/FriendshipDatabase";
 import { getTokenData } from "../../services/authenticator";
 
 export default class undoFriendshipBusiness {

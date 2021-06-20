@@ -1,4 +1,4 @@
-import { PostDatabase } from "../../data/post/PostDatabase";
+import PostDatabase from "../../data/PostDatabase";
 import { getTokenData } from "../../services/authenticator";
 
 export default class GetPostByIdBusiness {

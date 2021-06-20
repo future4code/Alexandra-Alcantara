@@ -1,4 +1,4 @@
-import { UserDatabase } from "../../data/user/UserDatabase";
+import UserDatabase from "../../data/UserDatabase";
 import { LoginDTO } from "../../model/user";
 import { generateToken } from "../../services/authenticator";
 import { compareHash } from "../../services/hashManager";

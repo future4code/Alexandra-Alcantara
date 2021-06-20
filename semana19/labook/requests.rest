@@ -15,7 +15,7 @@ POST http://localhost:3003/users/login
 Content-Type: application/json
 
 {
-    "email": "cap-marvel@avengers.com", 
+    "email": "zulinhus@avengers.com", 
     "password": "123456"
 }
 
@@ -24,11 +24,11 @@ Content-Type: application/json
 ### CREATE POST
 POST http://localhost:3003/posts/create
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NDZkMWY3LWM3MDUtNGM4MS04YzYwLWIxYWM3NTcxZjgwNiIsImlhdCI6MTYyNDA1OTE5OCwiZXhwIjoxNjU1NjE2Nzk4fQ.PggeJkqeIw6ZEvrXFSUxe2b15RUvQtrnyW95TapY2EU
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyZDM0Y2FiLTk3ZTMtNDgyZS1iYTk3LTQ3ZTYzZDUzYmYxMSIsImlhdCI6MTYyNDIxMzExMiwiZXhwIjoxNjU1NzcwNzEyfQ.E0NNrDiLy-6I0Mg-0ZaTViUf05KxgloHTPkLvski2hY
 
 {
-    "photo": "https://maladeaventuras.com/wp-content/uploads/2020/03/melhores-hoteis-interlaken-2.jpg", 
-    "description": "Interlaken <3",
+    "photo": "https://cdn2.civitatis.com/polonia/cracovia/guia/campo-concentracion-auschwitz.jpg", 
+    "description": "Auschwitz :(",
     "type": "normal"
 }
 
@@ -44,10 +44,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NDZkMWY3LWM3MDUt
 ### MAKE FRIENDSHIP
 POST http://localhost:3003/friendship/make
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMzU4ODg5LTI4ODQtNGJhNS1hNDAzLTBiNjUzYzhhMjYyYiIsImlhdCI6MTYyNDIwNjcxMSwiZXhwIjoxNjU1NzY0MzExfQ.i86tt-RQzolPqGi6HzMumlLItBHQCFTogIEOGtg25Zo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNkMTBjOWFkLTMyMzUtNDAwYi1hN2RjLTVhZTczY2Y0ZjA1OCIsImlhdCI6MTYyNDIzMTc2MSwiZXhwIjoxNjU1Nzg5MzYxfQ.LYdDzKbRo5yT2ZH4deiIiID_fFqZCW1581J-5rEEsRg
 
 {
-"recipient_request_id": "1646d1f7-c705-4c81-8c60-b1ac7571f806"
+"recipient_request_id": "3d10c9ad-3235-400b-a7dc-5ae73cf4f058"
 }
 
 ###
@@ -55,10 +55,16 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJiMzU4ODg5LTI4ODQt
 ### UNDO FRIENDSHIP
 DELETE http://localhost:3003/friendship/undo
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwMmJiOTY1LWJjNDEtNDBkYi04MmFiLWJjNGE4MjA5ZDYzZSIsImlhdCI6MTYyNDIwNjgyOSwiZXhwIjoxNjU1NzY0NDI5fQ.b5nL48Vzo3LRYH4O4V9R2WbC628LD8mEpAsgJBKHbxI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwMmJiOTY1LWJjNDEtNDBkYi04MmFiLWJjNGE4MjA5ZDYzZSIsImlhdCI6MTYyNDIwNzEyMCwiZXhwIjoxNjU1NzY0NzIwfQ.y27XFFMl68huwWHH5EnkGc5fd0XUxlOxbN7nLQ5JAUY
 
 {
-"recipient_request_id": "2b358889-2884-4ba5-a403-0b653c8a262b"
+"recipient_request_id": "b02bb965-bc41-40db-82ab-bc4a8209d63e"
 }
 
+###
+
+### GET FEED
+GET http://localhost:3003/feed
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNkMTBjOWFkLTMyMzUtNDAwYi1hN2RjLTVhZTczY2Y0ZjA1OCIsImlhdCI6MTYyNDIzMTc2MSwiZXhwIjoxNjU1Nzg5MzYxfQ.LYdDzKbRo5yT2ZH4deiIiID_fFqZCW1581J-5rEEsRg
 ###

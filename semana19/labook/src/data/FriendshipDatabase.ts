@@ -1,12 +1,22 @@
-import { Friendship } from "../../model/friendship";
-import { BaseDatabase } from "../BaseDatabase";
+import { Friendship } from "../model/friendship";
+import BaseDatabase from "./BaseDatabase";
 
-export class FriendshipDatabase extends BaseDatabase {
+export default class FriendshipDatabase extends BaseDatabase {
   private tableName: string = "friendship_labook";
 
   // Make friendship
-  makeFriendship = async (data: Friendship) => {
-    await this.connection(this.tableName).insert(data);
+  makeFriendship = async ({
+    sender_request_id,
+    recipient_request_id,
+  }: Friendship) => {
+    await this.connection(this.tableName).insert({
+      sender_request_id,
+      recipient_request_id,
+    });
+    await this.connection(this.tableName).insert({
+      sender_request_id: recipient_request_id,
+      recipient_request_id: sender_request_id,
+    });
   };
 
   // Undo friendship

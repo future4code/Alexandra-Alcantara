@@ -1,6 +1,6 @@
 import { Post, PostDataDTO } from "../../model/post";
 import { generateId } from "../../services/idGenerator";
-import { PostDatabase } from "../../data/post/PostDatabase";
+import PostDatabase from "../../data/PostDatabase";
 import { getTokenData } from "../../services/authenticator";
 import CreatePostValidations from "./validations/CreatePostValidations";
 
