@@ -2,4 +2,4 @@
 
 3.
 
-c) Achei mais difícil de entender a integração dos tipos com as funções de map e filter no return.
+c) Achei mais difícil entender a integração dos tipos com as funções de map e filter no return.
