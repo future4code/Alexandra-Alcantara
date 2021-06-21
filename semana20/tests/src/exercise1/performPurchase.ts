@@ -1,4 +1,4 @@
-import { User } from "./model/user";
+import { User } from "../model/user";
 
 export const performPurchase = (
   user: User,

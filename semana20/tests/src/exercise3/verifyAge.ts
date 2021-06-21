@@ -1,5 +1,5 @@
-import { Casino, LOCATION, NATIONALITY, Result } from "./model/casino";
-import { User } from "./model/casino";
+import { Casino, LOCATION, NATIONALITY, Result } from "../model/casino";
+import { User } from "../model/casino";
 
 export const verifyAge = (casino: Casino, users: User[]): Result => {
   const allowed: User[] = [];
