@@ -3,9 +3,9 @@ POST http://localhost:3003/users/signup
 Content-Type: application/json
 
 {
-    "name": "Carol Danvers", 
-    "email": "cap-marvel@avengers.com", 
-    "password": "123456"
+    "name": "Amelioli", 
+    "email": "", 
+    "password": ""
 }
 
 ###
@@ -15,8 +15,8 @@ POST http://localhost:3003/users/login
 Content-Type: application/json
 
 {
-    "email": "zulinhus@avengers.com", 
-    "password": "123456"
+    "email": "", 
+    "password": ""
 }
 
 ###
@@ -24,30 +24,30 @@ Content-Type: application/json
 ### CREATE POST
 POST http://localhost:3003/posts/create
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyZDM0Y2FiLTk3ZTMtNDgyZS1iYTk3LTQ3ZTYzZDUzYmYxMSIsImlhdCI6MTYyNDIxMzExMiwiZXhwIjoxNjU1NzcwNzEyfQ.E0NNrDiLy-6I0Mg-0ZaTViUf05KxgloHTPkLvski2hY
+Authorization: 
 
 {
-    "photo": "https://cdn2.civitatis.com/polonia/cracovia/guia/campo-concentracion-auschwitz.jpg", 
-    "description": "Auschwitz :(",
-    "type": "normal"
+    "photo": "", 
+    "description": "",
+    "type": ""
 }
 
 ###
 
 ### GET POST BY ID
-GET http://localhost:3003/posts/2a2b1729-706f-4c72-88c6-009a8782c000
+GET http://localhost:3003/posts/:id
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NDZkMWY3LWM3MDUtNGM4MS04YzYwLWIxYWM3NTcxZjgwNiIsImlhdCI6MTYyNDExNDczNCwiZXhwIjoxNjU1NjcyMzM0fQ.A89lQh5x1XeI-EG2VOjXKzRQ3VHfgHCCxAfq_CX-1_s
+Authorization: 
 
 ###
 
 ### MAKE FRIENDSHIP
 POST http://localhost:3003/friendship/make
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNkMTBjOWFkLTMyMzUtNDAwYi1hN2RjLTVhZTczY2Y0ZjA1OCIsImlhdCI6MTYyNDIzMTc2MSwiZXhwIjoxNjU1Nzg5MzYxfQ.LYdDzKbRo5yT2ZH4deiIiID_fFqZCW1581J-5rEEsRg
+Authorization: 
 
 {
-"recipient_request_id": "3d10c9ad-3235-400b-a7dc-5ae73cf4f058"
+"recipient_request_id": ""
 }
 
 ###
@@ -55,10 +55,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNkMTBjOWFkLTMyMzUt
 ### UNDO FRIENDSHIP
 DELETE http://localhost:3003/friendship/undo
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwMmJiOTY1LWJjNDEtNDBkYi04MmFiLWJjNGE4MjA5ZDYzZSIsImlhdCI6MTYyNDIwNzEyMCwiZXhwIjoxNjU1NzY0NzIwfQ.y27XFFMl68huwWHH5EnkGc5fd0XUxlOxbN7nLQ5JAUY
+Authorization: 
 
 {
-"recipient_request_id": "b02bb965-bc41-40db-82ab-bc4a8209d63e"
+"recipient_request_id": ""
 }
 
 ###
@@ -66,5 +66,6 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwMmJiOTY1LWJjNDEt
 ### GET FEED
 GET http://localhost:3003/feed
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNkMTBjOWFkLTMyMzUtNDAwYi1hN2RjLTVhZTczY2Y0ZjA1OCIsImlhdCI6MTYyNDIzMTc2MSwiZXhwIjoxNjU1Nzg5MzYxfQ.LYdDzKbRo5yT2ZH4deiIiID_fFqZCW1581J-5rEEsRg
+Authorization: 
+
 ###
