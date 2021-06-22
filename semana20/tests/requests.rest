@@ -1,0 +1,19 @@
+### CREATE POST
+POST http://localhost:3003/posts/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NDZkMWY3LWM3MDUtNGM4MS04YzYwLWIxYWM3NTcxZjgwNiIsImlhdCI6MTYyNDA1OTE5OCwiZXhwIjoxNjU1NjE2Nzk4fQ.PggeJkqeIw6ZEvrXFSUxe2b15RUvQtrnyW95TapY2EU
+
+{
+    "photo": "https://image.cachorrogato.com.br/textimages/gato-preto.jpg", 
+    "description": "It's a test",
+    "type": "normal"
+}
+
+###
+
+### GET POST BY ID
+GET http://localhost:3003/posts/2a2b1729-706f-4c72-88c6-009a8782c000
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2NDZkMWY3LWM3MDUtNGM4MS04YzYwLWIxYWM3NTcxZjgwNiIsImlhdCI6MTYyNDExNDczNCwiZXhwIjoxNjU1NjcyMzM0fQ.A89lQh5x1XeI-EG2VOjXKzRQ3VHfgHCCxAfq_CX-1_s
+
+###
