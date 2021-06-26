@@ -1,0 +1,71 @@
+### SIGN UP 
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "Amelioli", 
+    "email": "", 
+    "password": ""
+}
+
+###
+
+### LOGIN
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "", 
+    "password": ""
+}
+
+###
+
+### CREATE POST
+POST http://localhost:3003/posts/create
+Content-Type: application/json
+Authorization: 
+
+{
+    "photo": "", 
+    "description": "",
+    "type": ""
+}
+
+###
+
+### GET POST BY ID
+GET http://localhost:3003/posts/:id
+Content-Type: application/json
+Authorization: 
+
+###
+
+### MAKE FRIENDSHIP
+POST http://localhost:3003/friendship/make
+Content-Type: application/json
+Authorization: 
+
+{
+"recipient_request_id": ""
+}
+
+###
+
+### UNDO FRIENDSHIP
+DELETE http://localhost:3003/friendship/undo
+Content-Type: application/json
+Authorization: 
+
+{
+"recipient_request_id": ""
+}
+
+###
+
+### GET FEED
+GET http://localhost:3003/feed
+Content-Type: application/json
+Authorization: 
+
+###
